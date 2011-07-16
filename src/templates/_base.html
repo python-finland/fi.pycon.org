@@ -1,0 +1,53 @@
+<!doctype html>
+<head>
+  <title>PyCon Finland 2011</title>
+
+  <link rel="shortcut icon" type="image/png" href="/media/img/favicon.png">
+
+  {% block head %}
+  {% endblock %}
+</head>
+<body>
+  <h1>PyCon Finland 2011</h1>
+
+  <nav>
+    <!-- top nav -->
+    <div>
+      <ul>
+        <li>
+          <a href="/">News</a>
+        </li>
+
+	<li>
+          <a href="/about/">About</a>
+        </li>
+
+	<li>
+          <a href="/programme/">Programme</a>
+        </li>
+
+        <li>
+          <a href="/sponsors/">Sponsors</a>
+        </li>
+
+        <li>
+          <a href="/past/">Past</a>
+        </li>
+
+        <li>
+          <a href="/register/">Register</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <section id="main">
+    <!-- content -->
+    {% block content %}
+    {% endblock %}
+  </section>
+
+  <footer>
+    <!-- footer -->
+  </footer>
+</body>
