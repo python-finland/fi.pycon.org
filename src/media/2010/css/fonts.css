@@ -1,0 +1,49 @@
+/* Font face declarations */
+/* ---------------------- */
+
+/* Fonts by Jos Buivenga (exljbris) -> www.exljbris.nl */
+
+/* EOT rules for IE */
+
+@font-face
+{
+	  font-family: Museo;
+	  font-weight: 300;
+	  src: url("../fonts/Museo300-Regular.eot");
+}
+
+@font-face
+{
+	  font-family: Museo;
+	  font-weight: 500;
+	  src: url("../fonts/Museo500-Regular.eot");
+}
+
+@font-face
+{
+	  font-family: Museo;
+	  font-weight: 700;
+	  src: url("../fonts/Museo500-Regular.eot");
+}
+
+/* OTF rules for everyone else */
+@font-face
+{
+	  font-family: Museo;
+	  font-weight: 300;
+	  src: local("Museo 300"), local("Museo-300"), url("../fonts/Museo300-Regular.otf") format("opentype");
+}
+
+@font-face
+{
+	  font-family: Museo;
+	  font-weight: 500;
+	  src: local("Museo 500"), local("Museo-500"), url("../fonts/Museo500-Regular.otf") format("opentype");
+}
+
+@font-face
+{
+	  font-family: Museo;
+	  font-weight: 700;
+	  src: local("Museo 700"), local("Museo-700"), url("../fonts/Museo700-Regular.otf") format("opentype");
+}

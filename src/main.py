@@ -20,7 +20,8 @@ from google.appengine.ext.webapp.util import run_wsgi_app
 if os.environ.get('SERVER_SOFTWARE', '').startswith('Dev'):
     BASE_URL = 'http://localhost:8080/'
 else:
-    BASE_URL = 'http://fi.pycon.org/'
+    #BASE_URL = 'http://fi.pycon.org/'
+    BASE_URL = 'http://pyconfi.appspot.com/'
 
 
 class SimplePage(webapp.RequestHandler):
@@ -58,7 +59,13 @@ class SimplePage(webapp.RequestHandler):
         ))
 
 
+class RedirectToLatest(webapp.RequestHandler):
+    def get(self):
+        self.redirect(BASE_URL + '2010/')
+
+
 application = webapp.WSGIApplication([
+    ('/', RedirectToLatest),
     ('/.*', SimplePage),
 ], debug=True)
 

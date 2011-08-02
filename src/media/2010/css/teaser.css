@@ -1,0 +1,309 @@
+@import url("fonts.css"); /* Museo font-face definitions */
+
+
+/* General content styles */
+/* ---------------------- */
+
+body
+{
+    color: white;
+    background-color: black;
+    padding: 0;
+    margin: 0;
+    color: #7e828c;
+    font: 300 15px/1.6 Museo, "Trebuchet MS", sans-serif;
+}
+
+h2, h3
+{
+    font-weight: 300;
+    line-height: 1.2;
+    margin: 10px 0;
+    color: #d79446;
+}
+h2  { font-size: 1.8em; letter-spacing: -1px; }
+h3  { font-size: 1.5em; }
+
+p, ul, ol   { margin: 0 0 1em; }
+ul, ol      { padding: 0 0 0 1.5em; }
+ul          { list-style: square; }
+ol          { list-style: lower-alpha; }
+
+sup         { font-size: 0.75em; vertical-align: top; }
+
+code        { font-size: 1em; font-family: "Consolas", monospace; color: #d79446; }
+
+strong      { font-weight: 500; }
+
+a           { color: #89d5f0; }
+a:hover,
+a:active,
+a:focus     { color: white; }
+
+img         { border: 0; vertical-align: baseline; }
+
+.left       { width: 66.6%; }
+.right      { width: 66.6%; margin-left: auto; }
+.left h2    { white-space: nowrap; }
+
+.three-column           { min-height: 1px; }
+.three-column:after     { content: " "; display: block; clear: both; }
+.three-column .left,
+.three-column .center,
+.three-column .right    { width: 33.3%; margin: 0; float: left; }
+
+
+
+
+/* Layout styles */
+/* ------------- */
+
+/* Limit maximum content width to preserve layout tidiness: beyond this width, content is pinned to right-hand side of page.
+   Backgrounds will still continue to page edges, although unfortunately horizontal borders won't. */
+
+#title,
+#slogan-inner,
+#blurb-inner,
+#content-inner,
+#sponsors-inner,
+#footer-inner   { /* max-width: 80em; */ max-width: 960px; margin-left: auto; }
+
+/* (em-based strategy would need more tweaking to work with title and slogan, which use smaller font-size.) */
+
+
+/* Masthead */
+/* -------- */
+
+#masthead
+{
+    color: #c36f27; /* This will be animated to match the sky colour */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.85em;
+} 
+
+#sky
+{
+    height: 300px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+#buildings
+{
+    width: 100%;
+    height: 100%;
+    background: url("../img/buildings.png") 100% 0 no-repeat;
+    
+    /* Stacks it in front of sun */
+    position: absolute;
+    z-index: 1;
+}
+#title { padding: 30px 80px 0; margin-top: 0; margin-bottom: 0; position: relative; z-index: 2; }
+
+#arc
+{
+    position: absolute;
+    width: 85%;
+    height: 1500px;
+    top: -300px;
+    right: 5%;
+}
+
+#sun
+{
+    position: absolute;
+    margin: -450px;
+}
+
+.dawn   { background-color: #64a3b8; }
+.day    { background-color: #89d5f0; }
+.sunset { background-color: #ffdc88; }
+.dusk   { background-color: #d79446; }
+.night  { background-color: #7e828c; }
+            
+#slogan
+{
+    margin: 0;
+    padding: 1em 80px;
+}
+
+#blurb
+{
+    background: #281308 url("../img/fallen_leaves.png") 75% 100% repeat-x;
+    padding: 10px 80px 100px;
+}
+
+#blurb ul
+{
+    list-style: none;
+    padding: 0;
+    margin: 0 -80px;
+    overflow: hidden;
+    background: url("../img/falling_leaves.png") 105% 100% no-repeat;
+    min-height: 112px;
+}
+#blurb li
+{
+    padding: 0.5em 0 0.5em 80px;
+    border-bottom: 1px solid black;
+    float: left;
+    clear: left;
+}
+#blurb strong   { display: inline-block; min-width: 9em; }
+
+
+/* Actual page content */
+/* ------------------- */
+
+#content,
+#sponsors,
+#footer         { clear: both; padding: 20px 80px; margin: 0; }
+
+
+
+#content h2 span
+{
+    padding-bottom: 5px;
+    border-bottom: 1px solid #281308;
+}
+
+#content .left.section h2 span
+{
+    margin-left: -80px;
+    padding-left: 80px;
+    display: inline-block;
+}
+
+#content .right.section h2 span
+{
+    margin-right: -80px;
+    padding-right: 80px;
+    display: block;
+}
+
+#schedule { overflow:hidden; }
+#schedule dt,
+#schedule dd {
+    border-bottom: 1px solid #281308;
+    margin:0;
+}
+#schedule dt {
+    clear:left;
+    display:block;
+    font-weight:500;
+    float:left;
+    width:120px;
+}
+#schedule dd {
+    display:block;
+    float:left;
+}
+
+/* More-info columns */
+/* ----------------- */
+
+#signup
+{
+    width: 50%;
+}
+#speech-bubble
+{
+    margin-left: 40px;
+    border: 0;
+    padding: 10px 20px;
+    background: #cf9651;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    text-align: left;
+    float: left;
+}
+
+#speech-bubble label        { color: black; }
+#speech-bubble input[type=text]   { font-family: inherit; font-size: 0.9em; width: 98%; }
+
+#speech-bubble p           { margin: 0 0 1em; }
+#speech-bubble p.submit    { margin: 1em 0 0; text-align: center; }
+#signup-disclaimer
+{
+    clear: both;
+    padding-top: 144px;
+    background: url("../img/moreinfo/mailbox.png") 160px 0 no-repeat;
+}
+
+#signup .error
+{
+    color: #dc477f;
+    min-height: 30px;
+    padding-left: 20px;
+    background: url("../img/moreinfo/error.png") 0 50% no-repeat;
+    margin: 0 0 0.5em;
+}
+
+#more-info      { text-align: center; width: 50%; }
+#feed-icon      { display: block; }
+
+#twitter        { text-align: right; width: 30%; }
+#twitter-bird
+{
+    display: block;
+    margin: 0 auto;
+    padding: 0 32px;
+    width: 300px;
+    height: 183px;
+    background: url("../img/moreinfo/birdie_gusts.png") 100% 100% no-repeat;
+}
+
+
+/* Contact info */
+/* ------------ */
+
+#contact        { margin-top: 3em; }
+#contact ul
+{
+    list-style: none;
+    margin-right: -80px;
+    padding: 5px 0 0;
+    border-top: 1px solid #281308;
+}
+#contact li     { display: inline; padding-right: 1em; }
+#contact a      { color: #7d5436; }
+#contact a:hover,
+#contact a:focus,
+#contact a:active   { color: white; }
+
+
+/* Sponsors bar */
+/* ------------ */
+
+#sponsors
+{
+    padding-top: 120px;
+    background: white url("../img/fallen_leaves_white.png") 0 0 repeat-x;
+}
+#sponsors h2    { color: black; }
+#sponsors a     { color: black; }
+#sponsors-placeholder p { width: 66.6%; }
+
+
+/* Footer */
+/* ------ */
+
+#footer
+{
+    padding-top: 40px;
+    color: white;
+    font-size: 1.5em; /* Should match h2 level */
+    letter-spacing: -1px;
+    background: #64a3b8 url("../img/footer_swirls.png") 100% 100% no-repeat;
+    overflow: hidden;
+    min-height: 1px;
+}
+
+#django     { float: left; margin-right: -10em; }
+#django img { margin-bottom: -17px; }
+
+#syneus     { float: right; }
+#syneus img { margin-bottom: -21px; }
