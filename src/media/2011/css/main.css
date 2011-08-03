@@ -39,6 +39,19 @@ body > header h1 {
     margin: 0 0 5px 0;
 }
 
+body > header > a, body > header > a:visited, body > header > a:link {
+    text-decoration: none;
+    color: #aaa;
+}
+
+body > header > a:hover {
+    color: #555;
+}
+
+body > header > nav a:focus, body > header > nav a.focus {
+    font-weight: 700;
+}
+
 body > header span.date {
     display: inline-block;
     float: left;
