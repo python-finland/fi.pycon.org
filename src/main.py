@@ -65,7 +65,7 @@ class RedirectToLatest(webapp.RequestHandler):
 
 
 application = webapp.WSGIApplication([
-    ('/', RedirectToLatest),
+    #('/', RedirectToLatest),
     ('/.*', SimplePage),
 ], debug=True)
 
