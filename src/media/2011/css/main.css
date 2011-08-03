@@ -1,0 +1,31 @@
+* {
+    font-family: Helvetica, Arial, sans-serif;
+}
+html {
+    background: #222 url(/media/2011/site/bg.png) repeat-x;
+    height: 100%;
+}
+
+#logo {
+    position: absolute;
+    margin-left: -245px;
+    left: 50%;
+}
+
+#disclaimer {
+    position: fixed;
+    bottom: 40px;
+    text-align: center;
+    width: 100%;
+}
+p {
+    margin-left: auto;
+    margin-right: auto;
+    display:inline-block;
+    text-transform: uppercase;
+    background: #f5f;
+    color: #000;
+}
+a {
+    color: #000;
+} 
