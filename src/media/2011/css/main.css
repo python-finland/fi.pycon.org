@@ -117,6 +117,7 @@ div#content {
 }
 
 article {
+    display: block;
     margin: 50px 120px;
 }
 
