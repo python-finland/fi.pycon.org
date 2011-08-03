@@ -1,15 +1,67 @@
 * {
     font-family: Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: 300;
 }
 html {
     background: #222 url(/media/2011/site/bg.png) repeat-x;
-    height: 100%;
+    padding: 0;
+    margin: 0;
+    width: 100%;
 }
 
-#logo {
-    position: absolute;
-    margin-left: -245px;
-    left: 50%;
+body {
+    width: 100%;
+    margin: 0;
+}
+
+#logo img {
+    display: block;
+    margin: 0 auto;
+}
+
+body > header {
+    position: fixed;
+    background: #fff;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: block;
+    height: 60px;
+    color: #aaa;
+    letter-spacing: 2px;
+    font-size: 16px;
+    padding: 20px 0 0 10px
+}
+
+body > header h1 {
+    font-size: 18px;
+    margin: 0 0 5px 0;
+}
+
+body > header span.date {
+    display: inline-block;
+    float: left;
+}
+
+body > header nav {
+    float: right;
+}
+
+body > header ul {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    list-style: none;
+}
+
+body > header ul li {
+    display: inline-block;
+    padding-right: 45px;
+}
+
+body > header ul li a {
+    text-decoration: none;
 }
 
 #disclaimer {
@@ -18,14 +70,64 @@ html {
     text-align: center;
     width: 100%;
 }
-p {
-    margin-left: auto;
-    margin-right: auto;
-    display:inline-block;
-    text-transform: uppercase;
-    background: #f5f;
+a, a:visited, a:link {
     color: #000;
 }
-a {
+
+.cyan p span {
+    background-color: #5ff;
+}
+.green p span {
+    background-color: #5f5;
+}
+.yellow p span {
+    background-color: #ff5;
+}
+.magenta p span {
+    background-color: #f5f;
+}
+
+.cyan h2 {
+    color: #5ff;
+}
+.green h2 {
+    color: #5f5;
+}
+.yellow h2 {
+    color: #ff5;
+}
+.magenta h2 {
+    color: #f5f;
+}
+
+div#content {
+    margin-top: 140px;
+}
+
+article {
+    margin: 50px 120px;
+}
+
+article header h2 {
+    font-size: 22px;
+    letter-spacing: 3px;
+    margin: 0;
+    pading: 0;
+}
+
+article p {
+    line-height: 24px;
+}
+
+article p span {
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 2px;
     color: #000;
-} 
+}
+
+article p a {
+    font-weight: 500;
+}
