@@ -112,6 +112,10 @@ a, a:visited, a:link {
     color: #f5f;
 }
 
+.clear {
+    clear: both;
+}
+
 div#content {
     margin-top: 140px;
 }
@@ -143,4 +147,14 @@ article p span {
 
 article p a {
     font-weight: 500;
+}
+
+#schedule .title {
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+#schedule p {
+    float: left;
+    margin-right: 30px;
 }
