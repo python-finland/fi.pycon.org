@@ -13,20 +13,6 @@ Repos
 The official source code repository is
 https://github.com/python-finland/fi.pycon.org/.
 
-Running development server
---------------------------
-
-Example::
-
-    ~/google_appengine/dev_appserver.py src
-
-Deploy
-------
-
-Example::
-
-    ~/google_appengine/appcfg.py update src
-
 Contact
 -------
 
