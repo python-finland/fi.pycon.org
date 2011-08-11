@@ -122,14 +122,14 @@ div#content {
 
 article {
     display: block;
-    margin: 50px 120px;
+    margin: 0 120px;
 }
 
 article header h2 {
     font-size: 22px;
     letter-spacing: 3px;
     margin: 0;
-    pading: 0;
+    padding: 120px 0 0;
 }
 
 article p {
