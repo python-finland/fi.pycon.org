@@ -98,16 +98,16 @@
     };
 
     var scroll = function() {
-        if(justClicked) {
-            // Prevent star flickering when a link is clicked by
-            // ignoring the first (bogus) scroll event
-            justClicked = false;
-            return;
-        }
-
         var current = $(window).scrollTop(),
             diff = current - prevScroll;
 
+        if(justClicked && diff > 30) {
+            // Prevent star flickering when a link is clicked by
+            // ignoring the first (bogus) scroll events
+            return;
+        }
+
+        justClicked = false;
         prevScroll = current;
 
         for(var i = 0; i < stars.length; i++) {
