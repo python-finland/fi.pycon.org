@@ -101,7 +101,7 @@
         var current = $(window).scrollTop(),
             diff = current - prevScroll;
 
-        if(justClicked && diff > 30) {
+        if(justClicked && Math.abs(diff) > 30) {
             // Prevent star flickering when a link is clicked by
             // ignoring the first (bogus) scroll events
             return;
