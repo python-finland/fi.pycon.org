@@ -105,7 +105,8 @@ a, a:visited, a:link {
 .green h2 {
     color: #5f5;
 }
-.yellow h2 {
+.yellow h2,
+.yellow h3 {
     color: #ff5;
 }
 .magenta h2 {
@@ -126,10 +127,16 @@ article {
 }
 
 article header h2 {
-    font-size: 22px;
     letter-spacing: 3px;
     margin: 0;
     padding: 120px 0 0;
+    font-size: 22px;
+}
+
+h3 {
+    font-size: 16px;
+    letter-spacing: 3px;
+    margin-bottom: 0;
 }
 
 article p {
@@ -154,7 +161,15 @@ article p a {
     letter-spacing: 2px;
 }
 
-#schedule p {
+.by {
+    font-size: 10px;
+}
+
+.float {
     float: left;
     margin-right: 30px;
+}
+
+#registration {
+    margin-bottom: 150px;
 }
