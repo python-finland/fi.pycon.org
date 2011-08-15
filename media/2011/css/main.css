@@ -1,5 +1,5 @@
 * {
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: camingodos-web-1,camingodos-web-2, Helvetica, Arial, sans-serif;
     text-transform: uppercase;
     font-weight: 300;
 }
@@ -33,12 +33,18 @@ body > header {
     padding: 20px 0 16px 10px
 }
 
+body > header > div.container {
+    width: 960px;
+    margin: 0 auto;
+}
+
 body > header h1 {
     font-size: 18px;
     margin: 0 0 5px 0;
 }
 
-body > header > a, body > header > a:visited, body > header > a:link {
+body > header > div > a, body > header > div > a:visited,
+body > header > div > a:link {
     text-decoration: none;
     color: #aaa;
 }
@@ -105,8 +111,7 @@ a, a:visited, a:link {
 .green h2 {
     color: #5f5;
 }
-.yellow h2,
-.yellow h3 {
+.yellow h2, .yellow h3 {
     color: #ff5;
 }
 .magenta h2 {
@@ -123,13 +128,14 @@ div#content {
 
 article {
     display: block;
-    margin: 0 120px;
+    margin: 0 auto;
+    width: 960px;
 }
 
 article header h2 {
     letter-spacing: 3px;
     margin: 0;
-    padding: 120px 0 0;
+    padding: 150px 0 0;
     font-size: 22px;
 }
 
