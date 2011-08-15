@@ -6,10 +6,10 @@
 
     var starOpts = {
         // width, height, lineWidth, scrollRatio
-        tiny: [2, 2, 4, 0.1],
-        small: [10, 10, 2, 0.2],
-        medium: [20, 20, 3, 0.4],
-        large: [30, 30, 4, 0.7]
+        tiny: [2, 2, 3, 0.1],
+        small: [10, 10, 1, 0.2],
+        medium: [20, 20, 2, 0.4],
+        large: [30, 30, 3, 0.7]
     };
 
     var randInt = function(a, b) {
