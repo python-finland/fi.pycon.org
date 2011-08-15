@@ -1,7 +1,8 @@
 * {
-    font-family: camingodos-web-1,camingodos-web-2, Helvetica, Arial, sans-serif;
-    text-transform: uppercase;
+    font-family: pill-gothic-300mg-1,pill-gothic-300mg-2,sans-serif;
+    font-style: normal;
     font-weight: 300;
+    text-transform: uppercase;
 }
 html {
     background: #222 url(../site/bg.png) repeat-x;
