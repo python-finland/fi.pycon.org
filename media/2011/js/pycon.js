@@ -139,6 +139,7 @@
 
         $('body > header a').click(function(e) {
             var target = $(this.hash);
+            _gaq.push(['_trackEvent', 'Navigation', this.hash.slice(1)]);
             $('body > header a.focus').removeClass('focus');
             if (target.length) {
                 var offset = target.offset().top;
