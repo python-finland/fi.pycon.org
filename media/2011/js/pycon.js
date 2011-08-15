@@ -151,5 +151,17 @@
             e.stopPropagation();
             justClicked = true;
         });
+
+        $('form').submit(function() {
+            var data = $(this).serialize();
+            console.log('sending', data);
+            $.ajax({
+                url: 'http://localhost:8000/2011/register/',
+                type: 'POST',
+                success: function(data, textStatus, xhr) {
+                    console.log(data, textStatus, xhr);
+                }
+            });
+        });
     });
 })();

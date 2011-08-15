@@ -122,7 +122,16 @@
           <h2>Registration</h2>
         </header>
         <section>
-          <p><span>Registration details will be available soon!</span></p>
+          <form onsubmit="return false">
+            <input type="text" name="name" value="Your name">
+            <input type="text" name="email" value="Your email">
+            <select name="ticket_type">
+              <option value="normal">Normal - 50€</option>
+              <option value="corporate">Corporate - 100€</option>
+              <option value="student">Student - 5€</option>
+            </select>
+            <input type="submit" value="Let's do this">
+          </form>
         </section>
       </article>
     </div>
