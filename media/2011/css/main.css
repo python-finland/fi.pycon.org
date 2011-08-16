@@ -349,7 +349,7 @@ article p a {
         border: 2px solid #222;
         position: absolute;
         right: 0;
-        top: -5px;
+        top: -3px;
         z-index: 100;
         background: #222;
         pointer-events: none;
