@@ -12,7 +12,7 @@ class Migration(SchemaMigration):
         db.add_column('pyconfi2011_registration', 'dinner', self.gf('django.db.models.fields.BooleanField')(default=True), keep_default=False)
 
         # Adding field 'Registration.billing_address'
-        db.add_column('pyconfi2011_registration', 'billing_address', self.gf('django.db.models.fields.CharField')(default='\xc3', max_length=100), keep_default=False)
+        db.add_column('pyconfi2011_registration', 'billing_address', self.gf('django.db.models.fields.CharField')(default='', max_length=100), keep_default=False)
 
         # Adding field 'Registration.billing_zipcode'
         db.add_column('pyconfi2011_registration', 'billing_zipcode', self.gf('django.db.models.fields.CharField')(default='', max_length=15), keep_default=False)
