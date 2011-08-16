@@ -11,12 +11,14 @@ class Registration(models.Model):
     ))
     country = models.CharField(max_length=2)
 
+    extra = models.TextField(null=True, blank=True)
+
     dinner = models.BooleanField(default=True)
 
     snailmail_bill = models.BooleanField(default=False)
-    billing_address = models.CharField(max_length=100)
-    billing_zipcode = models.CharField(max_length=15)
-    billing_city = models.CharField(max_length=100)
+    billing_address = models.CharField(max_length=100, null=True, blank=True)
+    billing_zipcode = models.CharField(max_length=15, null=True, blank=True)
+    billing_city = models.CharField(max_length=100, null=True, blank=True)
 
     billed = models.BooleanField(default=False)
     paid = models.BooleanField(default=False)
