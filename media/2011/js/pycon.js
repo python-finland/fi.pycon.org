@@ -120,6 +120,49 @@
         draw();
     };
 
+    $('.input-wrapper input')
+        .focusin(function() {
+            $(this).parent().addClass('focus');
+        })
+        .focusout(function() {
+            $(this).parent().removeClass('focus');
+        })
+        .keyup(function() {
+            $(this).siblings('label').toggle($(this).val().length == 0);
+        });
+
+    var update_price = function() {
+        var prices = {
+            'corporate': 100,
+            'normal': 50,
+            'student': 10
+        };
+        var price = prices[$('#id_ticket_type').val()] +
+            ($('#id_snailmail_bill').is(':checked') ? 5 : 0);
+
+        $('#registration form span.price').html(price + ' &euro;');
+    };
+
+    $('#id_ticket_type').change(function() {
+        if ($(this).val() == 'corporate') {
+            $('#dinner-disclaimer').slideDown();
+        } else {
+            $('#dinner-disclaimer').slideUp();
+        }
+        update_price();
+    });
+
+    $('#id_snailmail_bill').change(function() {
+        $('#billing-details').toggle($(this).is(':checked'));
+        update_price();
+    });
+
+    $('#registration form').submit(function() {
+        $.post('/api/register/', $(this).serialize()).done(function(result) {
+            console.log(result);
+        });
+    });
+
     $(function() {
         canvas = document.createElement('canvas');
         if(canvas.getContext) {

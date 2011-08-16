@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PyCon Finland 2011</title>
+    <meta name="google-site-verification" content="0__7qP2tOZ0c8dOuPxIRGC9asT0eQ9Sir2CFb_X_IV0" />
+    <link rel="stylesheet" href="../media/2011/css/main.css" type="text/css">
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body id="top">
+    <header>
+      <div class="container">
+        <a href="#top"><h1>PyCon Finland - from community import awesomeness</h1></a>
+        <span class="date">17.-18.10.2011 in Turku</span>
+        <nav>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#schedule">Schedule</a></li>
+            <li><a href="#registration">Registration</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div id="content">
+      <article id="logo">
+        <img src="../media/2011/site/logo.png" alt="Logo of PyCon Finland 2011"
+             title="PyCon Finland 2011">
+      </article>
+
+      <article id="about" class="green">
+        <header>
+          <h2>About</h2>
+        </header>
+        <section>
+          <p><span>PyCon Finland is a non-profit conference organized by a
+          non-profit organization Python Finland. It's meant for
+            Python hackers and people interested in Python.</span></p>
+          <p><span>Looking for PyCon 2010 site?
+          It's <a href="/2010/">here</a>.</span></p>
+        </section>
+      </article>
+
+      <article id="news" class="cyan">
+        <header>
+          <h2>News</h2>
+        </header>
+        <section>
+          <p><span>7.8.2011: Schedule published<span></p>
+        </section>
+        <section>
+          <p><span>3.8.2011: PyCon 2011 site live!<span></p>
+        </section>
+      </article>
+
+      <article id="schedule" class="yellow">
+        <header>
+          <h2>Schedule</h2>
+        </header>
+        <section>
+          <p class="float">
+            <span class="title">Monday 17.10.: Conference day</span><br>
+            <span>9:00 Registration opens</span><br>
+            <span>9:45 Opening notes</span><br>
+            <span>10:00 Talks</span><br>
+            <span>12:00 Lunch</span><br>
+            <span>13:00 Talks</span><br>
+            <span>15:00 Lightning talks, Keynote & Closing notes</span><br>
+            <span>17:00 End of conference day</span><br>
+            <span>Evening program (more details later)</span><br>
+          </p>
+          <p class="float">
+            <span class="title">Tuesday 18.10.: Sprints day</span><br>
+            <span>9:30 Bi-Annual Meeting of <a href="http://python.fi/">Python Suomi ry</a></span><br>
+            <span>10:30 Sprints</span><br>
+            <span>17:00 End of sprints day</span><br>
+            <span>See you next year!</span><br>
+          </p>
+          <div class="clear"></div>
+        </section>
+      </article>
+
+      <article id="registration" class="magenta">
+        <header>
+          <h2>Registration</h2>
+        </header>
+        <section>
+          <p><span>We have three ticket categories:</span></p>
+          <ul>
+            <li>
+              <span>
+                Corporate, 100 &euro; for people whos attendance is
+                paid by their respective company. Higher feed paid by
+                you helps us to keep normal and student prices low!
+                Dinner in the evening is included in the corporate fee.
+              </span>
+            </li>
+            <li>
+              <span>
+                Normal, 50 &euro; for people who pay their own
+                attendance fee. Does not include dinner.
+              </span>
+            </li>
+            <li>
+              <span>
+                Student, 10 &euro; for students. Does not include
+                lunch nor dinner, but there're cheap lunches available
+                at the cafeteria.
+              </span>
+            </li>
+          </ul>
+          <p><span>Register to the coolest Python event in Finland by
+          using the form below!</span></p>
+          <form action="post">
+            <div class="input-wrapper">
+              <label class="placeholder" for="id_name">Your Name</label>
+              <input type="text" id="id_name" name="name">
+            </div>
+            <div class="input-wrapper">
+              <label class="placeholder" for="id_email">Your Email</label>
+              <input type="text" id="id_email" name="email">
+              <script type="text/javascript">
+                document.getElementById('id_email').type = 'email';
+              </script>
+            </div>
+            <div class="input-wrapper">
+              <label class="placeholder" for="id_country">Country</label>
+              <input type="text" id="id_country" name="country">
+            </div>
+            <p>
+              <label for="id_ticket_type">Ticket type</label>
+              <select id="id_ticket_type" name="ticket_type">
+                <option value="corporate">CORPORATE</option>
+                <option value="normal">NORMAL</option>
+                <option value="student">STUDENT</option>
+              </select>
+            </p>
+            <div id="dinner-disclaimer">
+              <p><span>If you don't plan to attend the dinner, please uncheck
+                  the box below so we can estimate the attendees. This won't
+                  affect the price.</span></p>
+              <label for="id_dinner">Dinner?</label>
+              <span class="checkwrapper">
+                <input type="checkbox" id="id_dinner" name="dinner" checked>
+              </span>
+            </div>
+            <div id="papermail-disclaimer">
+              <p><span>If you require a printed bill check the box below
+                  and enter billing address details. We charge additional 5
+                  &euro; for billing via snail mail.</span></p>
+              <label for="id_snailmail_bill">Paper bill?</label>
+              <span class="checkwrapper">
+                <input type="checkbox" id="id_snailmail_bill" name="snailmail_bill">
+              </span>
+            </div>
+            <div id="billing-details">
+              <div class="input-wrapper">
+                <label class="placeholder" for="id_billing_address">
+                  Address
+                </label>
+                <input type="text" name="billing_address" id="id_billing_address">
+              </div>
+              <div class="input-wrapper">
+                <label class="placeholder" for="id_billing_zipcode">
+                  Zip Code
+                </label>
+                <input type="text" name="billing_zipcode" id="id_billing_zipcode">
+              </div>
+              <div class="input-wrapper">
+                <label class="placeholder" for="id_billing_city">
+                  City
+                </label>
+                <input type="text" name="billing_city" id="id_billing_city">
+              </div>
+            </div>
+            <p>
+              <span class="label">Total price</span>
+              <span class="price">100 &euro;</span>
+              <input type="submit" value="Let's do this!">
+            </p>
+          </form>
+        </section>
+      </article>
+    </div>
+    <script language="javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script language="javascript" src="../media/2011/js/pycon.js"></script>
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-20157063-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+    <script type="text/javascript" src="http://use.typekit.com/huq7hzd.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>  </body>
+</html>
+
