@@ -157,12 +157,6 @@
         update_price();
     });
 
-    $('#registration form').submit(function() {
-        $.post('/api/register/', $(this).serialize()).done(function(result) {
-            console.log(result);
-        });
-    });
-
     $(function() {
         canvas = document.createElement('canvas');
         if(canvas.getContext) {
@@ -195,14 +189,19 @@
             justClicked = true;
         });
 
-        $('form').submit(function() {
+        $('#registration form').submit(function() {
             var data = $(this).serialize();
-            console.log('sending', data);
             $.ajax({
-                url: 'http://localhost:8000/2011/register/',
+                url: '/api/2011/register/',
                 type: 'POST',
+                dataType: 'json',
+                data: data,
                 success: function(data, textStatus, xhr) {
-                    console.log(data, textStatus, xhr);
+                    if(data.ok) {
+                        console.log('whii!');
+                    } else {
+                        console.log('sad :(');
+                    }
                 }
             });
         });
