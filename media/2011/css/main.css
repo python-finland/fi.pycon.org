@@ -193,6 +193,10 @@ article p a {
     background: transparent;
 }
 
+#registration form span.price {
+    width: 224px !important;
+}
+
 #registration label.placeholder {
     position: absolute;
     top: 1px;
@@ -210,6 +214,8 @@ article p a {
     display: inline-block;
     position: relative;
     margin-right: 20px;
+    background: none;
+    padding: 0;
 }
 
 #registration input, #registration select {
@@ -218,6 +224,8 @@ article p a {
     background-color: #222;
     font-size: 24px;
     -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
     height: 38px;
     color: #f5f;
     border-radius: 0;
@@ -227,40 +235,80 @@ article p a {
     text-transform: none;
 }
 
-#registration input[type=checkbox] {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    border: 0;
+#registration form select {
+    letter-spacing: 1px;
+    display: inline-block;
+    height: 40px;
+    line-height: 30px;
+    pointer-events: auto;
+    padding: 6px;
+    margin-right: 20px;
 }
 
-#registration .checkwrapper {
+#registration input[type=checkbox] {
     display: inline-block;
     height: 20px;
     width: 20px;
-    padding: 2px;
-    border: 1px solid #f5f;
-    background: #222;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: 1px solid #f5f;
+    border: 2px solid #222;
+    background: transparent;
+    -moz-appearance: normal;
 }
 
 #registration input[type=checkbox]:checked {
     background-color: #f5f;
 }
 
-#registration select {
-    letter-spacing: 6px;
-    text-transform: uppercase
+#registration span.selectwrapper, #registration span.arrowwrapper {
+    background: transparent;
+    position: relative;
+    padding: 0;
+    display: inline-block;
+    height: 38px;
+    pointer-events: none;
+}
+
+#registration span.selectwrapper:before {
+    content: "";
+    height: 18px;
+    width: 0;
+    border-color: #222;
+    border-style: solid;
+    border-width: 10px;
+    background-color: #222;
+    position: absolute;
+    right: 25px;
+    top: 1px;
+}
+
+#registration span.arrowwrapper:before {
+    content: "";
+    height: 0;
+    width: 0;
+    border-color: #f5f transparent transparent;
+    border-style: solid;
+    border-width: 10px 10px 0;
+    position: absolute;
+    right: 32px;
+    top: 15px;
+    z-index: 100;
 }
 
 #registration .input-wrapper input {
     width: 206px;
 }
 
-#registration input:focus, #registration select:focus {
+#registration input:focus, #registration select:focus,
+#registration input[type=submit]:hover {
     -webkit-box-shadow: 0 0 10px 3px #f5f;
+    -moz-box-shadow: 0 0 10px 3px #f5f;
+    box-shadow: 0 0 10px 3px #f5f;
     border: 1px solid #f5f;
     outline: 0;
+    cursor: pointer;
 }
 #registration input::-webkit-input-placeholder {
     color: #f5f;
@@ -281,4 +329,32 @@ article p a {
     background: #f5f;
     color: #000;
     text-transform: uppercase;
+}
+
+#registration form section {
+    margin: 1em 0;
+    display: block;
+    vertical-align: middle;
+}
+
+@-moz-document url-prefix() {
+    span.checkwrapper {
+        position: relative;
+        pointer-events: none;
+    }
+    span.checkwrapper:before {
+        content: "";
+        height: 16px;
+        width: 16px;
+        border: 2px solid #222;
+        position: absolute;
+        right: 0;
+        top: -5px;
+        z-index: 100;
+        background: #222;
+        pointer-events: none;
+    }
+    input[type=checkbox]:checked + span.checkwrapper:before {
+        background: #f5f;
+    }
 }

@@ -128,31 +128,38 @@
               <label class="placeholder" for="id_country">Country</label>
               <input type="text" id="id_country" name="country">
             </div>
-            <p>
+            <section>
               <label for="id_ticket_type">Ticket type</label>
-              <select id="id_ticket_type" name="ticket_type">
-                <option value="corporate">CORPORATE</option>
-                <option value="normal">NORMAL</option>
-                <option value="student">STUDENT</option>
-              </select>
-            </p>
+              <span class="arrowwrapper">
+                <span class="selectwrapper">
+                  <select id="id_ticket_type" name="ticket_type">
+                    <option value="corporate">CORPORATE</option>
+                    <option value="normal">NORMAL</option>
+                    <option value="student">STUDENT</option>
+                  </select>
+                </span>
+              </span>
+              <div class="input-wrapper" id="companywrapper">
+                <label class="placeholder" for="id_company">Company</label>
+                <input type="text" id="id_company" name="company">
+              </div>
+            </section>
             <div id="dinner-disclaimer">
               <p><span>If you don't plan to attend the dinner, please uncheck
                   the box below so we can estimate the attendees. This won't
                   affect the price.</span></p>
               <label for="id_dinner">Dinner?</label>
-              <span class="checkwrapper">
-                <input type="checkbox" id="id_dinner" name="dinner" checked>
-              </span>
+              <input type="checkbox" id="id_dinner" name="dinner" checked>
+              <span class="checkwrapper"></span>
             </div>
             <div id="papermail-disclaimer">
-              <p><span>If you require a printed bill check the box below
-                  and enter billing address details. We charge additional 5
-                  &euro; for billing via snail mail.</span></p>
+              <p><span>If you require a printed bill, check the box
+                  below and enter billing details. We charge
+                  additional 5 &euro; for billing via snail
+                  mail.</span></p>
               <label for="id_snailmail_bill">Paper bill?</label>
-              <span class="checkwrapper">
-                <input type="checkbox" id="id_snailmail_bill" name="snailmail_bill">
-              </span>
+              <input type="checkbox" id="id_snailmail_bill" name="snailmail_bill">
+              <span class="checkwrapper"></span>
             </div>
             <div id="billing-details">
               <div class="input-wrapper">

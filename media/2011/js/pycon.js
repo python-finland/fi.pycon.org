@@ -146,8 +146,10 @@
     $('#id_ticket_type').change(function() {
         if ($(this).val() == 'corporate') {
             $('#dinner-disclaimer').slideDown();
+            $('#companywrapper').show();
         } else {
             $('#dinner-disclaimer').slideUp();
+            $('#companywrapper').hide();
         }
         update_price();
     });
@@ -205,5 +207,7 @@
                 }
             });
         });
+        $('#id_snailmail_bill').change();
+        $('#id_ticket_type').change();
     });
 })();
