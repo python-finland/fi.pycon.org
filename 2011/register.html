@@ -112,7 +112,7 @@
           </ul>
           <p><span>Register to the coolest Python event in Finland by
           using the form below!</span></p>
-          <form action="post" onsubmit="return false;">
+          <form action="post">
             <div class="input-wrapper">
               <label class="placeholder" for="id_name">Your Name</label>
               <input type="text" id="id_name" name="name">
@@ -144,22 +144,26 @@
                 <input type="text" id="id_company" name="company">
               </div>
             </section>
-            <div id="dinner-disclaimer">
-              <p><span>If you don't plan to attend the dinner, please uncheck
-                  the box below so we can estimate the attendees. This won't
-                  affect the price.</span></p>
-              <label for="id_dinner">Dinner?</label>
-              <input type="checkbox" id="id_dinner" name="dinner" checked>
-              <span class="checkwrapper"></span>
+            <div id="dinner-disclaimer" class="checkbox">
+              <div>
+                <label for="id_dinner">Dinner?</label>
+                <input type="checkbox" id="id_dinner" name="dinner" checked>
+                <span class="checkwrapper"></span>
+              </div>
+              <p><span>If you don't plan to attend the dinner, please
+                  uncheck the box. This way we can estimate the
+                  attendees. This won't affect the price.</span></p>
             </div>
-            <div id="papermail-disclaimer">
-              <p><span>If you require a printed bill, check the box
-                  below and enter billing details. We charge
-                  additional 5 &euro; for billing via snail
-                  mail.</span></p>
-              <label for="id_snailmail_bill">Paper bill?</label>
-              <input type="checkbox" id="id_snailmail_bill" name="snailmail_bill">
-              <span class="checkwrapper"></span>
+            <div id="papermail-disclaimer" class="checkbox">
+              <div>
+                <label for="id_snailmail_bill">Paper bill?</label>
+                <input type="checkbox" id="id_snailmail_bill"
+                       name="snailmail_bill">
+                <span class="checkwrapper"></span>
+              </div>
+              <p><span>If you require a printed bill, check this box
+                  and enter billing details. We charge additional 5
+                  &euro; for billing via snail mail.</span></p>
             </div>
             <div id="billing-details">
               <div class="input-wrapper">

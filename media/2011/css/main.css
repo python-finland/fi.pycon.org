@@ -336,6 +336,26 @@ article p a {
     display: block;
     vertical-align: middle;
 }
+#registration .checkbox {
+    clear: both;
+}
+
+#registration .checkbox p {
+    margin: 0;
+    line-height: 16px;
+}
+#registration .checkbox p span {
+    background: transparent;
+    color: #f5f;
+    padding: 0;
+    font-size: 10px;
+    display: inline-block;
+    width: 430px;
+}
+#registration .checkbox div {
+    float: left;
+    width: 300px
+}
 
 @-moz-document url-prefix() {
     span.checkwrapper {
