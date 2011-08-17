@@ -264,5 +264,18 @@ class RegistrationForm(forms.ModelForm):
 
         raise forms.ValidationError('Unknown country %s' % country)
 
+    def clean(self):
+        required = ()
+        if self.cleaned_data.get('snailmail_bill'):
+            required += ('billing_address', 'billing_zipcode', 'billing_city')
+
+        for field in required:
+            if not self.cleaned_data.get(field):
+                self._errors[field] = self.error_class(
+                    [u'This field is required']
+                )
+
+        return self.cleaned_data
+
     class Meta:
         model = Registration
