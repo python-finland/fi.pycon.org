@@ -10,6 +10,7 @@ class Registration(models.Model):
         ('student', 'Student'),
     ))
     country = models.CharField(max_length=2)
+    company = models.CharField(max_length=100, null=True, blank=True)
 
     extra = models.TextField(null=True, blank=True)
 
