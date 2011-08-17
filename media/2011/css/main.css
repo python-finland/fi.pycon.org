@@ -418,6 +418,13 @@ input:disabled, select:disabled {
     -moz-box-shadow: 0 0 10px 3px #f55;
     box-shadow: 0 0 10px 3px #f55;
 }
+
+#registration form #additional.input-wrapper input {
+    width: 694px;
+}
+#registration form #additional.input-wrapper label {
+    width: 690px;
+}
 @-moz-document url-prefix() {
     span.checkwrapper {
         position: relative;

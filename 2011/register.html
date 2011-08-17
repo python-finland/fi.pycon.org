@@ -170,7 +170,10 @@
           <p><span>Please note that we only serve coffee on
           tuesday.</span></p>
           <p><span>Register to the coolest Python event in Finland by
-          using the form below!</span></p>
+          using the form below or, if there's plenty of you (for
+          example, from the same company), toss a mail
+          to <a href="mailto:hallitus@python.fi">hallitus@python.fi</a>
+          and we'll handle the registration for you!</span></p>
           <div id="errorcontainer">
             <h2>Oops!</h2>
             <p><span>Submitting registration resulted in error,
@@ -255,6 +258,12 @@
                 </label>
                 <input type="text" name="billing_city" id="id_billing_city">
               </div>
+            </div>
+            <div class="input-wrapper" id="additional">
+              <label class="placeholder" for="id_extra">
+                Additional info (diet, allergies)
+              </label>
+              <input type="text" id="id_extra" name="extra">
             </div>
             <p id="submit">
               <span class="label">Total price</span>
