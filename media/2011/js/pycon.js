@@ -189,6 +189,7 @@
 
         $('#registration form').submit(function(e) {
             e.preventDefault();
+            var self = this;
 
             var data = $(this).serialize();
             $.ajax({
@@ -196,13 +197,36 @@
                 type: 'POST',
                 dataType: 'json',
                 data: data,
-                success: function(data, textStatus, xhr) {
-                    if(data.ok) {
-                        console.log('whii!');
-                    } else {
-                        console.log('sad :(');
-                    }
+                beforeSend: function(xhr, settings) {
+                    $('#thankyou').hide();
+                    $(self).find('input, select')
+                        .attr('disabled', true)
+                        .removeClass('error');
+                    $('#errorcontainer').hide();
                 }
+            })
+            .done(function(data, textStatus, xhr) {
+                    if(data.ok) {
+                        $('#thankyou').show();
+                    } else {
+                        var ul = $('#errorcontainer ul');
+                        ul.empty();
+                        $.each(data.errors, function(key, value) {
+                            $('[name=' + key + ']')
+                                .addClass('error');
+                            $.each(value, function(index, error) {
+                                var pretty = key.split('_').join(' ');
+                                ul.append($('<li>').text(pretty + ': ' + error));
+                            });
+                        });
+                        $('#errorcontainer').show();
+                    }
+            })
+            .fail(function() {
+                alert("Something went bonkers! Try again!");
+            })
+            .always(function() {
+                $(self).find('input, select').attr('disabled', false);
             });
         });
         $('#id_snailmail_bill').change();

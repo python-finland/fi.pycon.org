@@ -368,7 +368,51 @@ article p a {
 #registration strong {
     font-weight: 600;
 }
+#submit {
+    white-space: nowrap;
+}
 
+#loader {
+    display: none;
+    color: #f5f;
+    font-size: 22px;
+    position: relative;
+    background: transparent;
+    right: 75px;
+    top: -2px;
+}
+#loader img {
+    vertical-align: middle;
+}
+
+#errorcontainer, #thankyou {
+    display: none;
+}
+input[type=submit]:disabled {
+    display: none;
+}
+
+input[type=submit]:disabled + #loader {
+    display: inline;
+}
+
+input:disabled, select:disabled {
+    opacity: 0.3;
+}
+
+#registration form .error {
+    border-color: #f55;
+    -webkit-box-shadow: 0 0 10px 3px #f55;
+    -moz-box-shadow: 0 0 10px 3px #f55;
+    box-shadow: 0 0 10px 3px #f55;
+}
+
+.error:focus {
+    border-color: #f55;
+    -webkit-box-shadow: 0 0 10px 3px #f55;
+    -moz-box-shadow: 0 0 10px 3px #f55;
+    box-shadow: 0 0 10px 3px #f55;
+}
 @-moz-document url-prefix() {
     span.checkwrapper {
         position: relative;
