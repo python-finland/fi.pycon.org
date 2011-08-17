@@ -344,6 +344,7 @@ article p a {
 }
 #registration .checkbox {
     clear: both;
+    margin-bottom: 10px;
 }
 
 #registration .checkbox p {
@@ -379,7 +380,7 @@ article p a {
         border: 2px solid #222;
         position: absolute;
         right: 0;
-        top: -3px;
+        top: -5px;
         z-index: 100;
         background: #222;
         pointer-events: none;
