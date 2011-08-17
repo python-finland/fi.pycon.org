@@ -144,13 +144,9 @@
     };
 
     $('#id_ticket_type').change(function() {
-        if ($(this).val() == 'corporate') {
-            $('#dinner-disclaimer').slideDown();
-            $('#companywrapper').show();
-        } else {
-            $('#dinner-disclaimer').slideUp();
-            $('#companywrapper').hide();
-        }
+        var is_corporate = $(this).val() == 'corporate';
+        $('#dinner-disclaimer').toggle(is_corporate);
+        $('#companywrapper').toggle(is_corporate);
         update_price();
     });
 
