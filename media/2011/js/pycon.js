@@ -187,7 +187,9 @@
             justClicked = true;
         });
 
-        $('#registration form').submit(function() {
+        $('#registration form').submit(function(e) {
+            e.preventDefault();
+
             var data = $(this).serialize();
             $.ajax({
                 url: '/api/2011/register/',
