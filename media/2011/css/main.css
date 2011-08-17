@@ -315,6 +315,11 @@ article p a {
     letter-spacing: 4px;
 }
 
+#registration ul {
+    list-style-type: none;
+    padding: 0;
+}
+
 #registration li {
     color: #f5f;
 }
@@ -355,6 +360,10 @@ article p a {
 #registration .checkbox div {
     float: left;
     width: 300px
+}
+
+#registration strong {
+    font-weight: 600;
 }
 
 @-moz-document url-prefix() {
