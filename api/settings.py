@@ -1,4 +1,5 @@
 import os
+datadir = os.path.join(os.path.dirname(__file__), '..', '..')
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -13,7 +14,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(os.path.dirname(__file__), 'db.sqlite3')
+        'NAME': os.path.join(datadir, 'db.sqlite3'),
     }
 }
 
@@ -80,7 +81,8 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = 'wk-q$6m#41%f$k%o_%v)men@9+ax2p*(j=et(%vuzc-f28zwe&'
+with open(os.path.join(datadir, 'secret')) as fobj:
+    SECRET_KEY = fobj.read().strip()
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
