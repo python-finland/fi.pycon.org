@@ -107,6 +107,10 @@ a, a:visited, a:link {
     background-color: #f5f;
 }
 
+.yellow li {
+    color: #ff5;
+}
+
 .cyan h2 {
     color: #5ff;
 }
