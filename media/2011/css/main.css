@@ -326,6 +326,7 @@ article p a {
 
 #billing-details {
     display: none;
+    clear: both;
 }
 #registration form {
     margin-top: 50px;
