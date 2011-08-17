@@ -419,6 +419,10 @@ input:disabled, select:disabled {
     box-shadow: 0 0 10px 3px #f55;
 }
 
+#additional {
+    margin-top: 20px !important;
+}
+
 #registration form #additional.input-wrapper input {
     width: 694px;
 }
