@@ -24,5 +24,7 @@ class Registration(models.Model):
     billed = models.BooleanField(default=False)
     paid = models.BooleanField(default=False)
 
+    registered_timestamp = models.DateTimeField(auto_now_add=True)
+
     def __unicode__(self):
         return u'%s, %s, %s' % (self.name, self.email, self.country)
