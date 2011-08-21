@@ -109,7 +109,7 @@ a, a:visited, a:link {
 }
 
 .social {
-	margin-top: 15px;
+	margin-top: 8px;
 	text-align: center;
 	font-size: 10px;
 }
@@ -200,7 +200,7 @@ article p span, article li span {
     letter-spacing: 2px;
     text-transform: uppercase;
     font-size: 14px;
-    padding: 1px 4px;
+    padding: 3px 4px;
     color: #000;
 }
 
@@ -491,3 +491,32 @@ input:disabled, select:disabled {
         background: #f5f;
     }
 }
+
+#sponsors {
+	background: white;
+	width: auto;
+}
+
+#sponsors-wrapper {
+	width: 960px;
+	margin: 10px auto;
+}
+
+#great-companies {
+	text-align: center;
+}
+
+#king-sponsor {
+	text-align: center;
+}
+
+#sponsors table {
+        margin: 0 auto;	
+}
+
+#sponsors td {
+	vertical-align: middle;
+	text-align: center;
+        padding: 20px;
+} 
+

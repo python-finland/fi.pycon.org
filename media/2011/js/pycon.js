@@ -180,6 +180,12 @@
             $('body > header a.focus').removeClass('focus');
             if (target.length) {
                 var offset = target.offset().top;
+                
+                // Dirty aligment fix
+                if(this.hash== "#sponsors") {
+                	offset -= 115;
+                }
+                
                 $('html,body').animate({scrollTop: offset}, 1000);
                 $(this).addClass('focus');
             }
