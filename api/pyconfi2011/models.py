@@ -27,4 +27,10 @@ class Registration(models.Model):
     registered_timestamp = models.DateTimeField(auto_now_add=True)
 
     def __unicode__(self):
-        return u'%s, %s, %s' % (self.name, self.email, self.country)
+        return u'%s, %s, %s, %s, %s' % (
+            self.name,
+            self.email,
+            self.country,
+            self.ticket_type,
+            self.registered_timestamp.strftime('%c'),
+        )
