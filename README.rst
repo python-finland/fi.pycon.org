@@ -7,15 +7,6 @@ http://fi.pycon.org/.
 All source code is licensed under `BSD license
 <http://www.opensource.org/licenses/bsd-license.php>`_.
 
-Starting the site
----------------------
-
-For development.
-
-Main site is static HTML. Easy to edit.
-
-API is Django project.
-
 Repos
 -----
 

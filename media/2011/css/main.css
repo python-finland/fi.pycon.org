@@ -41,17 +41,8 @@ body > header > div.container {
 }
 
 body > header h1 {
-    font-size: 24px;
+    font-size: 18px;
     margin: 0 0 5px 0;
-    padding-bottom: 5px;
-    border-bottom: 1px dotted #888;
-}
-body > header h1 b {
-        color: black;	
-}
-
-#prelude {
-	font-size: 80%;
 }
 
 body > header > div > a, body > header > div > a:visited,
@@ -89,11 +80,6 @@ body > header ul li {
     padding-right: 45px;
 }
 
-body > header ul li:last-child {
-        padding-right: 0;	
-}
-
-
 body > header ul li a {
     text-decoration: none;
 }
@@ -106,33 +92,6 @@ body > header ul li a {
 }
 a, a:visited, a:link {
     color: #000;
-}
-
-.social {
-	margin-top: 8px;
-	text-align: center;
-	font-size: 10px;
-}
-
-.social a {
-	display: inline-block;
-}
-
-.social #twitter {
-	margin-right: 60px;
-}
-
-/* Make sure we nicely aling with Twitter button */
-.social #zuggerberg-wrapper {
-	position: relative;
-	top: 2px;
-	display: inline-block;
-        margin-left: 40px;
-	left: 70px;	
-}
-
-.social #zuggerberg {
-	/* IFRAME width adjustment fix */
 }
 
 .cyan p span {
