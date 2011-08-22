@@ -143,3 +143,5 @@ LOGGING = {
         },
     }
 }
+
+EMAIL_HOST = 'smtp.zoner.fi'
