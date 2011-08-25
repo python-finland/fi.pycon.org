@@ -152,14 +152,14 @@ h3 {
 }
 
 article p, article li {
-    line-height: 24px;
+    line-height: 26px;
 }
 
 article p span, article li span {
     letter-spacing: 2px;
     text-transform: uppercase;
     font-size: 14px;
-    padding: 1px 3px;
+    padding: 0 3px;
     color: #000;
 }
 
