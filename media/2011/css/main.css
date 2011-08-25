@@ -40,15 +40,18 @@ body > header > div.container {
     margin: 0 auto;
 }
 
-body > header h1 {
+#main-header > h1 {
     font-size: 18px;
-    margin: 0 0 5px 0;
+    margin: 0 0 10px 0;
+    background: black;
+    color: #fff;
+    display: inline-block;
+    padding: 0 3px;
 }
 
-body > header > div > a, body > header > div > a:visited,
-body > header > div > a:link {
+#main-header:visited,
+#main-header:link {
     text-decoration: none;
-    color: #bbb;
 }
 
 body > header > a:hover {
@@ -64,23 +67,34 @@ body > header span.date {
     float: left;
 }
 
-body > header nav {
+nav {
     float: right;
 }
 
-body > header ul {
+nav > ul {
     margin: 0;
     padding: 0;
     display: inline-block;
     list-style: none;
 }
 
-body > header ul li {
+nav > ul > li {
     display: inline-block;
     padding-right: 45px;
 }
 
-body > header ul li a {
+nav > ul > li:before {
+    content: "/";
+    position: relative;
+    left: -25px;
+    color: #aaa;
+}
+
+nav > ul > li:first-child:before {
+    content: "";
+}
+
+nav > ul > li > a {
     text-decoration: none;
 }
 
@@ -236,12 +250,11 @@ article p a {
     border-radius: 0;
     padding: 0 6px;
     width: 220px;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     text-transform: none;
 }
 
 #registration form select {
-    letter-spacing: 1px;
     display: inline-block;
     height: 40px;
     line-height: 30px;
