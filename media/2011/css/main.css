@@ -488,30 +488,24 @@ input:disabled, select:disabled {
 }
 
 #sponsors {
-	background: white;
-	width: auto;
+    background: white;
+    width: auto;
+    padding: 100px 0;
 }
 
-#sponsors-wrapper {
-	width: 960px;
-	margin: 0 auto;
+#sponsors img {
+    padding: 0;
+    margin: 0;
 }
 
-#great-companies {
-	text-align: center;
+#sponsors > .row {
+    margin: 0 auto;
+    width: 960px;
 }
 
-#king-sponsor {
-	text-align: center;
+#sponsors > .row > a {
+    text-decoration: none;
 }
-
-#sponsors table {
-        margin: 0 auto;	
+#sponsors > .last-row {
+    width: 620px;
 }
-
-#sponsors td {
-	vertical-align: middle;
-	text-align: center;
-        padding: 20px;
-} 
-
