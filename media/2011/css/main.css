@@ -60,6 +60,12 @@ body > header > div.container {
 #socials > a {
     text-decoration: none;
     outline: none;
+    border: 0;
+    outline: 0;
+}
+#socials > a > img {
+    border: 0;
+    outline: 0;
 }
 
 #main-header:visited,
