@@ -496,6 +496,8 @@ input:disabled, select:disabled {
 #sponsors img {
     padding: 0;
     margin: 0;
+    border: 0;
+    outline: 0;
 }
 
 #sponsors > .row {
@@ -505,6 +507,8 @@ input:disabled, select:disabled {
 
 #sponsors > .row > a {
     text-decoration: none;
+    border: 0;
+    outline: 0;
 }
 #sponsors > .last-row {
     width: 620px;
