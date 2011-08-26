@@ -227,7 +227,7 @@ article p a {
     font-size: 24px;
     color: #f5f;
     display: inline-block;
-    letter-spacing: 6px;
+    letter-spacing: 4px;
     width: 240px;
     background: transparent;
 }
@@ -361,7 +361,7 @@ article p a {
 
 #registration li {
     color: #f5f;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 #billing-details {
@@ -370,6 +370,7 @@ article p a {
 }
 #registration form {
     margin-top: 50px;
+    margin-bottom: 50px;
 }
 #registration input[type=submit] {
     background: #f5f;
