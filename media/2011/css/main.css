@@ -32,7 +32,7 @@ body > header {
     color: #bbb;
     letter-spacing: 2px;
     font-size: 16px;
-    padding: 20px 0 16px 10px
+    padding: 22px 0 16px 10px
 }
 
 body > header > div.container {
@@ -50,7 +50,7 @@ body > header > div.container {
     background: black;
     color: #fff;
     display: inline-block;
-    padding: 2px 3px;
+    padding: 4px 5px 2px 7px;
     line-height: 22px;
 }
 
@@ -163,7 +163,7 @@ a, a:visited, a:link {
 }
 
 div#content {
-    margin-top: 140px;
+    margin-top: 180px;
 }
 
 article {
@@ -176,7 +176,7 @@ article header h2 {
     letter-spacing: 3px;
     margin: 0;
     padding: 150px 0 0;
-    font-size: 22px;
+    font-size: 32px;
 }
 
 h3 {
@@ -193,8 +193,9 @@ article p span, article li span {
     letter-spacing: 2px;
     text-transform: uppercase;
     font-size: 14px;
-    padding: 0 3px;
+    padding: 2px 7px 0px;
     color: #000;
+    line-height: 24px;
 }
 
 article p a {
