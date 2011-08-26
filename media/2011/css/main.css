@@ -73,12 +73,12 @@ body > header > div.container {
     text-decoration: none;
 }
 
-body > header > a:hover {
+nav a:hover {
     color: #555;
 }
 
-body > header > nav a:focus, body > header > nav a.focus {
-    font-weight: 700;
+.focus {
+    color: #ddd !important;
 }
 
 body > header span.date {
