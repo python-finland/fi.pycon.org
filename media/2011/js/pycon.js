@@ -107,6 +107,25 @@
             return;
         }
 
+        var ratio = 4.5;
+
+        $('#logo-date').css(
+            '-webkit-transform',
+            'translate3d('+ current/ratio + 'px, ' + current/-ratio + 'px, 0)');
+
+        $('#logo-cyan').css(
+            '-webkit-transform',
+            'translate3d('+ current/-ratio + 'px, ' +
+                current/-ratio + 'px, 0)');
+
+        $('#logo-yellow').css(
+            '-webkit-transform',
+            'translate3d('+ current/ratio + 'px, ' + current/ratio + 'px, 0)');
+
+        $('#logo-location').css(
+            '-webkit-transform',
+            'translate3d('+ current/-ratio + 'px, ' + current/ratio + 'px, 0)');
+
         justClicked = false;
         prevScroll = current;
 
@@ -180,12 +199,12 @@
             $('body > header a.focus').removeClass('focus');
             if (target.length) {
                 var offset = target.offset().top;
-                
+
                 // Dirty aligment fix
                 if(this.hash== "#sponsors") {
                 	offset -= 115;
                 }
-                
+
                 $('html,body').animate({scrollTop: offset}, 1000);
                 $(this).addClass('focus');
             }

@@ -16,11 +16,6 @@ body {
     margin: 0;
 }
 
-#logo img {
-    display: block;
-    margin: 0 auto 100px;
-}
-
 body > header {
     position: fixed;
     background: #fff;
@@ -42,6 +37,40 @@ body > header > div.container {
 
 #main-header {
     float: left;
+}
+
+#logo {
+    height: 600px;
+}
+
+#logo > img {
+    position: absolute;
+    left: 50%;
+    margin-left: -475px;
+    -webkit-transition: -webkit-transform 0.5s ease-out;
+}
+
+#logo-date {
+    top: 310px;
+    margin-left: -473px !important;
+}
+#logo-yellow {
+    top: 425px;
+    margin-left: -358px !important;
+}
+
+#logo-main {
+    margin-left: -245px !important;g
+}
+
+#logo-cyan {
+    top: 195px;
+    margin-left: 131px !important;
+}
+
+#logo-location {
+    top: 310px;
+    margin-left: 245px !important;
 }
 
 #main-header > h1 {
