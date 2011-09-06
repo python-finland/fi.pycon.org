@@ -285,7 +285,9 @@ article p a {
     line-height: 30px;
     pointer-events: auto;
     padding: 6px;
-    margin-right: 20px;
+    margin-right: 11px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 300;
 }
 
 #registration input[type=checkbox] {
@@ -310,7 +312,7 @@ article p a {
     position: relative;
     padding: 0;
     display: inline-block;
-    height: 38px;
+    height: 0px;
     pointer-events: none;
 }
 
@@ -323,8 +325,8 @@ article p a {
     border-width: 10px;
     background-color: #222;
     position: absolute;
-    right: 25px;
-    top: 1px;
+    right: 20px;
+    top: -29px;
 }
 
 #registration span.arrowwrapper:before {
@@ -335,8 +337,8 @@ article p a {
     border-style: solid;
     border-width: 10px 10px 0;
     position: absolute;
-    right: 32px;
-    top: 15px;
+    right: 21px;
+    top: -13px;
     z-index: 100;
 }
 
@@ -475,12 +477,17 @@ input:disabled, select:disabled {
         pointer-events: none;
     }
     #registration span.selectwrapper:before {
-        right: 21px;
-        top: 1px;
+        right: 21px !important;
+        top: -26px !important;
+    }
+
+    #registration span.arrowrapper:before {
+        right: 23px !important;
+        top: 11px !important;
     }
 
     #registration form select {
-        padding: 1px;
+        padding: 6px;
     }
 
     span.checkwrapper:before {
