@@ -2,7 +2,8 @@
     var canvas, context,
         stars = [],
         prevScroll = 0,
-        justClicked = false;
+        justClicked = false,
+        transform_ratio = 4.5;
 
     var starOpts = {
         // width, height, lineWidth, scrollRatio
@@ -107,24 +108,45 @@
             return;
         }
 
-        var ratio = 4.5;
-
         $('#logo-date').css(
             '-webkit-transform',
-            'translate3d('+ current/ratio + 'px, ' + current/-ratio + 'px, 0)');
+            'translate3d('+ current/transform_ratio + 'px, ' +
+                current/-transform_ratio + 'px, 0)');
 
         $('#logo-cyan').css(
             '-webkit-transform',
-            'translate3d('+ current/-ratio + 'px, ' +
-                current/-ratio + 'px, 0)');
+            'translate3d('+ current/-transform_ratio + 'px, ' +
+                current/-transform_ratio + 'px, 0)');
 
         $('#logo-yellow').css(
             '-webkit-transform',
-            'translate3d('+ current/ratio + 'px, ' + current/ratio + 'px, 0)');
+            'translate3d('+ current/transform_ratio + 'px, ' +
+                current/transform_ratio + 'px, 0)');
 
         $('#logo-location').css(
             '-webkit-transform',
-            'translate3d('+ current/-ratio + 'px, ' + current/ratio + 'px, 0)');
+            'translate3d('+ current/-transform_ratio + 'px, ' +
+                current/transform_ratio + 'px, 0)');
+
+        $('#logo-date').css(
+            '-moz-transform',
+            'translate('+ current/transform_ratio + 'px, ' +
+                current/-transform_ratio + 'px)');
+
+        $('#logo-cyan').css(
+            '-moz-transform',
+            'translate('+ current/-transform_ratio + 'px, ' +
+                current/-transform_ratio + 'px)');
+
+        $('#logo-yellow').css(
+            '-moz-transform',
+            'translate('+ current/transform_ratio + 'px, ' +
+                current/transform_ratio + 'px)');
+
+        $('#logo-location').css(
+            '-moz-transform',
+            'translate('+ current/-transform_ratio + 'px, ' +
+                current/transform_ratio + 'px)');
 
         justClicked = false;
         prevScroll = current;

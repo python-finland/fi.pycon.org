@@ -48,6 +48,7 @@ body > header > div.container {
     left: 50%;
     margin-left: -475px;
     -webkit-transition: -webkit-transform 0.5s ease-out;
+    -moz-transition: -moz-transform 0.5s ease-out;
 }
 
 #logo-date {
