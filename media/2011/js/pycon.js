@@ -108,45 +108,34 @@
             return;
         }
 
-        $('#logo-date').css(
-            '-webkit-transform',
-            'translate3d('+ current/transform_ratio + 'px, ' +
-                current/-transform_ratio + 'px, 0)');
+        var transform = current/transform_ratio;
+        if (transform > 700) {
+            transform = 700;
+        }
 
-        $('#logo-cyan').css(
-            '-webkit-transform',
-            'translate3d('+ current/-transform_ratio + 'px, ' +
-                current/-transform_ratio + 'px, 0)');
+        $('#logo-date').css('-webkit-transform',
+            'translate3d('+ transform + 'px, ' + -transform + 'px, 0)');
 
-        $('#logo-yellow').css(
-            '-webkit-transform',
-            'translate3d('+ current/transform_ratio + 'px, ' +
-                current/transform_ratio + 'px, 0)');
+        $('#logo-cyan').css('-webkit-transform',
+            'translate3d('+ -transform + 'px, ' + -transform + 'px, 0)');
 
-        $('#logo-location').css(
-            '-webkit-transform',
-            'translate3d('+ current/-transform_ratio + 'px, ' +
-                current/transform_ratio + 'px, 0)');
+        $('#logo-yellow').css('-webkit-transform',
+            'translate3d('+ transform + 'px, ' + transform + 'px, 0)');
 
-        $('#logo-date').css(
-            '-moz-transform',
-            'translate('+ current/transform_ratio + 'px, ' +
-                current/-transform_ratio + 'px)');
+        $('#logo-location').css('-webkit-transform',
+            'translate3d('+ -transform + 'px, ' + transform + 'px, 0)');
 
-        $('#logo-cyan').css(
-            '-moz-transform',
-            'translate('+ current/-transform_ratio + 'px, ' +
-                current/-transform_ratio + 'px)');
+        $('#logo-date').css('-moz-transform',
+            'translate('+ transform + 'px, ' + -transform + 'px)');
 
-        $('#logo-yellow').css(
-            '-moz-transform',
-            'translate('+ current/transform_ratio + 'px, ' +
-                current/transform_ratio + 'px)');
+        $('#logo-cyan').css('-moz-transform',
+            'translate('+ -transform + 'px, ' + -transform + 'px)');
 
-        $('#logo-location').css(
-            '-moz-transform',
-            'translate('+ current/-transform_ratio + 'px, ' +
-                current/transform_ratio + 'px)');
+        $('#logo-yellow').css('-moz-transform',
+            'translate('+ transform + 'px, ' + transform + 'px)');
+
+        $('#logo-location').css('-moz-transform',
+            'translate('+ -transform + 'px, ' + transform + 'px)');
 
         justClicked = false;
         prevScroll = current;
