@@ -174,8 +174,10 @@
     };
 
     $('#id_ticket_type').change(function() {
-        var is_corporate = $(this).val() == 'corporate';
-        $('#dinner-disclaimer').toggle(is_corporate);
+        var val = $(this).val(),
+            is_corporate = (val == 'corporate'),
+            is_normal = (val == 'normal');
+        $('#dinner-disclaimer').toggle(is_corporate || is_normal);
         $('#companywrapper').toggle(is_corporate);
         update_price();
     });
