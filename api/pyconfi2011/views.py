@@ -1,6 +1,7 @@
 from django.http import HttpResponse, HttpResponseNotAllowed
 from django.core.mail import send_mail
 from django.template import Context, Template
+from django.views.decorators.csrf import csrf_exempt
 
 import json
 from .forms import RegistrationForm
@@ -60,6 +61,7 @@ def send_confirmation_email(registration):
     )
 
 
+@csrf_exempt
 def register(request):
     if request.method != 'POST':
         return HttpResponseNotAllowed(['POST'])
