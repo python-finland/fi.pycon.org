@@ -178,6 +178,7 @@
             is_corporate = (val == 'corporate'),
             is_normal = (val == 'normal');
         $('#dinner-disclaimer').toggle(is_corporate || is_normal);
+        $('#id_dinner').attr('checked', is_corporate || is_normal);
         $('#companywrapper').toggle(is_corporate);
         update_price();
     });
