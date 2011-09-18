@@ -1,35 +1,36 @@
+from datetime import date
+
 from django.contrib import admin
-from django.template import Template
+from django.template import Context, Template
 from .models import Registration
 
-email_body = Template('''\
+bill_body = Template('''\
 Billing information for PyCon Finland 2011
 
-Invoice number: {{ reference }}
-Invoice date: {{ date }}
-Invoice due date: {{ due_date }}
-Invoice to: {{ name }}
-{% if company %}}Company: {{ company }}{% endif %}
+Invoice number: {{ obj.invoice_number }}
+Invoice date: {{ obj.bill_date|date }}
+Invoice due date: {{ obj.due_date|date }}
+Invoice to: {{ obj.name }}{% if company %}}
+Company: {{ obj.company }}{% endif %}
 
-
-Description
+Description:
 ------------------------------------------------------------------------
-PyCon Finland participant fee: {{ ticket_type|stringformat "%-9s" }}{{ price|stringformat "%32s"}}
-{% if snailmail_bill %}Paper bill{{ "5 EUR"|stringformat "%62s"}}{%endif%}}
+PyCon Finland participant fee: {{ obj.ticket_type|stringformat:"-9s" }}{{ obj.price|stringformat:"28s EUR"}}{% if obj.snailmail_bill %}
+Paper bill: {{ "5 EUR"|stringformat:"60s"}}{% endif %}
 
 ------------------------------------------------------------------------
-Total:{{ obj.total_price|stringformat "%66s" }}
+Total: {{ obj.total_price|stringformat:"61s EUR" }}
 
 
-Please wire {{ obj.total_price }} to following account:
+Please wire {{ obj.total_price }} EUR to following account:
 
 Beneficary: Python Suomi ry
 Bank: Aktia Oyj
 IBAN: FI27 4055 0011 0236 33
 BIC: HELSFIHH
-Reference (viitenumero): {{ obj.reference }}
+Reference (viitenumero): {{ obj.reference_number }}
 
-DUE DATE: {{ due_date }}
+DUE DATE: {{ obj.due_date|date }}
 
 Make sure to use the correct reference when paying.
 
@@ -40,34 +41,46 @@ contact hallitus@python.fi.
 See you in the conference!
 
 Cheers,
-The PyCon Finland organizers
+PyCon Finland organizers
 
+-- 
 ------------------------------------------------------------------------
 Python Suomi ry                                       hallitus@python.fi
 c/o Jyrki Pulliainen                                    http://python.fi
 Vartiokuja 1 E 37
 20700 Turku, Finland
 ------------------------------------------------------------------------
-
 ''')
-
-
-def reference_number(s):
-    return '%s%d' % (s, -sum(int(x) * [7, 3, 1][i % 3]
-                        for i, x in enumerate(s[::-1])) % 10)
 
 
 class RegistrationAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'country',
-                    'ticket_type', 'billed', 'paid',
-                    'registered_timestamp')
+                    'ticket_type', 'snailmail_bill',
+                    'billed', 'paid', 'registered_timestamp')
     list_editable = ('paid',)
-    list_filter = ('billed', 'paid', 'ticket_type', 'country')
+    list_filter = ('snailmail_bill', 'billed', 'paid', 'ticket_type', 'country')
     ordering = ['-registered_timestamp']
     actions = ['send_bill']
 
     def send_bill(self, request, queryset):
-        pass
+        for registration in queryset:
+            if registration.billed:
+                self.message_user(request, 'Some of the selected registrations '
+                                  'have already been billed')
+                return
+
+            if registration.snailmail_bill:
+                self.message_user(request, 'Some of the selected registrations '
+                                  'shuld be billed via snail mail')
+
+        for registration in queryset:
+            registration.bill_date = date.today()
+            email_body = bill_body.render(Context({'obj': registration}))
+            email_subject = 'PyCon Finland invoice %s' % \
+                registration.invoice_number
+
+            print email_subject
+            print email_body
 
     send_bill.short_description = ('Send an e-mail bill to the '
                                    'selected registrants')

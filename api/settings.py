@@ -144,4 +144,6 @@ LOGGING = {
     }
 }
 
+DATE_FORMAT = 'Y-m-d'
+
 EMAIL_HOST = 'smtp.zoner.fi'
