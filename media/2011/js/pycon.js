@@ -246,7 +246,15 @@
             })
             .done(function(data, textStatus, xhr) {
                     if(data.ok) {
+                        // Reset the form
+                        self.reset();
+                        $('.input-wrapper input').keyup();
+
+                        // Show a thankyou message and bring it to view
                         $('#thankyou').show();
+                        $('html, body').animate({
+                            scrollTop: $('#thankyou').offset().top - 115
+                        }, 500);
                     } else {
                         var ul = $('#errorcontainer ul');
                         ul.empty();
