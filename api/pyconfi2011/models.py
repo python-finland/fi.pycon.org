@@ -64,7 +64,7 @@ class Registration(models.Model):
 
     @property
     def invoice_number(self):
-        return self.bill_date.strftime('%Y%m%d') + '%04d' % self.pk
+        return self.bill_date.strftime('%Y2') + '%04d' % self.pk
 
     @property
     def reference_number(self):
