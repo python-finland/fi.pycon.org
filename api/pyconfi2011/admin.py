@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from datetime import date
 
 from django.contrib import admin
@@ -32,7 +34,9 @@ Reference (viitenumero): {{ obj.reference_number }}
 
 DUE DATE: {{ obj.due_date|date }}
 
-Make sure to use the correct reference when paying.
+Make sure to use the correct reference when paying. Please note that
+all prices are VAT exempt (in Finnish: Lasku ei sisällä vähennettävää
+arvonlisäveroa)
 
 If there's anything you'd like to ask about billing, don't hesitate to
 contact hallitus@python.fi.
