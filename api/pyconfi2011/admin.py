@@ -4,6 +4,7 @@ from datetime import date
 
 from django.contrib import admin
 from django.template import Context, Template
+from django.core.mail import EmailMessage, get_connection
 from .models import Registration
 
 bill_body = Template('''\
@@ -77,14 +78,25 @@ class RegistrationAdmin(admin.ModelAdmin):
                 self.message_user(request, 'Some of the selected registrations '
                                   'shuld be billed via snail mail')
 
+        smtp_connection = get_connection()
+
         for registration in queryset:
             registration.bill_date = date.today()
             email_body = bill_body.render(Context({'obj': registration}))
-            email_subject = 'PyCon Finland invoice %s' % \
-                registration.invoice_number
+            email_subject = 'Invoice for PyCon Finland 2011'
 
-            print email_subject
-            print email_body
+            email = EmailMessage(
+                email_subject,
+                email_body,
+                bcc=['taloudenhoitaja@python.fi'],
+                from_email='Python Suomi ry / Taloudenhoitaja <taloudenhoitaja@python.fi>',
+                to=[registration.email],
+                connection=smtp_connection,
+            )
+
+            email.send()
+            registration.billed = True
+            registration.save()
 
     send_bill.short_description = ('Send an e-mail bill to the '
                                    'selected registrants')
