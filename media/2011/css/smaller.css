@@ -1,4 +1,5 @@
-body {
+html, body {
+    width: 320px;
     overflow-x: hidden;
 }
 
@@ -132,6 +133,7 @@ article p span, article li span {
 
 #sponsors {
     width: 320px;
+    text-align: center;
 }
 
 #sponsors > .row {
@@ -140,4 +142,11 @@ article p span, article li span {
 
 #sponsors > .last-row {
     width: 320px;
+}
+#registration form span.label {
+    width: 200px;
+}
+
+#registration form span.price {
+    width: 120px;
 }
