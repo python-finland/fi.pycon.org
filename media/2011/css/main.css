@@ -561,5 +561,5 @@ input:disabled, select:disabled {
     outline: 0;
 }
 #sponsors > .last-row {
-    width: 620px;
+    text-align: center;
 }
