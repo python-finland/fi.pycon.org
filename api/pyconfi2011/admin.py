@@ -13,7 +13,7 @@ Billing information for PyCon Finland 2011
 Invoice number: {{ obj.invoice_number }}
 Invoice date: {{ obj.bill_date|date }}
 Invoice due date: {{ obj.due_date|date }}
-Invoice to: {{ obj.name }}{% if company %}}
+Invoice to: {{ obj.name }}{% if obj.company %}
 Company: {{ obj.company }}{% endif %}
 
 Description:
