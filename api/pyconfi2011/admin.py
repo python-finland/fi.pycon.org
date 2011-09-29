@@ -3,6 +3,7 @@
 from datetime import date
 
 from django.contrib import admin
+from django.http import HttpResponse
 from django.template import Context, Template
 from django.core.mail import EmailMessage, get_connection
 from .models import Registration
@@ -65,7 +66,7 @@ class RegistrationAdmin(admin.ModelAdmin):
     list_editable = ('paid',)
     list_filter = ('snailmail_bill', 'billed', 'paid', 'ticket_type', 'country')
     ordering = ['-registered_timestamp']
-    actions = ['send_bill']
+    actions = ['send_bill', 'show_email_addresses']
 
     def send_bill(self, request, queryset):
         for registration in queryset:
@@ -100,6 +101,16 @@ class RegistrationAdmin(admin.ModelAdmin):
 
     send_bill.short_description = ('Send an e-mail bill to the '
                                    'selected registrants')
+
+    def show_email_addresses(self, request, queryset):
+        def generate_emails():
+            for registration in queryset:
+                yield registration.email + '\n'
+
+        return HttpResponse(generate_emails(), mimetype='text/plain')
+
+    show_email_addresses.short_description = ('Show email addresses of the '
+                                              'selected registrants')
 
 
 admin.site.register(Registration, RegistrationAdmin)
