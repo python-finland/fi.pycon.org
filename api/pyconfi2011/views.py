@@ -2,9 +2,11 @@ from django.http import HttpResponse, HttpResponseNotAllowed
 from django.core.mail import send_mail
 from django.template import Context, Template
 from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_POST, require_GET
 
 import json
 from .forms import RegistrationForm
+from .models import Registration, SEATS_AVAILABLE
 
 email_body = Template('''\
 Thanks for registering to PyCon Finland 2011!
@@ -62,9 +64,15 @@ def send_confirmation_email(registration):
 
 
 @csrf_exempt
+@require_POST
 def register(request):
-    if request.method != 'POST':
-        return HttpResponseNotAllowed(['POST'])
+    if Registration.objects.count() >= SEATS_AVAILABLE:
+        return HttpResponse(json.dumps({
+            'ok': False,
+            'errors': {
+                '__all__': 'No seats left'
+            },
+        }))
 
     form = RegistrationForm(request.POST)
     if form.is_valid():
@@ -73,3 +81,9 @@ def register(request):
         return HttpResponse(json.dumps({'ok': True}))
     else:
         return HttpResponse(json.dumps({'ok': False, 'errors': form.errors}))
+
+
+@require_GET
+def seats_left(request):
+    count = SEATS_AVAILABLE - Registration.objects.count()
+    return HttpResponse(json.dumps({'ok': True, 'count': count}))

@@ -2,6 +2,8 @@ from itertools import izip_longest
 from datetime import timedelta
 from django.db import models
 
+SEATS_AVAILABLE = 150
+
 
 def grouper(n, iterable, fillvalue=None):
     "grouper(3, 'ABCDEFG', 'x') --> ABC DEF Gxx"
