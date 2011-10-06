@@ -226,6 +226,14 @@
             justClicked = true;
         });
 
+        $.getJSON('/api/2011/seats_left', function(data) {
+            if(data.ok) {
+                $('#registration header h2').html(function(i, old) {
+                    return old + ' &mdash; ' + data.count + ' seats left';
+                });
+            }
+        });
+
         $('#registration form').submit(function(e) {
             e.preventDefault();
             var self = this;
