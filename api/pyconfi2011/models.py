@@ -42,6 +42,7 @@ class Registration(models.Model):
 
     billed = models.BooleanField(default=False)
     bill_date = models.DateField(null=True, blank=True)
+    notified_date = models.DateField(null=True, blank=True)
     paid = models.BooleanField(default=False)
 
     registered_timestamp = models.DateTimeField(auto_now_add=True)
