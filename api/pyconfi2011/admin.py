@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from datetime import date
+from datetime import date, timedelta
 
 from django.contrib import admin
 from django.http import HttpResponse
@@ -62,12 +62,19 @@ Vartiokuja 1 E 37
 class RegistrationAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'country',
                     'ticket_type', 'snailmail_bill',
-                    'billed', 'paid', 'registered_timestamp')
+                    'billed', 'paid', 'bill_overdue',
+                    'registered_timestamp')
     list_editable = ('paid',)
     list_filter = ('snailmail_bill', 'billed', 'paid',
                    'ticket_type', 'country', 'dinner')
     ordering = ['-registered_timestamp']
     actions = ['send_bill', 'show_email_addresses']
+
+    def bill_overdue(self, obj):
+        return (obj.billed and not obj.paid and
+                date.today() > obj.bill_date + timedelta(days=14))
+
+    bill_overdue.boolean = True
 
     def send_bill(self, request, queryset):
         for registration in queryset:
