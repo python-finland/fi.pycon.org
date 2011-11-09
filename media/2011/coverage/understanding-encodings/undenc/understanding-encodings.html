@@ -1,0 +1,976 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>Understanding Encodings</title>
+<!-- metadata -->
+<meta name="generator" content="S5" />
+<meta name="version" content="S5 1.1" />
+<meta name="presdate" content="20111017" />
+<meta name="author" content="Ezio Melotti" />
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+<!-- configuration parameters -->
+<meta name="defaultView" content="slideshow" />
+<meta name="controlVis" content="hidden" />
+<!-- style sheet links -->
+<link rel="stylesheet" href="ui/default/slides.css" type="text/css" media="projection" id="slideProj" />
+<link rel="stylesheet" href="ui/default/outline.css" type="text/css" media="screen" id="outlineStyle" />
+<link rel="stylesheet" href="ui/default/print.css" type="text/css" media="print" id="slidePrint" />
+<link rel="stylesheet" href="ui/default/opera.css" type="text/css" media="projection" id="operaFix" />
+<!-- S5 JS -->
+<script src="ui/default/slides.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="layout">
+<div id="controls"><!-- DO NOT EDIT --></div>
+<div id="currentSlide"><!-- DO NOT EDIT --></div>
+<div id="header"></div>
+<div id="footer">
+<h1>PyCon FI / 2011-10-17</h1>
+<h2>Understanding Encodings</h2>
+</div>
+</div>
+
+
+<div class="presentation">
+
+
+
+<div class="slide">
+    <h1>Understanding Encodings</h1>
+    <h2>Ezio Melotti</h2>
+</div>
+
+
+
+<div class="slide">
+    <h1>Something about me</h1>
+    <ul>
+        <li><strong>Python Core Developer</strong> since June 2009</li>
+
+        <li>Presented the talk <strong>"The development process of Python"</strong> at<br />
+            EuroPython 2011 in June 2011 <br />
+            EuroPython 2010 in July 2010<br />
+            PyCon IT 4 in May 2010</li>
+
+        <li>Presented the talk <strong>"Unicode and Python 3"</strong> at<br />
+            PyCon IT 3 in May 2009</li>
+    </ul>
+</div>
+
+
+
+<div class="slide">
+    <h1>As Joel Spolsky said</h1>
+    <blockquote cite="http://www.joelonsoftware.com/articles/Unicode.html"
+                style="font-size: 150%; font-style: normal"><p>
+    "If you are a programmer working in 2003 and you don't know the basics of
+    characters, character sets, encodings, and Unicode, and I <em>catch</em> you,
+    I'm going to punish you by making you peel onions for 6 months in a submarine.
+    <br />I swear I will."
+    </p></blockquote>
+    <p style="font-size: 70%; text-align: right"><cite>Joel Spolsky</cite>,
+    <a href="http://www.joelonsoftware.com/articles/Unicode.html">
+    The Absolute Minimum Every Software Developer Absolutely,<br />
+    Positively Must Know About Unicode and Character Sets (No Excuses!)</a></p>
+</div>
+
+
+
+<div class="slide">
+    <h1>In a submarine...</h1>
+    <img src="submarine.jpg" style="width: 800px" />
+    <p class="cite">by mnorri, <a href="http://www.flickr.com/photos/mnorri/2368605084/">
+       http://www.flickr.com/photos/mnorri/2368605084/</a></p>
+</div>
+
+
+
+<div class="slide">
+    <h1>...peeling onions</h1>
+    <img src="onions.jpg" style="width: 800px" />
+    <p class="cite">by वंपायर, <a href="http://www.flickr.com/photos/c0t0s0d0/2795245345/">
+       http://www.flickr.com/photos/c0t0s0d0/2795245345/</a></p>
+</div>
+
+
+
+<div class="slide">
+    <h1>Outline</h1>
+    <ul>
+        <li>Character sets</li>
+        <li>Encodings</li>
+        <li>Recommendations and common problems</li>
+        <li>Q&amp;A</li>
+    </ul>
+</div>
+
+
+
+<div class="slide">
+    <h1>What is a Character Set?</h1>
+    <ul>
+        <li>A <strong>Character Set</strong> is a collection of elements
+            used to represent textual information.</li>
+        <img src="cs.svg" />
+    </ul>
+</div>
+
+
+
+<div class="slide">
+    <h1>What is a Character Set?</h1>
+    <ul>
+        <li>Most of the Character Sets assign a number to each element<ul>
+            <li>they are also known as <strong>Coded Character Sets</strong></li>
+        </ul></li>
+        <img src="css.svg" />
+    </ul>
+</div>
+
+
+
+<div class="slide">
+    <h1>ASCII</h1>
+    <img src="ascii.svg" />
+</div>
+
+
+
+<div class="slide">
+    <h1>ASCII</h1>
+    <ul>
+        <li>Limited to 128 chars (7 bits, 2⁷)<ul>
+            <li>not 256!</li></ul></li>
+        <li>Includes the <strong>26 letters</strong> of the
+            <strong>English alphabet</strong>,<br />
+            the <strong>digits</strong> 0-9, and a few <strong>symbols</strong>
+            and <strong>control characters</strong></li>
+    </ul>
+<br />
+    <table width="100%" border="1" cellspacing="0">
+      <tr>
+        <td><strong>ASCII</strong></td>
+        <td>0x00 to 0x7F</td>
+        <td><pre><code> !&quot;#$%&amp;\'()*+,-./0123456789:;&lt;=&gt;?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`
+abcdefghijklmnopqrstuvwxyz{|}~</code></pre>    </td>
+      </tr>
+    </table>
+<br />
+    <ul>
+        <li>8<sup>th</sup> bit initially used for parity checking</li>
+    </ul>
+</div>
+
+
+
+<div class="slide">
+    <h1>ASCII</h1>
+    <ul>
+        <li><strong>Limited</strong> to 128 chars,
+            English alphabet only</li>
+        <li>What about accented letters?</li>
+    </ul>
+    <img src="accents.gif" style="width: 640px"  />
+    <p class="cite">from <a href="http://traceyullomdesign.com/2011/05/20/glyphs-and-typographic-symbols/">
+       http://traceyullomdesign.com/2011/05/20/glyphs-and-typographic-symbols/</a></p>
+    <ul>
+        <li>8<sup>th</sup> bit then used to represent more characters</li>
+    </ul>
+</div>
+
+
+
+<div class="slide">
+    <h1>ASCII</h1>
+    <p style="text-align:center;font-size:140%">ASCII</p>
+    <img src="a.svg" />
+</div>
+
+
+
+<div class="slide">
+    <h1>8-bits Character Sets</h1>
+    <p style="text-align:center;font-size:140%">ASCII, ISO-8859-1</p>
+    <img src="a_l1.svg" />
+</div>
+
+
+
+<div class="slide">
+    <h1>8-bits Character Sets</h1>
+    <ul>
+        <li>8-bit → 2⁸ → 256 chars:
+        <ul><li>all the 128 ASCII chars</li>
+            <li>+ 128 more chars, for example:</li>
+        </ul></li>
+    </ul>
+
+    <table width="100%" border="1" cellspacing="0">
+      <tr>
+        <td rowspan="2"><strong>ISO-8859-1<br />(aka Latin1)</strong></td>
+        <td>0x00 to 0x7F (ASCII) <br /></td>
+        <td><pre><code> !&quot;#$%&amp;\'()*+,-./0123456789:;&lt;=&gt;?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`
+abcdefghijklmnopqrstuvwxyz{|}~</code></pre></td>
+      </tr>
+      <tr>
+        <td>0x80 to 0xFF<br /></td>
+        <td><pre><code>&nbsp;¡¢£¤¥¦§¨©ª«¬­®¯°±²³´µ¶·¸¹º»¼½¾¿
+ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞß
+àáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿ</code></pre></td>
+      </tr>
+    </table>
+    <ul>
+        <li>Some accents are still missing, and what about other alphabets?</li>
+    </ul>
+</div>
+
+
+
+<div class="slide">
+    <h1>ISO-8859-* Family</h1>
+    <p style="text-align:center;font-size:140%">ASCII, ISO-8859-1</p>
+    <img src="a_l1.svg" />
+</div>
+
+
+
+<div class="slide">
+    <h1>ISO-8859-* Family</h1>
+    <p style="text-align:center;font-size:140%">ASCII, ISO-8859-1, ISO-8859-5</p>
+    <img src="a_l15.svg" />
+</div>
+
+
+
+<div class="slide">
+    <h1>ISO-8859-* Family</h1>
+    <p style="text-align:center;font-size:140%">ASCII, ISO-8859-1, ISO-8859-5, ISO-8859-5</p>
+    <img src="a_l156.svg" />
+</div>
+
+
+
+<div class="slide">
+    <h1>ISO-8859-* Family</h1>
+    <table width="100%" border="0" cellspacing="0">
+        <tr>
+        <td><ul>
+            <li>-1 Western European</li>
+            <li>-2 Central European</li>
+            <li>-3 South European</li>
+            <li>-4 North European</li>
+            <li>-5 Latin/Cyrillic</li>
+            <li>-6 Latin/Arabic</li>
+            <li>-7 Latin/Greek</li>
+            <li>-8 Latin/Hebrew</li>
+        </ul></td>
+        <td><ul>
+            <li>-9 Turkish</li>
+            <li>-10 Nordic</li>
+            <li>-11 Latin/Thai</li>
+            <li>-13 Baltic Rim</li>
+            <li>-14 Celtic</li>
+            <li>-15 Western European 2</li>
+            <li>-16 South-Eastern European</li>
+        </ul></td>
+        </tr>
+    </table>
+</div>
+
+
+
+<div class="slide">
+    <h1>Still not enough...</h1>
+    <ul>
+        <li>And what if I want to mix русский and العربية?</li>
+        <li>And what if I want to use ᐃᓄᒃᑎᑐᑦ (inuktitut)?!</li>
+    </ul>
+    <img src="stop.jpg" style="width: 400px"/>
+    <p class="cite"><a href="http://en.wikipedia.org/wiki/File:IqaluitStop.jpg">
+        en.wikipedia.org/wiki/File:IqaluitStop.jpg</a>
+    <p>We need a better solution...</p>
+</div>
+
+
+
+<div class="slide">
+    <h1>ISO-8859-* Family</h1>
+    <p style="text-align:center;font-size:140%">ASCII, ISO-8859-1, ISO-8859-5, ISO-8859-5</p>
+    <img src="a_l156.svg" />
+</div>
+
+
+
+<div class="slide">
+    <h1>Introducing Unicode</h1>
+    <p style="text-align:center;font-size:140%">Unicode</p>
+    <img src="u.svg" />
+</div>
+
+
+
+<div class="slide">
+    <h1>Introducing Unicode</h1>
+    <p style="text-align:center;font-size:140%">Unicode</p>
+    <img src="u2.svg" />
+</div>
+
+
+
+<div class="slide">
+    <h1>Introducing Unicode</h1>
+    <ul>
+        <li>Unicode covers all the characters for all the writing systems<br />
+            of the world, modern and ancient.</li>
+        <li>Unicode provides a unique number for every character
+        <ul><li>no matter what the platform</li>
+            <li>no matter what the program</li>
+            <li>no matter what the language</li>
+        </ul></li>
+        <li>The number is called "codepoint".</li>
+        <li>1114112 different codepoints<ul>
+            <li>U+0000 to U+10FFFF</li>
+        </ul></li>
+        <li>Replaces hundreds of existing character sets</li>
+    </ul>
+</div>
+
+
+
+<div class="slide">
+    <h1>Codepoints</h1>
+    <ul>
+        <li>An integer in the range from 0 to 10FFFF</li>
+        <li>Expressed with the notation U+XXXX</li>
+        <li>For example 'a' → U+0061, 'ä' → U+00E4</li>
+        <li>Each Unicode character (e.g. ☃) has:<ul>
+            <li>a codepoint (e.g. U+2603)</li>
+            <li>a name (e.g. SNOWMAN)</li>
+            <li>a category (e.g. So - Symbol, Other)</li>
+            <li>a block (e.g. Miscellaneous Symbols)</li>
+            <li>and other attributes</li>
+        </ul></li>
+    </ul>
+</div>
+
+
+
+<div class="slide">
+    <h1>Unicode Planes</h1>
+    <p>Unicode is organized in 16 planes, with 65536 codepoints each</p>
+    <ul>
+        <li><strong>Basic Multilingual Plane</strong> (BMP)<ul>
+            <li>Plane 0: U+0000–U+FFFF</li>
+            <li>includes most of the commonly used characters</li>
+        </li></ul>
+        <li><strong>Supplementary Planes</strong> (non-BMP)<ul>
+            <li>Plane 1 (U+10000–U+1FFFF): Supplementary Multilingual Plane</li>
+            <li>Plane 2 (U+20000–U+2FFFF): Supplementary Ideographic Plane</li>
+            <li>Planes 3–13 (U+30000–U+DFFFF): Unassigned</li>
+            <li>Plane 14 (U+E0000–U+EFFFF): Supplementary Special-purpose Plane</li>
+            <li>Planes 15–16 (U+F0000–10FFFF): Private Use Area</li>
+        </ul></li>
+    </ul>
+</div>
+
+
+
+<div class="slide">
+    <h1>Unicode characters</h1>
+    <table width="100%" border="1" cellspacing="0">
+      <tr>
+        <td rowspan="4"><strong>Unicode</strong></td>
+        <td>U+0000 to U+007F<br />(ASCII)</td>
+        <td><pre><code> !&quot;#$%&amp;\'()*+,-./0123456789:;&lt;=&gt;?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`
+abcdefghijklmnopqrstuvwxyz{|}~</code></pre> </td>
+      </tr>
+      <tr>
+        <td>U+0080 to U+00FF<br />(Latin-1 Supplement)</td>
+        <td><pre><code>&nbsp;¡¢£¤¥¦§¨©ª«¬­®¯°±²³´µ¶·¸¹º»¼½¾¿
+ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞß
+àáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿ</code></pre>   </td>
+      </tr>
+        <tr>
+        <td>U+0100 to U+017F<br />(Latin Extended-A)</td>
+        <td><pre><code>ĀāĂăĄąĆćĈĉĊċČčĎďĐđĒēĔĕĖėĘęĚěĜĝĞğ
+ĠġĢģĤĥĦħĨĩĪīĬĭĮįİıĲĳĴĵĶķĸĹĺĻļĽľĿ
+ŀŁłŃńŅņŇňŉŊŋŌōŎŏŐőŒœŔŕŖŗŘřŚśŜŝŞş
+ŠšŢţŤťŦŧŨũŪūŬŭŮůŰűŲųŴŵŶŷŸŹźŻżŽž</code></pre>   </td>
+      </tr>
+      <tr>
+      <td>U+0180 to U+10FFFF</td>
+        <td>...</td>
+      </tr>
+    </table>
+</div>
+
+
+
+<div class="slide">
+    <h1>How many characters?</h1>
+    <p>512 chars per slide → 2175 slides to represent them all</p>
+</div>
+
+
+
+<div class="slide">
+    <h1>How many characters?</h1>
+    <p>512 chars per slide → 2175 slides to represent them all</p>
+    <img src="printed.jpg" />
+    <p class="cite">Ian Albert, <a href="http://ian-albert.com/unicode_chart/">
+        ian-albert.com/unicode_chart/</a>
+</div>
+
+
+
+<div class="slide">
+    <h1>Unicode</h1>
+    <img src="Unicode2.gif" alt="Growth of Unicode on the Web" />
+    <p class="cite"><a href="http://googleblog.blogspot.com/2008/05/moving-to-unicode-51.html">
+        googleblog.blogspot.com/2008/05/moving-to-unicode-51.html</a></p>
+</div>
+
+
+
+<div class="slide">
+    <h1>What is an Encoding?</h1>
+    <ul>
+        <li>An <strong>Encoding</strong> is a mapping from a character set
+            definition to the bit sequences used to represent the data</li>
+    </ul>
+    <table>
+    <tr>
+        <th>Character</th>
+        <th>Bit sequence</th>
+        <th>Hex</th>
+    </tr>
+    <tr>
+        <td><code>'a'</code></td>
+        <td><code>0b01100001</code></td>
+        <td><code>0x61</code></td>
+    </tr>
+    <tr>
+        <td><code>'A'</code></td>
+        <td><code>0b01000001</code></td>
+        <td><code>0x41</code></td>
+    </tr>
+    </table>
+</div>
+
+
+
+<div class="slide">
+    <h1>Encoding/decoding</h1>
+    <ul>
+        <li>Encoding: text → bytes</li>
+        <li>Decoding: bytes → text</li>
+    </ul>
+    <img src="encdec.svg" />
+</div>
+
+
+
+<div class="slide">
+    <h1>Encoding types</h1>
+    <p>Encodings can be divided in:</p>
+    <dl>
+        <dt>Single-byte encodings</dt>
+            <dd>Use only 1 byte, limited to 256 characters</dd>
+        <dt>Multi-byte encodings</dt>
+            <dd>Use more than 1 byte, and are divided in<dl>
+            <dt>Fixed width</dt>
+                <dd>a fixed number of bytes is used for each character</dd>
+            <dt>Variable width</dt>
+                <dd>a variable number of bytes is used</dd>
+            </dl></dd>
+    </dl>
+</div>
+
+
+
+<div class="slide">
+    <h1>8-bits/single-byte Encodings</h1>
+    <ul>
+        <li>For 8-bits character sets, the terms "character set" and "encoding" might overlap<ul>
+            <li>256 possible chars, 256 values representable with 1 byte (8 bits)</li>
+            <li>Single-byte encodings</li>
+            <li>For example, ISO-8859-1 is both a character set and an encoding</li>
+        </ul></li>
+    </ul>
+    <ul>
+        <li>Cause of endless confusions:<br />
+        <pre><code>&lt;meta http-equiv="Content-Type"
+      content="text/html; <span style="color:red">charset</span>=utf-8"&gt;</code></pre><ul>
+            <li>this should actually be called 'encoding'</li>
+        </ul></li>
+    </ul>
+</div>
+
+
+
+<div class="slide">
+    <h1>Unicode Transformation Format (UTF)</h1>
+    <ul>
+        <li>UTF family: UTF-8, UTF-16, UTF-32
+        <ul><li>can represent all the Unicode codepoint</li>
+            <li>multibyte character encodings
+            <ul><li>UTF-8 → 1, 2, 3 or 4 bytes</li>
+                <li>UTF-16 → 2 or 4 bytes</li>
+                <li>UTF-32 → 4 bytes</li>
+            </ul></li>
+        </ul></li>
+        <li>UTF-8
+        <ul><li>always use UTF-8 for your data</li>
+            <li>default encoding in lot of places</li>
+            <li>if you don't know the encoding, assume UTF-8</li>
+        </ul></li>
+    </ul>
+</div>
+
+
+
+<div class="slide">
+    <h1>UTF-32</h1>
+    <ul>
+        <li>UTF-32 is a fixed-width encoding<ul>
+            <li>each codepoint is encoded with 4 bytes</li>
+            <li>not very memory-efficient</li>
+            <li>easier to work with (indexing, slicing)</li>
+        </ul></li>
+    </ul>
+    <table>
+    <tr>
+        <th>Character</th>
+        <th>Codepoint</th>
+        <th>Bytes (hex)</th>
+    </tr>
+    <tr>
+        <td><code>'a'</code></td>
+        <td><code>U+0061</code></td>
+        <td><code>00 00 00 61</code></td>
+    </tr>
+    <tr>
+        <td><code>'ä'</code></td>
+        <td><code>U+00E4</code></td>
+        <td><code>00 00 00 E4</code></td>
+    </tr>
+    <tr>
+        <td><code>'☃'</code></td>
+        <td><code>U+2603</code></td>
+        <td><code>00 00 26 03</code></td>
+    </tr>
+    <tr>
+        <td><code>'🀩'</code></td>
+        <td><code>U+1F029</code></td>
+        <td><code>00 01 F0 29</code></td>
+    </tr>
+    </table>
+</div>
+
+
+
+<div class="slide">
+    <h1>UTF-16</h1>
+    <p>UTF-16 is similar to UTF-32, but uses only 2 bytes</p>
+    <table>
+    <tr>
+        <th>Character</th>
+        <th>Codepoint</th>
+        <th>Bytes (hex)</th>
+    </tr>
+    <tr>
+        <td><code>'a'</code></td>
+        <td><code>U+0061</code></td>
+        <td><code>00 61</code></td>
+    </tr>
+    <tr>
+        <td><code>'ä'</code></td>
+        <td><code>U+00E4</code></td>
+        <td><code>00 E4</code></td>
+    </tr>
+    <tr>
+        <td><code>'☃'</code></td>
+        <td><code>U+2603</code></td>
+        <td><code>26 03</code></td>
+    </tr>
+    <tr>
+        <td><code>'🀩'</code></td>
+        <td><code>U+1F029</code></td>
+        <td><code>????</code></td>
+    </tr>
+    </table>
+    <p>but 2-bytes are enough for BMP chars only...</p>
+</div>
+
+
+
+<div class="slide">
+    <h1>UTF-16 - Surrogates</h1>
+    <ul>
+        <li>To represent non-BMP chars, a
+            <strong>surrogate pair</strong> is used</p><ul>
+            <li>two codepoints in range U+D800–U+DFFF<br />
+                combined to obtain a non-BMP char</li>
+        </li></ul>
+    <table>
+    <tr>
+        <th>Character</th>
+        <th>Codepoint</th>
+        <th>Bytes (hex)</th>
+    </tr>
+    <tr>
+        <td><code>'a'</code></td>
+        <td><code>U+0061</code></td>
+        <td><code>00 61</code></td>
+    </tr>
+    <tr>
+        <td><code>'ä'</code></td>
+        <td><code>U+00E4</code></td>
+        <td><code>00 E4</code></td>
+    </tr>
+    <tr>
+        <td><code>'☃'</code></td>
+        <td><code>U+2603</code></td>
+        <td><code>26 03</code></td>
+    </tr>
+    <tr>
+        <td><code>'🀩'</code></td>
+        <td><code>U+1F029</code></td>
+        <td><code>D8 3C</code> <code>DC 29</code></td>
+    </tr>
+    </table>
+</div>
+
+
+
+<div class="slide">
+    <h1>Surrogates</h1>
+    <ul>
+        <li>Surrogates are invalid in UTF-8 and UTF-32<ul>
+            <li>they can't be encoded/decoded</li>
+        </ul></li>
+        <li>Surrogates are valid in UTF-16 only if paired correctly<ul>
+            <li>High-surrogate (U+D800–U+DBFF) + Low-surrogate (U+DC00–U+DFFF)</li>
+            <li>Low+High is invalid</li>
+            <li>Lone surrogates are invalid</li>
+        </ul></li>
+        <li>Often they are ignored<ul>
+            <li>while calculating the len of a string</li>
+            <li>while indexing/slicing</li>
+            <li>"FFFF codepoints are enough for everyone"</li>
+        </ul></li>
+        <li>Many things break with surrogates</li>
+    </ul>
+</div>
+
+
+
+<div class="slide">
+    <h1>UTF-8</h1>
+    <ul>
+        <li>UTF-8 is variable-width multibyte encoding:<ul>
+            <li>compatible with ASCII</li>
+            <li>1 to 4 bytes<ul>
+                <li>1 byte for ASCII</li>
+                <li>2-3 bytes for BMP chars</li>
+                <li>4 bytes for non-BMP chars</li>
+            </ul></li>
+        </ul></li>
+        <li>UTF-8 uses<ul>
+            <li>a start byte</li>
+            <li>followed by 0-3 continuation bytes</li>
+        </ul></li>
+        <li>The <strong>start byte</strong> specifies how many<br />
+            <strong>continuation bytes</strong> there will be</li>
+    </ul>
+</div>
+
+
+
+<div class="slide">
+    <h1>UTF-8</h1>
+    <table>
+    <tr>
+        <th>Character</th>
+        <th>Codepoint</th>
+        <th>Bytes (hex)</th>
+    </tr>
+    <tr>
+        <td><code>'a'</code></td>
+        <td><code>U+0061</code></td>
+        <td><code>61</code></td>
+    </tr>
+    <tr>
+        <td><code>'ä'</code></td>
+        <td><code>U+00E4</code></td>
+        <td><code>C3 A4</code></td>
+    </tr>
+    <tr>
+        <td><code>'☃'</code></td>
+        <td><code>U+2603</code></td>
+        <td><code>E2 98 83</code></td>
+    </tr>
+    <tr>
+        <td><code>'🀩'</code></td>
+        <td><code>U+1F029</code></td>
+        <td><code>F0 9F 80 A9</code></td>
+    </tr>
+    </table>
+</div>
+
+
+
+<div class="slide">
+    <h1>UTF-8</h1>
+    <table>
+    <tr>
+        <th>Bit pattern</th>
+        <th>Meaning</th>
+    </tr>
+    <tr>
+        <td><code>0xxxxxxx</code></td>
+        <td>ASCII byte</td>
+    </tr>
+    <tr>
+        <td><code>10xxxxxx</code></td>
+        <td>continuation byte</td>
+    </tr>
+    <tr>
+        <td><code>110xxxxx</code></td>
+        <td>start byte of a 2-bytes sequence</td>
+    </tr>
+    <tr>
+        <td><code>1110xxxx</code></td>
+        <td>start byte of a 3-bytes sequence</td>
+    </tr>
+    <tr>
+        <td><code>11110xxx</code></td>
+        <td>start byte of a 4-bytes sequence</td>
+    </tr>
+    </table>
+</div>
+
+
+
+<div class="slide">
+    <h1>UTF-8 - decoding example</h1>
+<pre><code>To find the codepoint, the bytes are converted to binary:
+    0xE2     0x98     0x83
+11100010 10011000 10000011
+1110xxxx 10xxxxyy 10yyyyyy
+
+The leading bits used to identify the start of a 2-bytes
+sequence (1110) and continuation bytes (10) are removed:
+----xxxx --xxxxyy --yyyyyy
+----0010 --011000 --000011
+
+Divide the 'x' and 'y' bits and convert them to hex:
+xxxxxxxx|yyyyyyyy
+00100110|00000011
+    0x26|    0x03
+
+The values are combined to create the codepoint:
+U+2603 = ☃
+</code></pre>
+</div>
+
+
+
+<div class="slide">
+    <h1>Recommendations</h1>
+    <ul>
+        <li>Remember:<ul style="font-size:150%">
+            <li>Decode early</li>
+            <li>Work with Unicode only</li>
+            <li>Encode late</li>
+        </ul></li>
+        <li>and:<ul>
+            <li>use always UTF-8 for your data</li>
+            <li>never mix text and bytes</li>
+            <li>never mix encodings</li>
+            <li>never do text processing on bytes</li>
+            <li>always know the encoding</li>
+        </ul></li>
+    </ul>
+</div>
+
+
+
+<div class="slide">
+    <h1>Encoding/Decoding - UnicodeErrors</h1>
+    <ul>
+        <li>UnicodeError<ul>
+            <li>Unicode<strong>Encode</strong>Error:
+                raised during <strong>encoding</strong></li>
+            <li>Unicode<strong>Decode</strong>Error:
+                raised during <strong>decoding</strong></li>
+        </ul></li>
+    </ul>
+    <br />
+<pre><code>&gt;&gt;&gt; unistr = <var>'Minä tykkään Unicodesta!'</var> <samp># Python 3</samp>
+&gt;&gt;&gt; unistr.encode(<var>'ascii'</var>)
+<samp class="error">UnicodeEncodeError: 'ascii' codec can't encode character
+  '\xe4' in position 3: ordinal not in range(128)</samp>
+&gt;&gt;&gt; bytestr = unistr.encode(<var>'iso-8859-1'</var>)
+&gt;&gt;&gt; bytestr.decode(<var>'utf-8'</var>)
+<samp class="error">UnicodeDecodeError: 'utf8' codec can't decode bytes
+  in position 3-5: invalid data</samp>
+</code></pre>
+</div>
+
+
+
+<div class="slide">
+    <h1>Implicit Decoding on Python 2</h1>
+    <ul>
+        <li>Python 2 allows to mix Unicode and Byte strings:
+<pre><code>&gt;&gt;&gt; <var>u'Unicode and '</var> + <var>'Bytes'</var>
+<samp>u'Unicode and Bytes'</samp></code></pre>
+        <ul><li><code>sys.getdefaultencoding()</code> is used</li>
+            <li>On Py2 <code>sys.getdefaultencoding() == 'ascii'</code></li>
+            <li>if the <code>'str'</code> contains non-ASCII chars the decoding fails
+<pre><code>&gt;&gt;&gt; <var>u'Unicode and '</var> + <var>'ByteSnowMan: ☃'</var>
+<samp class="error">UnicodeDecodeError: 'ascii' codec can't
+ decode byte 0xe2 in position 13: ordinal
+ not in range(128)</samp></code></pre>
+            </li>
+        </ul></li>
+        <li>On Python 3 they can <strong>NOT</strong> be mixed:
+<pre><code>&gt;&gt;&gt; <var>'Unicode and '</var> + <var>b'Bytes'</var>
+<samp class="error">TypeError: Can't convert 'bytes' object
+           to str implicitly</samp></code></pre>
+        </li>
+    </ul>
+</div>
+
+
+
+<div class="slide">
+    <h1>Source Encoding</h1>
+    <ul>
+        <li>PEP-0263: Defining Python Source Code Encodings
+        <pre><code><samp># -*- coding: utf-8 -*-</samp>
+print <var>u'This file is saved in UTF-8 ☺'</var></code></pre>
+        </li>
+        <li>Related <strong>only</strong> to the text in the source file
+            <ul><li>not to the encoding that your program will handle</li>
+                <li>allows to insert non-ASCII chars in string literals and comments
+                <ul><li>in Python 3 in variables names too (PEP-3131)</li></ul></li>
+            </ul></li>
+        <li>If not specified, the default is:
+        <ul><li>ASCII on Python 2 (PEP-0263)</li>
+            <li>UTF-8 on Python 3 (PEP-3120)</li>
+        </ul></li>
+    </ul>
+</div>
+
+
+
+<div class="slide">
+    <h1>Mojibake</h1>
+    <ul>
+        <li>Mojibake (文字化け): "unintelligible sequence of characters"</li>
+    </ul>
+    <table>
+    <tr>
+        <td><strong>NOT</strong> mojibake</td>
+        <td><code>Minä tykkään Unicodesta!</code></td>
+    </tr>
+    <tr>
+        <td>UTF-8 showed as ISO-8859-1</td>
+        <td><code>MinÃ¤ tykkÃ¤Ã¤n Unicodesta!</code></td>
+    </tr>
+    <tr>
+        <td>ISO-8859-1 showed as UTF-8</td>
+        <td><code>Min� tykk��n Unicodesta!</code></td>
+    </tr>
+    </table>
+    <ul>
+        <li>8-bit encoding can encode/decode <strong>everything</strong></li>
+        <li>UTF-8 uses <code>'�'</code> in case of errors</li>
+    </ul>
+</div>
+
+
+
+<div class="slide">
+    <h1>Narrow vs Wide</h1>
+    <p>Two different Python builds:</p>
+    <table>
+    <tr>
+        <th>Narrow</th>
+        <th>Wide</th>
+    </tr>
+    <tr>
+        <td>uses UTF-16 internally</td>
+        <td>uses UTF-32 internally</td>
+    </tr>
+    <tr>
+        <td>2 bytes per char</td>
+        <td>4 bytes per char</td>
+    </tr>
+    <tr>
+        <td><code>sys.maxunicode == 65535</code></td>
+        <td><code>sys.maxunicode == 1114111</code></td>
+    </tr>
+    <tr>
+        <td><code>len('🀩') == 2</code></td>
+        <td><code>len('🀩') == 1</code></td>
+    </tr>
+    <tr>
+        <td><code>'🀩'[0] == '\ud83c'</code></td>
+        <td><code>'🀩'[0] == '🀩'</code></td>
+    </tr>
+    </table>
+    <ul>
+        <li>Fixed in Python 3.3! Thanks to PEP 393</li>
+    </ul>
+</div>
+
+
+
+<div class="slide">
+    <h1>PEP 393</h1>
+    <ul>
+        <li>PEP 393: Flexible String Representation:<ul>
+            <li>number of bytes per codepoint determined by the highest codepoint<ul>
+                <li>U+0000–U+00FF: 1 byte</li>
+                <li>U+0100–U+FFFF: 2 bytes</li>
+                <li>U+10000–U+10FFFF: 4 bytes</li>
+            </ul></li>
+        </ul></li>
+        <li>Uses less memory</li>
+        <li>Still fast (sometimes even faster!)</li>
+        <li>Same behavior of wide builds at Python-level</li>
+        <li>Backward compatible on the C-level<ul>
+            <li>but you should switch to the new API</li>
+        </ul></li>
+        <li><a href="http://www.python.org/dev/peps/pep-0393/">
+            http://www.python.org/dev/peps/pep-0393/</a>
+    </ul>
+</div>
+
+
+
+<div class="slide">
+    <h1>The end</h1>
+    <div style="text-align:center">
+    <p style="font-size:200%">Questions?</p>
+    <span style="font-size:1000%;color:#00F">☃</span>
+    <blockquote>98% of the persons working on submarines<br />have no idea
+        what Unicode is. <sup>[<span style="color:#00F">citation needed</span>]</sup></blockquote>
+    </div>
+</div>
+
+
+
+</div>
+</body>
+</html>
