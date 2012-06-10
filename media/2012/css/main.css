@@ -1,0 +1,32 @@
+* {
+    font-family: Helvetica, Arial, sans-serif;
+}
+body {
+    text-align: center;
+}
+
+#logo-main {
+    padding-top: 20px;
+}
+
+a {
+    color: #555;
+    text-decoration: none;
+}
+a:hover {
+    text-decoratoin: underline;
+    color: black;
+}
+
+h2 {
+    font-size: 20px;
+}
+.down {
+    clear: both;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 700;
+}
+p a {
+    text-decoration: underline;
+}
