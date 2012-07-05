@@ -14,19 +14,35 @@ a {
     text-decoration: none;
 }
 a:hover {
-    text-decoratoin: underline;
+    text-decoration: underline;
     color: black;
 }
 
 h2 {
     font-size: 20px;
 }
+
 .down {
     clear: both;
     width: 100%;
     font-size: 16px;
     font-weight: 700;
 }
+
 p a {
     text-decoration: underline;
+}
+
+#maincontent {
+    width: 960px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+#maincontent h2 {
+    padding-top: 20px;
+}
+
+ul {
+    margin-top: 0;
 }
