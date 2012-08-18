@@ -1,12 +1,13 @@
 import os
 datadir = os.path.join(os.path.dirname(__file__), '..', '..')
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    ('Petri Lehtinen', 'petri@digip.org'),
+    #('Petri Lehtinen', 'petri@digip.org'),
     ('Jyrki Pulliainen', 'jyrki@dywypi.org'),
+    ('Hieu Nguyen', 'webmaster@python.fi'),
 )
 
 MANAGERS = ADMINS
@@ -14,7 +15,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(datadir, 'db.sqlite3'),
+        'NAME': os.path.join(datadir, 'db2012.sqlite3'),
     }
 }
 
@@ -118,7 +119,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'south',
-    'pyconfi2011',
+    'pyconfi2012',
 )
 
 # A sample logging configuration. The only tangible logging

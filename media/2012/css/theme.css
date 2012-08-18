@@ -1,67 +1,11 @@
+/*--------------------- Global ---------------------*/
 html, body {
     width: 100%;
     height: 100%;
     margin: 0px;
     padding: 0px;
-    font: normal 12px/16px Arial, Helvetica, sans-serif;
+    font: normal 14px/18px 'Questrial', Arial, Helvetica, sans-serif;
     color: #333;
-}
-#target {
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    background: #eee;
-    overflow: hidden;
-}
-#header {
-    position: absolute;
-    top: 0px;
-    width: 100%;
-    height: 40px;
-    background: #000;
-    text-align: center;
-    color: #fff;
-    display: block;
-}
-#footer {
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
-    height: 80px;
-    background: #fff;
-    text-align: center;
-}
-#center {
-    position: absolute;
-    top: 40px;
-    bottom: 79px;
-    width: 100%;
-    text-align: center;
-}
-.quarter {
-    width: 50%;
-    height: 50%;
-    float: left;
-}
-.quarter .content {
-    width: 100%;
-    height: 100%;
-    display: none;
-    background-color: #fff;
-    overflow: hidden;
-    text-align: center;
-}
-#logo {
-    width: 200px;
-    height: 200px;
-    background: transparent url(../img/logo.png) no-repeat center;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-top: -120px;
-    margin-left: -100px;
 }
 h1 {
     font-weight: normal;
@@ -71,7 +15,149 @@ h1 {
     font-size: 20px;
 }
 p {
+
 }
-.littlepadding {
-    padding: 10px;
+
+/*--------------------- Main sections ---------------------*/
+#target {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background: #eee;
+    overflow: hidden;
+}
+
+header {
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    top: 0px;
+    background: #2a2a2a;
+    color: #fff;
+    display: block;
+    border-bottom: 1px solid #fff;
+}
+    header nav {
+        position: relative;
+        width: 570px;
+        height: 40px;
+        margin: 0 auto;
+        text-align: center;
+    }
+        header nav ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        header nav li {
+            float: left;
+            list-style: none;
+            padding: 0 5px;
+        }
+            header nav li a {
+                font: normal 16px/18px 'Questrial', Arial, Helvetica, sans-serif;
+                color: #fff;
+                text-transform: uppercase;
+                text-decoration: none;
+                padding: 11px;
+                display: block;
+                /*background: #ccc;*/
+            }
+                header nav li a:hover {
+                    color: #aaa;
+                }
+                header nav li a.active {
+                    color: #50c8f1;
+                }
+
+#center {
+    position: absolute;
+    top: 41px;
+    bottom: 79px;
+    width: 100%;
+    text-align: center;
+}
+    #logo {
+        width: 200px;
+        height: 200px;
+        background: transparent url(../img/logo.png) no-repeat center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -100px;
+        margin-left: -100px;
+        z-index: 10;
+    }
+    .quarter {
+        width: 50%;
+        height: 50%;
+        float: left;
+        overflow-y: scroll; 
+    }
+        .quarter .content {
+            width: 100%;
+            min-height: 100%;
+            display: none;
+            background: #fff;
+            /*overflow: hidden;*/
+            text-align: justify;
+        }
+        .content .full-quarter {
+            padding: 20px;
+        }
+        .content .half-quarter {
+            width: 40%;
+            padding: 20px;
+            float: left;
+        }
+
+footer {
+    height: 466px;
+    width: 100%;
+    position: absolute;
+    bottom: -388px;
+    background: #fff;
+    text-align: center;
+    border-top: 5px solid #2a2a2a;
+}
+    footer #sponsors {
+        padding-top: 10px;
+    }
+
+/*--------------------- Details ---------------------*/
+
+#errorcontainer, 
+#thankyou {
+    padding: 20px;
+    display: none;
+}
+#loader {
+    display: none;
+}
+#registration-form .input-wrapper, 
+#registration-form .checkbox {
+    clear:both;
+    padding: 3px 0;
+}
+#registration-form label {
+    width: 120px;
+    display: block;
+    float: left;
+    text-align: left;
+}
+#registration-form input[type="text"], 
+#registration-form input[type="email"] {
+    width: 150px;
+    display: block;
+    float: left;
+    border: 1px solid #2a2a2a;
+    padding: 3px;
+}
+#registration-form input:disabled {
+    border: 1px solid #ccc;
+}
+#registration-form p {
+    margin: 0;
 }
