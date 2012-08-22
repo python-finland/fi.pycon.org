@@ -45,6 +45,8 @@ $(document).ready(function(){
         var clickTarget = $(e.target);
         
         if (!clickTarget.closest('.content').get(0)) {
+            $('.quarter').attr('style', '');
+            $('.content').attr('style', '');
             $('.content').fadeOut();
             $('body > header a.active').removeClass('active');
         }
