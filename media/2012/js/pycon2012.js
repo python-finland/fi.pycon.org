@@ -16,12 +16,22 @@ $(document).ready(function(){
             _gaq.push(['_trackEvent', 'Navigation', ref.slice(1)]);
         }
 
+        $('.quarter').attr('style', '');
+        $('.content').attr('style', '');
         $('.content').fadeOut();
         $('body > header a.active').removeClass('active');
         $('body > header a[href="'+ref+'"]').addClass('active');
 
         if (ref !== '#sponsors') {
-            target.fadeIn();    
+            // calculate height and render css accordingly
+            if (target.height() > ((window.screen.height-120)/2)) {
+                target.parent().css('overflow-y', 'scroll');
+            } else {
+                target.css('height', '100%');
+            }
+
+            // fade content in
+            target.fadeIn(); 
         } else {
             $('html,body').animate({scrollTop: target.offset().top}, 500);
         }
@@ -89,5 +99,4 @@ $(document).ready(function(){
             }
         });
     });
-
 });
