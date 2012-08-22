@@ -60,6 +60,18 @@ Restart and refresh the production server::
     git pull # Load new code from github
     killall python; sleep 1; virtualenv/bin/python www/api/manage.py runfcgi host=127.0.0.1 port=8080
 
+Editing the pages
+--------------------
+
+Example::
+
+    cd fi.python.org
+    python -m SimpleHTTPServer
+
+Then
+
+    http://localhost:8000/2012/demo.html
+
 Repos
 -----
 
