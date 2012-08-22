@@ -18,6 +18,8 @@ Commands to start the site locally::
     - Virtualenv
     - Django (1.3+)
     - South
+    - 1 "secret" file located outside the root folder, name it "secret", so for example you have the root folder of the project is /home/yourhome/dev/pycon/, the secret file should be /home/yourhome/dev/secret
+    - 1 sqlite3 file located outside the root folder, name it "db2012.sqlite3"
 
 * How to:
     - Frontend of the site is located in /<year> folder (like 2011 or 2012), they are just pure HTML files
