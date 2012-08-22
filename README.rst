@@ -13,6 +13,14 @@ Running the site
 
     git@github.com:python-finland/fi.pycon.org.git
     
+* Requirements:
+    - Virtualenv
+    - Django (1.3+)
+    - South
+
+* How to:
+    - Frontend of the site is located in /<year> folder (like 2011 or 2012), they are just pure HTML files
+    - Backend of the site is located in /api/pycon<year> folder. To run backend, go to /api folder and run: python manage.py runserver
 
 Repos
 -----
