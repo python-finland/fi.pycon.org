@@ -4,7 +4,11 @@
 
 *~
 
-api/db.sqlite3
+*.sqlite3
 
 # Eclipse project file
 .project
+
+venv
+virtualenv.*
+*.pyc

@@ -10,10 +10,6 @@ All source code is licensed under `BSD license
 Running the site
 -------------------
 
-Commands to start the site locally::
-
-    git@github.com:python-finland/fi.pycon.org.git
-
 * Requirements:
     - Virtualenv
     - Django (1.3+)
@@ -24,6 +20,18 @@ Commands to start the site locally::
 * How to:
     - Frontend of the site is located in /<year> folder (like 2011 or 2012), they are just pure HTML files
     - Backend of the site is located in /api/pycon<year> folder. To run backend, go to /api folder and run: python manage.py runserver
+
+Commands to duplicate the production site locally. First see how to add your SSH key below::
+
+    git@github.com:python-finland/fi.pycon.org.git
+    curl -L -o virtualenv.py https://raw.github.com/pypa/virtualenv/master/virtualenv.py
+    python virtualenv.py venv  # Create virtualenv
+    source venv/bin/activate
+    pip install Django South
+    scp pythonfi:/srv/fi.pycon.org/db2012.sqlite3 .
+    cd api
+    touch ../../secret # Create secret file
+    python manage.py runserver
 
 The production server
 -----------------------
@@ -36,15 +44,20 @@ In your ``.ssh/config`` add::
     User pythonfi
     Hostname vps1207.zoner-asiakas.fi
 
-Now you can type::
+Add your SSH key to the server using the organization password::
+
+    ssh-copy-id pythonfi
+
+Now you can enter the server::
 
     ssh pythonfi
 
-Restart the production server::
+Restart and refresh the production server::
 
     screen -x # screen if not active yet
     cd /srv/fi.pycon.org/
     source ../virtualenv/bin/activate
+    git pull # Load new code from github
     killall python; sleep 1; virtualenv/bin/python www/api/manage.py runfcgi host=127.0.0.1 port=8080
 
 Repos
