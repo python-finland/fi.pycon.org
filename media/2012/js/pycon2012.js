@@ -7,8 +7,8 @@ $(document).ready(function(){
     );
 
     // navigation
-    $('body > header a').click(function(e) {
-        var ref = $(this).attr('href');
+    $('a.internal').click(function(e) {
+        var ref = this.hash;
             target = $(ref);
 
         // track with Google Analytics
@@ -21,7 +21,7 @@ $(document).ready(function(){
         $(this).addClass('active');
 
         if (ref !== '#sponsors') {
-            target.children('.content').fadeIn();    
+            target.fadeIn();    
         } else {
             $('html,body').animate({scrollTop: target.offset().top}, 500);
         }
