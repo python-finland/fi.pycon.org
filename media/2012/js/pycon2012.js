@@ -7,7 +7,7 @@ $(document).ready(function(){
     );
 
     // navigation
-    $('a.internal').click(function(e) {
+    $('a[href^="#"]').click(function(e) {
         var ref = this.hash;
             target = $(ref);
 
@@ -18,7 +18,7 @@ $(document).ready(function(){
 
         $('.content').fadeOut();
         $('body > header a.active').removeClass('active');
-        $(this).addClass('active');
+        $('body > header a[href="'+ref+'"]').addClass('active');
 
         if (ref !== '#sponsors') {
             target.fadeIn();    
