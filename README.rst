@@ -7,6 +7,13 @@ http://fi.pycon.org/.
 All source code is licensed under `BSD license
 <http://www.opensource.org/licenses/bsd-license.php>`_.
 
+Running the site
+-------------------
+
+
+    git@github.com:python-finland/fi.pycon.org.git
+    
+
 Repos
 -----
 
