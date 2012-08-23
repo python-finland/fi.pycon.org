@@ -55,7 +55,7 @@ Now you can enter the server::
 Restart and refresh the production server::
 
     screen -x # screen if not active yet
-    cd /srv/fi.pycon.org/
+    cd /srv/fi.pycon.org/www
     source ../virtualenv/bin/activate
     git pull # Load new code from github
     killall python; sleep 1; virtualenv/bin/python www/api/manage.py runfcgi host=127.0.0.1 port=8080
@@ -77,6 +77,13 @@ Repos
 
 The official source code repository is
 https://github.com/python-finland/fi.pycon.org/.
+
+Github hooks
+---------------
+
+Get debug data::
+
+    curl -u "miohtama:xxxx" -in https://api.github.com/repos/python-finland/fi.pycon.org/hooks
 
 Contact
 -------
