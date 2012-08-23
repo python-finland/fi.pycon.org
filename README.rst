@@ -81,7 +81,9 @@ https://github.com/python-finland/fi.pycon.org/.
 Github hooks
 ---------------
 
-Get debug data::
+CIA will post commit data to #python-hallitus @ IRCNet.
+
+Get Github hook debug data::
 
     curl -u "miohtama:xxxx" -in https://api.github.com/repos/python-finland/fi.pycon.org/hooks
 
