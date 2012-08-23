@@ -63,7 +63,6 @@ header {
                 text-decoration: none;
                 padding: 11px;
                 display: block;
-                /*background: #ccc;*/
             }
                 header nav li a:hover {
                     color: #aaa;
@@ -94,14 +93,13 @@ header {
         width: 50%;
         height: 50%;
         float: left;
-        overflow-y: scroll; 
     }
         .quarter .content {
             width: 100%;
-            min-height: 100%;
+            height: auto;
             display: none;
             background: #fff;
-            /*overflow: hidden;*/
+            overflow: hidden;
             text-align: justify;
         }
         .content .full-quarter {
@@ -111,6 +109,19 @@ header {
             width: 40%;
             padding: 20px;
             float: left;
+        }
+        
+        .quarter.top .full-quarter{
+            padding-bottom: 50px; 
+        }
+        .quarter.bottom .full-quarter{
+            padding-top: 50px; 
+        }
+        .quarter.left .full-quarter{
+            padding-right: 60px; 
+        }
+        .quarter.right .full-quarter{
+            padding-left: 60px; 
         }
 
 footer {
