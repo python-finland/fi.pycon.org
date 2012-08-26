@@ -60,6 +60,10 @@ Restart and refresh the production server::
     git pull # Load new code from github
     killall python; sleep 1; virtualenv/bin/python www/api/manage.py runfcgi host=127.0.0.1 port=8080
 
+... or ... ::
+
+    killall python; sleep 1; cd /srv/fi.pycon.org/www ; git pull ; ../virtualenv/bin/python api/manage.py runfcgi host=127.0.0.1 port=8080
+
 Editing the pages
 --------------------
 
