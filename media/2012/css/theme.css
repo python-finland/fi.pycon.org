@@ -18,6 +18,11 @@ p {
 
 }
 
+li {
+    line-height: 1.5em;
+}
+
+
 /*--------------------- Main sections ---------------------*/
 #target {
     position: absolute;
@@ -110,18 +115,18 @@ header {
             padding: 20px;
             float: left;
         }
-        
+
         .quarter.top .full-quarter{
-            padding-bottom: 50px; 
+            padding-bottom: 50px;
         }
         .quarter.bottom .full-quarter{
-            padding-top: 50px; 
+            padding-top: 50px;
         }
         .quarter.left .full-quarter{
-            padding-right: 60px; 
+            padding-right: 60px;
         }
         .quarter.right .full-quarter{
-            padding-left: 60px; 
+            padding-left: 60px;
         }
 
 footer {
@@ -139,7 +144,7 @@ footer {
 
 /*--------------------- Details ---------------------*/
 
-#errorcontainer, 
+#errorcontainer,
 #thankyou {
     padding: 20px;
     display: none;
@@ -147,7 +152,7 @@ footer {
 #loader {
     display: none;
 }
-#registration-form .input-wrapper, 
+#registration-form .input-wrapper,
 #registration-form .checkbox {
     clear:both;
     padding: 3px 0;
@@ -158,7 +163,7 @@ footer {
     float: left;
     text-align: left;
 }
-#registration-form input[type="text"], 
+#registration-form input[type="text"],
 #registration-form input[type="email"] {
     width: 150px;
     display: block;
