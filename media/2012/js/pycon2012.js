@@ -1,8 +1,8 @@
 $(document).ready(function(){
-    // init parallax        
+    // init parallax
     $('#target').parallax(
-        {triggerExposesEdges: true}, 
-        {xtravel:0.2, ytravel:0.2}, 
+        {triggerExposesEdges: true},
+        {xtravel:0.2, ytravel:0.2},
         {xtravel:0.6, ytravel:0.6}
     );
 
@@ -31,11 +31,19 @@ $(document).ready(function(){
             }
 
             // fade content in
-            target.fadeIn(); 
+            target.fadeIn();
         } else {
             $('html,body').animate({scrollTop: target.offset().top}, 500);
         }
-        
+
+        try {
+            // http://stackoverflow.com/questions/4715073/window-location-hash-prevent-scrolling-to-the-top
+            e.preventDefault();
+            window.location.hash = ref;
+            $(window).scrollTop(0);
+        } catch(e) {
+        }
+
         e.stopPropagation();
         return false;
     });
@@ -43,7 +51,7 @@ $(document).ready(function(){
     // hide content if click outside
     $(document).click(function(e) {
         var clickTarget = $(e.target);
-        
+
         if (!clickTarget.closest('.content').get(0)) {
             $('.quarter').attr('style', '');
             $('.content').attr('style', '');
@@ -101,4 +109,14 @@ $(document).ready(function(){
             }
         });
     });
+
+    // See if we have a fragment and scroll there
+    function init() {
+        var frag = window.location.hash;
+        if(frag) {
+            $("a[href=" + frag + "]").first().click();
+        }
+    }
+
+    init();
 });
