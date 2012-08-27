@@ -105,7 +105,7 @@ header {
             display: none;
             background: #fff;
             overflow: hidden;
-            overflow-y: scroll;
+            /*overflow-y: scroll;*/
             text-align: justify;
         }
         .content .full-quarter {

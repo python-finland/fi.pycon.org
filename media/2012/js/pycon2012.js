@@ -24,12 +24,11 @@ $(document).ready(function(){
 
         if (ref !== '#sponsors') {
             // calculate height and render css accordingly
-            if (target.height() > ((window.screen.height-120)/2)) {
-                target.parent().css('overflow-y', 'scroll');
+            if (target.height() > (($(window).height()-120)/2)) {
+                target.css({'overflow-y':'scroll', 'height':'100%'});
             } else {
                 target.css('height', '100%');
             }
-
             // fade content in
             target.fadeIn();
         } else {
