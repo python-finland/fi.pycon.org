@@ -66,7 +66,6 @@ def send_confirmation_email(registration):
 @csrf_exempt
 @require_POST
 def register(request):
-    '''
     if Registration.objects.count() >= SEATS_AVAILABLE:
         return HttpResponse(json.dumps({
             'ok': False,
@@ -78,11 +77,10 @@ def register(request):
     form = RegistrationForm(request.POST)
     if form.is_valid():
         form.save()
-        #send_confirmation_email(form.instance)
+        send_confirmation_email(form.instance)
         return HttpResponse(json.dumps({'ok': True}))
     else:
         return HttpResponse(json.dumps({'ok': False, 'errors': form.errors}))
-    '''
     return HttpResponse(json.dumps({'ok': True}))
 
 

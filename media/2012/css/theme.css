@@ -28,6 +28,10 @@ li {
     line-height: 1.5em;
 }
 
+article {
+    padding-top: 10px;
+    border-bottom: 1px solid #ddd;
+}
 
 /*--------------------- Main sections ---------------------*/
 #target {
