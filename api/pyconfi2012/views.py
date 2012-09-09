@@ -1,3 +1,5 @@
+import os
+
 from django.http import HttpResponse
 from django.core.mail import send_mail
 from django.template import Context, Template
@@ -89,3 +91,12 @@ def register(request):
 def seats_left(request):
     count = SEATS_AVAILABLE - Registration.objects.count()
     return HttpResponse(json.dumps({'ok': True, 'count': count}))
+
+# index.html hack
+
+def index(request):
+    from django.template import loader
+    t = loader.get_template("index.html")
+    c = Context({})
+    return HttpResponse(t.render(c))
+
