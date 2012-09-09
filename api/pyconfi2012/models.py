@@ -2,7 +2,7 @@ from itertools import izip_longest
 from datetime import timedelta
 from django.db import models
 
-SEATS_AVAILABLE = 130
+SEATS_AVAILABLE = 200
 
 
 def grouper(n, iterable, fillvalue=None):

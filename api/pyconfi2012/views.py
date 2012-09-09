@@ -1,4 +1,4 @@
-from django.http import HttpResponse, HttpResponseNotAllowed
+from django.http import HttpResponse
 from django.core.mail import send_mail
 from django.template import Context, Template
 from django.views.decorators.csrf import csrf_exempt
@@ -30,20 +30,21 @@ email_body = Template('''\
 
     You will receive a bill in a separate email closer to the event.
 
-    The registration can be cancelled by contacting hallitus@python.fi.
-    Full return, 25 EUR cancellation fee until September 15th. No return
-    after September 15th.
+    The registration can be cancelled by contacting
+    hallitus@python.fi. 25 EUR cancellation fee until and including
+    September 30th. No return after September 30th.
 
     See you in PyCon Finland 2012!
 
     Best regards,
     Organizers
-    ''')
+
+                      ''')
 
 
 def send_confirmation_email(registration):
     if registration.ticket_type == 'corporate':
-        price = 100
+        price = 125
     elif registration.ticket_type == 'normal':
         price = 50
     elif registration.ticket_type == 'student':
@@ -53,7 +54,7 @@ def send_confirmation_email(registration):
             price += 5
 
             send_mail(
-                'Your registration to PyCon Finland 2011',
+                'Your registration to PyCon Finland 2012',
                 email_body.render(Context({
                     'x': registration,
                     'price': price,
@@ -72,7 +73,7 @@ def register(request):
             'errors': {
             '__all__': 'No seats left'
             },
-            }))
+        }))
 
     form = RegistrationForm(request.POST)
     if form.is_valid():
