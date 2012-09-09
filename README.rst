@@ -24,6 +24,7 @@ Running the site
 Commands to duplicate the production site locally. First see how to add your SSH key below::
 
     git@github.com:python-finland/fi.pycon.org.git
+    cd fi.pycon.org
     curl -L -o virtualenv.py https://raw.github.com/pypa/virtualenv/master/virtualenv.py
     python virtualenv.py venv  # Create virtualenv
     source venv/bin/activate
