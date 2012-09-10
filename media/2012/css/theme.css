@@ -4,7 +4,7 @@ html, body {
     height: 100%;
     margin: 0px;
     padding: 0px;
-    font: normal 14px/18px 'Questrial', Arial, Helvetica, sans-serif;
+    font: normal 14px/18px 'Questrial', Arial, Helvetica, sans-serif !important;
     color: #333;
 }
 h1 {
