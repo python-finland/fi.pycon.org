@@ -193,3 +193,11 @@ footer {
 .error:focus {
     border-color: #2a2a2a;
 }
+
+/* Dialogs */
+
+#center .modal {
+    text-align: left;
+    width: 800px;
+    margin-left: -400px;
+}

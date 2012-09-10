@@ -1,15 +1,15 @@
 $(document).ready(function(){
-    // init parallax
-    $('#target').parallax(
-        {triggerExposesEdges: true},
-        {xtravel:0.2, ytravel:0.2},
-        {xtravel:0.6, ytravel:0.6}
-    );
 
     // navigation
     $('a[href^="#"]').click(function(e) {
         var ref = this.hash;
             target = $(ref);
+
+        // We hit modal dialog trigger
+        if($(this).attr("data-toggle") == "modal") {
+            // Let bootstrap take over
+            return true;
+        }
 
         // track with Google Analytics
         if (typeof(_gaq) !== "undefined") {
@@ -134,6 +134,9 @@ $(document).ready(function(){
             }
         });
     });
+
+    // Handle modals
+    $
 
     // See if we have a fragment and scroll there
     function init() {
