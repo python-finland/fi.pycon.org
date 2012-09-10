@@ -7,7 +7,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST, require_GET
 
 import json
-from .forms import RegistrationForm
+from .forms import RegistrationForm, COUNTRIES
 from .models import Registration, SEATS_AVAILABLE
 
 email_body = Template('''\
@@ -91,6 +91,15 @@ def register(request):
 def seats_left(request):
     count = SEATS_AVAILABLE - Registration.objects.count()
     return HttpResponse(json.dumps({'ok': True, 'count': count}))
+
+
+@require_GET
+def autocomplete_country(request):
+    results = []
+    for name, code in COUNTRIES:
+        if request.GET.get('query') in name:
+            results.append(name)
+    return HttpResponse(json.dumps(results))
 
 # index.html hack
 

@@ -116,6 +116,16 @@ $(document).ready(function(){
         update_price();
     });
 
+    $('#id_country').typeahead({
+        minLength: 1,
+        items: 10,
+        source: function (query, process) {
+            return $.get('/country', { query: query }, function (data) {
+                return process(data);
+            }, 'json');
+        }
+    });
+
     $('#registration-form').submit(function(e) {
         e.preventDefault();
         var self = this;
