@@ -115,7 +115,6 @@ header {
             display: none;
             background: #fff;
             overflow: hidden;
-            /*overflow-y: scroll;*/
             text-align: justify;
         }
         .content .full-quarter {
@@ -123,10 +122,9 @@ header {
         }
         .content .half-quarter {
             width: 40%;
-            padding: 20px;
+            padding: 0 20px 20px 20px;
             float: left;
         }
-
         .quarter.top .full-quarter{
             padding-bottom: 50px;
         }
@@ -156,11 +154,12 @@ footer {
 /*--------------------- Details ---------------------*/
 
 #errorcontainer,
-#thankyou {
-    padding: 20px;
+#thankyou,
+#loader,
+#billing-details {
     display: none;
 }
-#loader {
+{
     display: none;
 }
 #registration-form .input-wrapper,
@@ -187,4 +186,10 @@ footer {
 }
 #registration-form p {
     margin: 0;
+}
+#registration form .error {
+    border-color: #f55;
+}
+.error:focus {
+    border-color: #2a2a2a;
 }

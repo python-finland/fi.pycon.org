@@ -56,7 +56,35 @@ $(document).ready(function(){
             $('.content').attr('style', '');
             $('.content').fadeOut();
             $('body > header a.active').removeClass('active');
+            window.location.hash = '';
         }
+    });
+
+    var update_price = function() {
+        var prices = {
+            'corporate': 125,
+            'normal': 50,
+            'student': 10
+        };
+        var price = prices[$('#id_ticket_type').val()] +
+            ($('#id_snailmail_bill').is(':checked') ? 5 : 0);
+
+        $('#registration form span.price').html(price + ' &euro;');
+    };
+
+    $('#id_ticket_type').change(function() {
+        var val = $(this).val(),
+            is_corporate = (val == 'corporate'),
+            is_normal = (val == 'normal');
+        $('#dinner-disclaimer').toggle(is_corporate || is_normal);
+        $('#id_dinner').attr('checked', is_corporate || is_normal);
+        $('#companywrapper').toggle(is_corporate);
+        update_price();
+    });
+
+    $('#id_snailmail_bill').change(function() {
+        $('#billing-details').toggle($(this).is(':checked'));
+        update_price();
     });
 
     $('#registration-form').submit(function(e) {
@@ -71,7 +99,7 @@ $(document).ready(function(){
             beforeSend: function(xhr, settings) {
                 $('#thankyou').hide();
                 $(self).find('input, select')
-                    .attr('disabled', true)
+                    .prop('disabled', true)
                     .removeClass('error');
                 $('#errorcontainer').hide();
             },
@@ -80,12 +108,9 @@ $(document).ready(function(){
                     // Reset the form
                     self.reset();
                     $('.input-wrapper input').keyup();
-
-                    // Show a thankyou message and bring it to view
+                    // Show a thankyou message
                     $('#thankyou').show();
-                    $('html, body').animate({
-                        scrollTop: $('#thankyou').offset().top - 115
-                    }, 500);
+                    $(self).hide();
                 } else {
                     var ul = $('#errorcontainer ul');
                     ul.empty();
@@ -98,13 +123,14 @@ $(document).ready(function(){
                         });
                     });
                     $('#errorcontainer').show();
+                    $(self).find('input, select').prop('disabled', false);
                 }
             },
             error: function() {
                 alert("Something went wrong! Try again!");
             },
             always: function() {
-                $(self).find('input, select').attr('disabled', false);
+                $(self).find('input, select').prop('disabled', false);
             }
         });
     });
