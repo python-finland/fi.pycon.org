@@ -1,0 +1,55 @@
+/* Mobile fuck yeah! */
+
+body {
+    background: rgb(255, 255, 254) !important;
+}
+
+header,
+header nav {
+    width: 100% !important;
+    height: auto !important;
+    float: left;
+    position: static;
+    background: black;
+}
+
+#target {
+    display: none;
+}
+
+#logo {
+    display: none;
+}
+
+.quarter {
+    width: 100% !important;
+    height: auto !important;
+    float: none;
+}
+
+.full-quarter {
+    padding: 10px !important;
+}
+
+.quarter .content {
+    width: 100%;
+    height: auto;
+    display: block;
+    overflow: auto;
+    text-align: left;
+}
+
+#center {
+    position: static;
+    width: auto !important;
+    height: auto !important;
+    padding: 0 10px;
+}
+
+footer {
+    position: static;
+    float: none;
+    padding: 0 10px;
+    width: auto !important;
+    height: auto !important;
+}

@@ -25,6 +25,8 @@
     <script src="../media/2012/js/jquery.event.frame.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
 
+    <link rel='stylesheet' media="screen and (max-width: 900px)" href='../media/2012/css/moobile.css' />
+
     <link href="../media/2012/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="../media/2012/bootstrap/js/bootstrap.min.js"></script>
     <script src="../media/2012/js/pycon2012.js"></script>
@@ -108,6 +110,10 @@
                     <p>
                         <a href="#follow">Follow Us to keep yourself up-to-date!</a>
                     </p>
+
+                    <a href="#code-of-conduct" role="button" class="btn" data-toggle="modal">
+                        See the code of conduct of the conference
+                    </a>
                 </div>
             </div>
             <div id="talks" class="content">
@@ -220,10 +226,11 @@ The main target of the sprint is helping anyone interested in enhancing Robot Fr
         <div class="quarter top right">
             <div id="schedule" class="content">
                 <div class="full-quarter">
+                    <h1>Schedule</h1>
 
                     <p style="font-weight: bold; color: red; -webkit-transform:rotate(10deg); -moz-transform: rotate(10deg); transform: rotate(10deg); top: 30px; position: relative">[ TENTATIVE ]</p>
 
-                    <h1>Schedule: Sunday 21.10. - Tuesday 23.10.2012</h1>
+                    <p>Schedule: Sunday 21.10. - Tuesday 23.10.2012</p>
                     <h2>Sunday 21.10.</h2>
                     <p>19:00 Pre-conference meet-up</p>
                     <p>20:00 - 04:00 Sauna</p>
@@ -294,12 +301,6 @@ The main target of the sprint is helping anyone interested in enhancing Robot Fr
         <div class="quarter bottom left">
             <div id="registration" class="content">
                 <div class="full-quarter">
-
-                    <p>For possible student grants for Pycon Finland 2012 see:</p>
-
-                    <a href="#emea-female-grant" role="button" class="btn" data-toggle="modal">
-                        Google EMEA travel and conference grants for female computer scientists
-                    </a>
 
                     <h1>Registration form</h1>
                     <div id="errorcontainer">
@@ -387,7 +388,7 @@ The main target of the sprint is helping anyone interested in enhancing Robot Fr
                                     name="snailmail_bill">
                             <span class="checkwrapper"></span>
                         </div>
-                        <p>
+                        <p class="bill-help">
                             <span>
                                 If you require a printed bill, check this box
                                     and enter billing details. We charge additional 5
@@ -407,7 +408,7 @@ The main target of the sprint is helping anyone interested in enhancing Robot Fr
             </form>
             <h2 style="clear:both">Ticket classes</h2>
             <ul>
-                <li>Normal: includes dinner, lunch, coffee</li>
+                <li>Normal: includes lunch, dinner, coffee</li>
                 <li>Corporate: includes lunch, dinner, coffee</li>
                 <li>
                     Student: includes coffee. Note that you can get student card discounted lunch at the conference site
@@ -420,7 +421,15 @@ The main target of the sprint is helping anyone interested in enhancing Robot Fr
     <div class="full-quarter">
         <h1>Venue</h1>
 
-        <p>More information about Aalto University coming soon.</p>
+        <p>PyCon 2012 will be held on the Aalto University campus. The main sites will be in the CSE building (Konemiehentie 2) and in the adjacent TUAS building (Otaniementie 17).</p>
+
+        <p>
+            <a href="http://www.aalto.fi/en/about/campuses/campus_maps/">Otaniemi Campus map</a>
+        </p>
+
+        <p>
+            <a href="http://goo.gl/maps/XwAzl">Google Maps around the venue</a>
+        </p>
     </div>
 </div>
 
@@ -432,27 +441,27 @@ The main target of the sprint is helping anyone interested in enhancing Robot Fr
         <h1>News</h1>
 
         <p>
+            10.9.2012: The registration has been opened.
+        </p>
+
+
+        <p>
             22.8.2012: Our lovely new conference site has just been opened.
         </p>
 
-        <h2>Google Conference and Travel Grants</h2>
-        <p>
-            Google is excited to announce conference and travel grants for students at Python Finland. For further information, please check the Grant's website
-            <a href="https://services.google.com/fb/forms/travelgrants2012/">here</a>
-            .
-        </p>
+
     </div>
 </div>
 
 <div id="travel" class="content">
     <div class="full-quarter">
-        <h1>Travel Info</h1>
+        <h2>Travel Info</h2>
 
         <p>
             The venue is located outside the Helsinki in Otaniemi, Espoo. You can get there from Helsinki city by bus from Kamppi.
         </p>
 
-        <p>Travelling to Helsinki</p>
+        <h3>Travelling to Helsinki</h3>
 
         <p>
             By train:
@@ -468,6 +477,23 @@ The main target of the sprint is helping anyone interested in enhancing Robot Fr
             For more information
             <a href="mailto:hallitus@python.fi">contact the organizers.</a>
         </p>
+
+        <h2>Student accommodation</h2>
+
+        <p>Low cost student accommodation will be arranged in Otaniemi. Stay tuned for more details.</p>
+
+        <h2>Grants</h2>
+
+        <p>For possible student grants for Pycon Finland 2012 see:</p>
+
+        <a href="#emea-female-grant" role="button" class="btn" data-toggle="modal">
+            Google travel for female computer scientists
+        </a>
+
+        <a href="#student-grant" role="button" class="btn" data-toggle="modal">
+            Google Conference and Travel Grants
+        </a>
+
     </div>
 </div>
 </div>
@@ -512,6 +538,66 @@ Attend the core day(s) of the main conference
             </p>
         </div>
     </div>
+
+    <div class="modal hide fade" id="student-grant" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3>
+                Google Conference and Travel Grants
+            </h3>
+        </div>
+        <div class="modal-body">
+        <p>
+            Google is excited to announce conference and travel grants for students at Python Finland. For further information, please check the Grant's website
+            <a href="https://services.google.com/fb/forms/travelgrants2012/">here</a>.
+        </p>
+        </div>
+    </div>
+
+
+    <div class="modal hide fade" id="code-of-conduct" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3>
+                CODE OF CONDUCT
+            </h3>
+        </div>
+        <div class="modal-body">
+            <p>
+      All delegates, speakers, exhibitors and volunteers at PyCon Finland are required to agree with the following code of conduct. Organizers will enforce this code throughout the event.
+<h2>
+IN SHORT
+</h2>
+<p>
+PyCon Finland is dedicated to providing a harassment-free conference experience for everyone, regardless of gender, sexual orientation, disability, physical appearance, body size, race, or religion. We do not tolerate harassment of conference participants in any form.
+<p>
+All communication should be appropriate for a professional audience including people of many different backgrounds. Sexual language and imagery is not appropriate for any conference venue, including talks.
+<p>
+Attendees violating these rules may be asked to leave the conference without a refund at the sole discretion of the conference organizers.
+
+<h2>
+LONGER VERSION
+</h2>
+
+<p>
+Harassment includes offensive verbal comments related to gender, sexual orientation, disability, physical appearance, body size, race, religion, sexual images in public spaces, deliberate intimidation, stalking, following, harassing photography or recording, sustained disruption of talks or other events, inappropriate physical contact, and unwelcome sexual attention.
+<p>
+Participants asked to stop any harassing behavior are expected to comply immediately.
+<p>
+Exhibitors in the expo hall, sponsor or vendor booths, or similar activities are also subject to the anti-harassment policy. In particular, exhibitors should not use sexualized images, activities, or other material. Booth staff (including volunteers) should not use sexualized clothing/uniforms/costumes, or otherwise create a sexualized environment.
+<p>
+If a participant engages in harassing behavior, the conference organizers may take any action they deem appropriate, including warning the offender or expulsion from the conference with no refund.
+<p>
+If you are being harassed, notice that someone else is being harassed, or have any other concerns, please contact a member of conference staff immediately.
+<p>
+We expect participants to follow these rules at all conference venues and conference-related social events.
+        </div>
+    </div>
+
+
+
+
+
 </div>
 
 </div>
@@ -551,6 +637,8 @@ for pricing and more information
     <img src="../media/2012/logos/sponsor_deveo.png" alt="" />
 </a>
 </div>
+
+<a href="http://www.andersinno.fi/">Site design by Anders Inno</a>
 </div>
 </footer>
 

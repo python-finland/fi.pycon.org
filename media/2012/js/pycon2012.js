@@ -1,3 +1,23 @@
+var mobilize = {
+
+    // https://github.com/miohtama/plomobile
+    isMobile : function() {
+
+        // Query thru jQuery for maximum compatibility
+        var color = $(document.body).css("backgroundColor");
+
+        if(!color) {
+            // The document body is missing explicit background color used to identify when mobile.css
+            // kicks in
+            return;
+        }
+
+        // Magic bg color set in mobile.css
+        return (color.toLowerCase() == "rgb(255, 255, 254)");
+    }
+};
+
+
 $(document).ready(function(){
 
     // navigation
@@ -5,8 +25,13 @@ $(document).ready(function(){
         var ref = this.hash;
             target = $(ref);
 
+        // No quarters in mobile
+        if(mobilize.isMobile()) {
+            return true;
+        }
+
         // We hit modal dialog trigger
-        if($(this).attr("data-toggle") == "modal") {
+        if($(this).attr("data-toggle") == "modal" || $(this).attr("data-dismiss") == "modal") {
             // Let bootstrap take over
             return true;
         }
@@ -50,6 +75,10 @@ $(document).ready(function(){
     // hide content if click outside
     $(document).click(function(e) {
         var clickTarget = $(e.target);
+
+        if(mobilize.isMobile()) {
+            return true;
+        }
 
         if (!clickTarget.closest('.content').get(0)) {
             $('.quarter').attr('style', '');
@@ -135,13 +164,10 @@ $(document).ready(function(){
         });
     });
 
-    // Handle modals
-    $
-
     // See if we have a fragment and scroll there
     function init() {
         var frag = window.location.hash;
-        if(frag) {
+        if(frag && !mobilize.isMobile()) {
             $("a[href=" + frag + "]").first().click();
         }
     }

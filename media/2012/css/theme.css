@@ -194,6 +194,10 @@ footer {
     border-color: #2a2a2a;
 }
 
+.bill-help {
+    display: inline-block;
+}
+
 /* Dialogs */
 
 #center .modal {
