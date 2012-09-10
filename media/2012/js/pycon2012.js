@@ -120,7 +120,7 @@ $(document).ready(function(){
         minLength: 1,
         items: 10,
         source: function (query, process) {
-            return $.get('/country', { query: query }, function (data) {
+            return $.get('/api/2012/country', { query: query }, function (data) {
                 return process(data);
             }, 'json');
         }

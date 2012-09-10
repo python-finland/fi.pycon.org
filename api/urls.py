@@ -10,7 +10,7 @@ urlpatterns = patterns('',
     url('^api/2012/seats_left$', 'api.pyconfi2012.views.seats_left'),
     ('^api/admin/', include(admin.site.urls)),
 
-    url('^country$', 'api.pyconfi2012.views.autocomplete_country'),
+    url('^api/2012/country$', 'api.pyconfi2012.views.autocomplete_country'),
     (r'^$', 'api.pyconfi2012.views.index'),
 )
 
