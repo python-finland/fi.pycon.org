@@ -97,7 +97,7 @@ def seats_left(request):
 def autocomplete_country(request):
     results = []
     for name, code in COUNTRIES:
-        if request.GET.get('query') in name:
+        if request.GET.get('query').lower() in name.lower():
             results.append(name)
     return HttpResponse(json.dumps(results))
 
