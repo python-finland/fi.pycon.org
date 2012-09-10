@@ -22,7 +22,7 @@ $(document).ready(function(){
 
     // navigation
     $('a[href^="#"]').click(function(e) {
-        var ref = this.hash;
+        var ref = this.hash,
             target = $(ref);
 
         // No quarters in mobile
