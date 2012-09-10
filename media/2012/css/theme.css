@@ -205,3 +205,8 @@ footer {
     width: 800px;
     margin-left: -400px;
 }
+
+#thankyou {
+    background: yellow;
+    padding: 10px;
+}
