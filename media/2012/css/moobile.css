@@ -53,3 +53,10 @@ footer {
     width: auto !important;
     height: auto !important;
 }
+
+
+#center .modal {
+    text-align: left;
+    width: 80%;
+    margin-left: -40%;
+}
