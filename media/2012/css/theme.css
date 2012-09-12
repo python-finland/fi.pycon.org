@@ -42,7 +42,7 @@ article {
     right: 0px;
     overflow: hidden;
     background: #eee url(../img/bg1resized.jpg) no-repeat 0 0;
-    background-size: 100%;
+    background-size: cover;
 }
 #bg {
     
