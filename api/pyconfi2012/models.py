@@ -34,6 +34,8 @@ class Registration(models.Model):
     extra = models.TextField(null=True, blank=True)
 
     dinner = models.BooleanField(default=True)
+    accommodation = models.BooleanField()
+    preconf = models.BooleanField()
 
     snailmail_bill = models.BooleanField(default=False)
     billing_address = models.CharField(max_length=100, null=True, blank=True)

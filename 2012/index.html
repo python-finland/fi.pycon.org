@@ -345,6 +345,22 @@ The main target of the sprint is helping anyone interested in enhancing Robot Fr
                                 <div class="input-wrapper" id="companywrapper">
                                     <label class="placeholder" for="id_company">Company</label>
                                     <input type="text" id="id_company" name="company"></div>
+                                <div id="accommodation-disclaimer" class="checkbox">
+                                <div>
+                                    <label for="id_accommodation">Accommodation?</label>
+                                    <input type="checkbox" id="id_accommodation" name="accommodation">
+                                    <span class="checkwrapper"></span>
+                                </div>
+                                <p class="checkbox-help">If you don't have a place to stay in Helsinki area for the conference, please check the box so we can arrange the accommodation for you.</p>
+                            </div>
+                            <div id="preconf-disclaimer" class="checkbox">
+                                <div>
+                                    <label for="id_preconf">Pre-conference activities?</label>
+                                    <input type="checkbox" id="id_preconf" name="preconf">
+                                    <span class="checkwrapper"></span>
+                                </div>
+                                <p class="checkbox-help">If you plan to join us in pre-conferenece activities on Sunday, please check the box.</p>
+                            </div>
                             </section>
                         </div>
                         <div class="half-quarter">
@@ -385,10 +401,7 @@ The main target of the sprint is helping anyone interested in enhancing Robot Fr
                             <p id="submit">
                                 <span class="label">Total price</span>
                                 <span class="price">125 &euro;</span>
-                                <input type="submit" value="Let's do this!">
-                                <span id="loader">
-                                    <img src="../media/2011/site/loader.gif"
-                                            alt="Loader animation">Magic happening!</span>
+                                <input type="submit" value="Let's do this!" class="btn" />
                             </p>
                         </div>
                     </form>

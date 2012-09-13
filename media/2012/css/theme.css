@@ -175,7 +175,8 @@ footer {
     text-align: left;
 }
 #registration-form input[type="text"],
-#registration-form input[type="email"] {
+#registration-form input[type="email"], 
+#registration-form select {
     width: 150px;
     display: block;
     float: left;
@@ -194,7 +195,9 @@ footer {
 .error:focus {
     border-color: #2a2a2a;
 }
-
+.checkbox label {
+    width: 95% !important;
+}
 .checkbox-help {
     display: inline-block;
     font-size: 12px;
