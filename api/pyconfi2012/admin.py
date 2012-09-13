@@ -119,7 +119,8 @@ class RegistrationAdmin(admin.ModelAdmin):
                     'registered_timestamp')
     list_editable = ('paid',)
     list_filter = ('snailmail_bill', 'billed', 'paid',
-                   'ticket_type', 'country', 'dinner')
+                   'ticket_type', 'country', 'dinner', 
+                   'accommodation', 'preconf')
     ordering = ['-registered_timestamp']
     actions = ['send_bill', 'send_payment_notification', 'show_email_addresses']
 
