@@ -29,6 +29,10 @@ email_body = Template('''\
     {% endautoescape %}
     If there's anything wrong with the information above, please contact
     hallitus@python.fi to resolve the issue.
+    
+    If you're in need of accommodation, we have a special deal with 
+    Radisson Blu Hotel Espoo. Using code PYTHON you get discount prices
+    for single and double rooms.    
 
     You will receive a bill in a separate email closer to the event.
 
