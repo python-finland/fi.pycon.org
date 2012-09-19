@@ -203,6 +203,15 @@ footer {
     font-size: 12px;
 }
 
+#schedule strong {
+    font-size: 14px;
+}
+
+#schedule span.track {
+    display: block;
+    padding: 5px 0 0 25px;
+}
+
 /* Dialogs */
 
 #center .modal {
