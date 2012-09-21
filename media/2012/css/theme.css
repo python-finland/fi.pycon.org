@@ -4,7 +4,7 @@ html, body {
     height: 100%;
     margin: 0px;
     padding: 0px;
-    font: normal 14px/18px 'Questrial', Arial, Helvetica, sans-serif !important;
+    font: normal 13px/16px Arial, Helvetica, sans-serif !important;
     color: #333;
 }
 h1 {
@@ -12,11 +12,9 @@ h1 {
     margin: 0;
     padding: 5px 0;
     text-transform: uppercase;
-    font-size: 20px;
+    font-size: 16px;
 }
-p {
 
-}
 pre {
     white-space: pre-wrap;       /* css-3 */
     white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
@@ -32,125 +30,195 @@ article {
     padding-top: 10px;
     border-bottom: 1px solid #ddd;
 }
+article:last-child {
+    border-bottom: none;
+}
+
+section {clear:both;}
+
+.clear {clear:both;}
+
+div#footerfix {
+    position: relative;
+    min-height: 100%;
+    background: #00324b url(../img/bg4resized.jpg) no-repeat top center;
+}
 
 /*--------------------- Main sections ---------------------*/
-#target {
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    overflow: hidden;
-    background: #eee url(../img/bg1resized.jpg) no-repeat 0 0;
-    background-size: cover;
+
+div#wrapper {
+    margin: 0 auto;
+    width: 798px;
+    padding-bottom: 510px;
+    background: transparent none;
+    position: relative;
+    padding-top: 110px;
 }
 
-header {
-    width: 100%;
-    height: 40px;
+a#logo {
+    background: transparent url(../img/pycon-logo.png) no-repeat top center;
+    width: 215px;
+    height: 215px;
     position: absolute;
-    top: 0px;
-    background: #2a2a2a;
-    color: #fff;
     display: block;
-    border-bottom: 1px solid #fff;
+    top: 25px;
+    left: -55px;
 }
-    header nav {
-        position: relative;
-        width: 940px;
-        height: 40px;
-        margin: 0 auto;
-        text-align: center;
-    }
-        header nav ul {
-            padding: 0;
-            margin: 0;
-            list-style: none;
-        }
-        header nav li {
-            float: left;
-            list-style: none;
-            padding: 0 5px;
-        }
-            header nav li a {
-                font: normal 16px/18px 'Questrial', Arial, Helvetica, sans-serif;
-                color: #fff;
-                text-transform: uppercase;
-                text-decoration: none;
-                padding: 11px;
-                display: block;
-            }
-                header nav li a:hover {
-                    color: #aaa;
-                }
-                header nav li a.active {
-                    color: #50c8f1;
-                }
 
-#center {
+div.corner {
+    width: 256px;
+    background: #141414 url(../img/navtop.jpg) no-repeat top right;
+    height: 39px;
+}
+
+
+div#navigation {
+    width: 211px;
+    background-color: #141414;
+    padding: 80px 0 0 0;
+    float: left;
+}
+
+ul#menu {
+    list-style: none;
+    margin: 0;
+    text-align: right;
+}
+
+ul#menu li {
+
+}
+
+ul#menu li a {
+    display: block;
+    color: #b4b4b4;
+    text-transform: uppercase;
+    font-size: 17px;
+    padding: 5px 30px 5px 0;
+    text-decoration: none;
+}
+
+ul#menu li a.active {
+    background: #00ace8 url(../img/active-menu.png) top right repeat-y;
+    color: #fff;
+}
+
+ul#menu li a:hover {color: #fff;}
+
+div#socialmedia {
+    border-top: 1px solid #616161;
+    margin: 30px;
+    text-align: right;
+    color: #b4b4b4;
+    font-size: 11px;
+    line-height: 20px;
+}
+
+div#socialmedia h5 {
+    margin-top: 20px;
+    font-size: 12px;
+}
+
+div#socialmedia a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+div#content {
+    width: 585px;
+    background-color: #fff;
+    float: left;
+    min-height: 600px;
+/*    max-height: 650px;
+    overflow: hidden;*/
+    -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    position: relative;
+/*    overflow-y: auto;*/
+}
+
+div.page {
+    padding: 30px;
+    display: none;
     position: absolute;
-    top: 41px;
-    bottom: 79px;
+    left:0;
+    top:0;
+    width: 525px;
+    background-color: #fff;
+}
+
+div.page h1 {
+    font-size: 20px;
+    line-height: 20px;
+    padding: 0;
+    margin-bottom: 15px;
+}
+
+div.page h2 {
+    font-size: 18px;
+    line-height: 16px;
+    margin-bottom: 20px;
+}
+
+div.page h3 {
+    font-size: 16px;
+    line-height: 16px;
+}
+
+p#submit {
+    display: block;
+    clear:both;
+}
+
+div#footer {
     width: 100%;
+    background: #fff none;
+    height: 450px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
     text-align: center;
 }
-    #logo {
-        width: 200px;
-        height: 200px;
-        background: transparent url(../img/logo.png) no-repeat center;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin-top: -100px;
-        margin-left: -100px;
-        z-index: 10;
-    }
-    .quarter {
-        width: 50%;
-        height: 50%;
-        float: left;
-    }
-        .quarter .content {
-            width: 100%;
-            height: auto;
-            display: none;
-            background: #fff;
-            overflow: hidden;
-            text-align: justify;
-        }
-        .content .full-quarter {
-            padding: 20px;
-        }
-        .content .half-quarter {
-            width: 40%;
-            padding: 0 20px 20px 20px;
-            float: left;
-        }
-        .quarter.top .full-quarter{
-            padding-bottom: 50px;
-        }
-        .quarter.bottom .full-quarter{
-            padding-top: 50px;
-        }
-        .quarter.left .full-quarter{
-            padding-right: 60px;
-        }
-        .quarter.right .full-quarter{
-            padding-left: 60px;
-        }
 
-footer {
-    height: 466px;
+div#sponsorship {
     width: 100%;
-    position: absolute;
-    bottom: -388px;
-    background: #fff;
-    text-align: center;
-    border-top: 5px solid #2a2a2a;
+    background-color: #141414;
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 20px 0;
+    color: #fff;
+    line-height: 25px;
 }
-    footer #sponsors {
-        padding-top: 10px;
-    }
+
+div#sponsorship a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+div#sponsorship a.available {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+div#sponsorship p {
+    padding: 0;
+    margin: 0;
+}
+
+div#sponsors {
+    padding: 20px;
+}
+
+div#sponsors a {
+    text-decoration: none;
+}
+
+div#sponsors a.sitedesign {
+    font-size: 11px;
+}
+
 
 /*--------------------- Details ---------------------*/
 
