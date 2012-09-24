@@ -55,14 +55,6 @@ $(document).ready(function(){
                 }
             });
         }
-
-        try {
-            // http://stackoverflow.com/questions/4715073/window-location-hash-prevent-scrolling-to-the-top
-            e.preventDefault();
-            window.location.hash = "#" + divId;
-            $(window).scrollTop(0);
-        } catch(e) {}
-
         //location.hash = "#" + divId;
     }
 
@@ -76,12 +68,17 @@ $(document).ready(function(){
         var thisHash = mangleHash(this.hash);
         var locationHash = mangleHash(location.hash);
 
-        console.log(thisHash+''+locationHash)
         if (thisHash === locationHash) {
             // if current page is same as link, do nothing.
         } else {
             // navigate to different page
             navigateTo(thisHash);
+            try {
+                // http://stackoverflow.com/questions/4715073/window-location-hash-prevent-scrolling-to-the-top
+                e.preventDefault();
+                location.hash = "#" + thisHash;
+                $(window).scrollTop(0);
+            } catch(e) {}
         }
         e.preventDefault();
         return false;
