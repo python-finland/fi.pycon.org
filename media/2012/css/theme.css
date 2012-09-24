@@ -38,13 +38,15 @@ section {clear:both;}
 
 .clear {clear:both;}
 
+
+/*--------------------- Main sections ---------------------*/
+
 div#footerfix {
     position: relative;
     min-height: 100%;
     background: #00324b url(../img/bg4resized.jpg) no-repeat top center;
+    background-size: cover;
 }
-
-/*--------------------- Main sections ---------------------*/
 
 div#wrapper {
     margin: 0 auto;
