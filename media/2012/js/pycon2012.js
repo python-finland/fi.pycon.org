@@ -18,14 +18,19 @@ var mobilize = {
 };
 
 
-$(document).ready(function(){
+$(document).ready(function() {
 
-
-    $('input#id_snailmail_bill').click(function(){
-        if(!mobilize.isMobile()) {
-            $("#content").animate({height: $('div#registration').height() + 60});
-        }
-    });
+    if (mobilize.isMobile()) {
+        $('#content > .page').each(function() {
+            var thisName = $(this).attr('id'),
+                thisSubTemplate = '../2012/_' + thisName + '.html';
+            $(this).load(thisSubTemplate, function() {
+                if (thisName === 'registration') {
+                    initialize_registration();
+                }
+            });
+        });
+    }
 
     function mangleHash(hash) {
         return hash.replace(/[#]/g, "");
@@ -33,20 +38,20 @@ $(document).ready(function(){
 
     function navigateTo(divId) {
         var target = $("#" + divId);
-        //console.log("Would navigate to ", divId, target);
         
         if (typeof(_gaq) !== "undefined") { // track with Google Analytics
             _gaq.push(['_trackEvent', 'Navigation', divId]);
         }
 
+        $('ul#menu li a.active').removeClass('active');
+        $('ul#menu a[href$=#' + divId + ']').addClass('active');
+
         if (divId == 'sponsors') { // scroll down!
             $('html,body').animate({scrollTop: target.offset().top}, 500);
         } else { // just fade content in
             $('.page:visible').fadeOut();
-            $('ul#menu li a.active').removeClass('active');
-            $('ul#menu a[href$=#' + divId + ']').addClass('active');
             
-            // local content from html
+            // load content from sub template
             target.load('../2012/_' + divId + '.html', function() {
                 $("#content").animate({height: target.height() + 60});
                 target.fadeIn();
@@ -106,6 +111,12 @@ $(document).ready(function(){
     };
 
     var initialize_registration = function() {
+        $('input#id_snailmail_bill').click(function(){
+            if(!mobilize.isMobile()) {
+                $("#content").animate({height: $('div#registration').height() + 60});
+            }
+        });
+
         $('#id_ticket_type').change(function() {
             var val = $(this).val(),
                 is_corporate = (val == 'corporate'),
@@ -197,7 +208,6 @@ $(document).ready(function(){
 
         if(frag && !mobilize.isMobile()) {
             navigateTo(frag);
-            // console.log(frag, showIndex)
         }
     }
 
