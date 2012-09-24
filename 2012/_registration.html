@@ -1,0 +1,112 @@
+<h1>Registration form</h1>
+<div id="errorcontainer">
+    <p>
+        <span>
+            Submitting registration resulted in error,
+    correct the problems below:
+        </span>
+    </p>
+    <ul></ul>
+</div>
+<div id="thankyou">
+    <h2>Thank You!</h2>
+    <p>
+        <span>
+            You've now registered! Expect to get more details
+    (and the bill) soon! See you at PyCon Finland!
+        </span>
+    </p>
+</div>
+<form method="post" id="registration-form">
+    <div class="half-quarter">
+        <div class="input-wrapper">
+            <label class="placeholder" for="id_name">Your Name</label>
+            <input type="text" id="id_name" name="name"></div>
+        <div class="input-wrapper">
+            <label class="placeholder" for="id_email">Your Email</label>
+            <input type="text" id="id_email" name="email">
+            <script type="text/javascript">document.getElementById('id_email').type = 'email';</script>
+        </div>
+        <div class="input-wrapper">
+            <label class="placeholder" for="id_country">Country</label>
+            <input type="text" id="id_country" name="country"></div>
+        <section>
+            <label for="id_ticket_type">Ticket type</label>
+            <select id="id_ticket_type" name="ticket_type">
+                <option value="corporate">Corporate</option>
+                <option value="normal">Normal</option>
+                <option value="student">Student</option>
+            </select>
+            <span class="arrowwrapper"></span>
+            <span class="selectwrapper"></span>
+            <div class="input-wrapper" id="companywrapper">
+                <label class="placeholder" for="id_company">Company</label>
+                <input type="text" id="id_company" name="company"></div>
+            <div id="accommodation-disclaimer" class="checkbox">
+            <div>
+                <label for="id_accommodation">Accommodation?</label>
+                <input type="checkbox" id="id_accommodation" name="accommodation">
+                <span class="checkwrapper"></span>
+            </div>
+            <p class="checkbox-help">If you don't have a place to stay in Helsinki area for the conference, please check the box so we can arrange the accommodation for you.</p>
+        </div>
+        <div id="preconf-disclaimer" class="checkbox">
+            <div>
+                <label for="id_preconf">Pre-conference activities?</label>
+                <input type="checkbox" id="id_preconf" name="preconf">
+                <span class="checkwrapper"></span>
+            </div>
+            <p class="checkbox-help">If you plan to join us in pre-conferenece activities on Sunday, please check the box.</p>
+        </div>
+        </section>
+    </div>
+    <div class="half-quarter">
+        
+        <!--
+            <div class="input-wrapper" id="additional">
+            <label class="placeholder" for="id_extra">Additional info (diet, allergies)</label>
+            <input type="text" id="id_extra" name="extra"></div>
+        -->
+        <div id="papermail-disclaimer" class="checkbox">
+            <div>
+                <label for="id_snailmail_bill">Paper bill?</label>
+                <input type="checkbox" id="id_snailmail_bill"
+                        name="snailmail_bill">
+                <span class="checkwrapper"></span>
+            </div>
+            <p class="checkbox-help">If you require a printed bill, check this box and enter billing details. We charge additional 5 &euro; for billing via snail mail.</p>
+        </div>
+        <div id="billing-details">
+            <div class="input-wrapper">
+                <label class="placeholder" for="id_billing_address">Address</label>
+                <input type="text" name="billing_address" id="id_billing_address"></div>
+            <div class="input-wrapper">
+                <label class="placeholder" for="id_billing_zipcode">Zip Code</label>
+                <input type="text" name="billing_zipcode" id="id_billing_zipcode"></div>
+            <div class="input-wrapper">
+                <label class="placeholder" for="id_billing_city">City</label>
+                <input type="text" name="billing_city" id="id_billing_city"></div>
+        </div>
+        <div id="dinner-disclaimer" class="checkbox">
+            <div>
+                <label for="id_dinner">Dinner?</label>
+                <input type="checkbox" id="id_dinner" name="dinner" checked>
+                <span class="checkwrapper"></span>
+            </div>
+            <p class="checkbox-help">If you don't plan to attend the dinner, please uncheck the box. This way we can estimate the attendees. This won't affect the price.</p>
+        </div>
+        <p id="submit">
+            <span class="label">Total price</span>
+            <span class="price">125 &euro;</span>
+            <input type="submit" value="Let's do this!" class="btn">
+        </p>
+    </div>
+</form>
+<h2 style="clear:both">Ticket classes</h2>
+<ul>
+    <li>Normal: includes lunch, dinner, coffee</li>
+    <li>Corporate: includes lunch, dinner, coffee</li>
+    <li>
+        Student: includes coffee. Note that you can get student card discounted lunch at the conference site
+    </li>
+</ul>

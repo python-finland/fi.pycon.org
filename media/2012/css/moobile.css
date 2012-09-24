@@ -1,8 +1,11 @@
 /* Mobile fuck yeah! */
 
-body {
-    background: rgb(255, 255, 254) !important;
+body,
+div#footerfix {
+    background: rgb(255, 255, 254) none !important;
 }
+
+
 
 header,
 header nav {
@@ -17,9 +20,79 @@ header nav {
     display: none;
 }
 
-#logo {
+div#wrapper {
+    width: 100% !important;
+    margin: 0;
+    background-color: #141414;
+    text-align: center;
+    padding-top: 0px;
+    padding-bottom: 465px;
+}
+
+
+a#logo {
     display: none;
 }
+
+div#navigation {
+    float: none;
+    width: 100%;
+    padding: 5px 0;
+}
+
+ul#menu {
+    list-style: none;
+    margin: 0;
+    text-align: left;
+    display: block;
+    width: 100%;
+}
+
+ul#menu li {
+    display: block;
+    float: left;
+}
+
+ul#menu li a {
+    display: block;
+    color: #b4b4b4;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 5px 15px;
+    text-decoration: none;
+}
+
+ul#menu li a.active {
+    color: #fff;
+    background: transparent none;
+}
+
+ul#menu li a:hover {color: #fff;}
+
+
+div#socialmedia {
+    display: none;
+}
+
+div.corner {display: none;}
+
+
+div#content {
+    width: 100%;
+    float: none;
+    background: #fff none;
+}
+
+
+div.page {
+    padding: 30px;
+    width: auto;
+    display: block;
+    position: relative;
+    background-color: #fff;
+    text-align: left;
+}
+
 
 .quarter {
     width: 100% !important;
@@ -46,17 +119,60 @@ header nav {
     padding: 0 10px;
 }
 
-footer {
-    position: static;
-    float: none;
-    padding: 0 10px;
-    width: auto !important;
-    height: auto !important;
-}
-
 
 #center .modal {
     text-align: left;
     width: 80%;
     margin-left: -40%;
+}
+
+div#sponsors img {
+    max-width: 250px;
+}
+
+
+/* Let's check image sizes on footer */
+
+@media only screen 
+and (max-width : 780px) {
+    div#sponsors img {
+        max-width: 200px;
+    }
+}
+
+@media only screen 
+and (max-width : 650px) {
+    div#sponsors img {
+        max-width: 180px;
+    }
+}
+
+@media only screen 
+and (max-width : 590px) {
+    div#sponsors img {
+        max-width: 150px;
+    }
+
+    div#wrapper {
+        padding-bottom: 395px;
+    }
+
+    div#footer {
+        height: 390px;
+    }
+}
+
+@media only screen 
+and (max-width : 500px) {
+    div#sponsors img {
+        max-width: 80px;
+    }
+
+    div#wrapper {
+        padding-bottom: 295px;
+    }
+
+    div#footer {
+        height: 290px;
+    }
 }
