@@ -67,7 +67,7 @@ $(document).ready(function(){
     }
 
     // navigation
-    $('#wrapper').on('click', 'a[href^="#"], a.pagelink', function(e) {
+    $('#wrapper').on('click', '#navigation a[href^="#"], a.pagelink', function(e) {
 
         if(mobilize.isMobile()) {
             return true;
