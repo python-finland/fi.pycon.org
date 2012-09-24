@@ -55,12 +55,19 @@ $(document).ready(function(){
                 }
             });
         }
-        location.hash = "#" + divId;
-        
+
+        try {
+            // http://stackoverflow.com/questions/4715073/window-location-hash-prevent-scrolling-to-the-top
+            e.preventDefault();
+            window.location.hash = "#" + divId;
+            $(window).scrollTop(0);
+        } catch(e) {}
+
+        //location.hash = "#" + divId;
     }
 
     // navigation
-    $('#navigation a[href^="#"], a.pagelink').click(function(e) {
+    $('#wrapper').on('click', 'a[href^="#"], a.pagelink', function(e) {
 
         if(mobilize.isMobile()) {
             return true;
@@ -68,10 +75,11 @@ $(document).ready(function(){
 
         var thisHash = mangleHash(this.hash);
         var locationHash = mangleHash(location.hash);
-        if(thisHash == locationHash) {
+
+        console.log(thisHash+''+locationHash)
+        if (thisHash === locationHash) {
             // if current page is same as link, do nothing.
-        }
-        else {
+        } else {
             // navigate to different page
             navigateTo(thisHash);
         }
@@ -79,7 +87,7 @@ $(document).ready(function(){
         return false;
     });
 
-    $('a.btn').click(function(e){
+    $('a#coc').click(function(e){
         // We hit modal dialog trigger
         if($(this).attr("data-toggle") == "modal" || $(this).attr("data-dismiss") == "modal") {
             // Let bootstrap take over
