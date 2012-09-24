@@ -20,74 +20,66 @@ var mobilize = {
 
 $(document).ready(function(){
 
-    // navigation
-    $('a[href^="#"]').click(function(e) {
-        var ref = this.hash,
-            target = $(ref);
 
-        // No quarters in mobile
+    $('input#id_snailmail_bill').click(function(){
+        if(!mobilize.isMobile()) {
+            $("#content").animate({height: $('div#registration').height() + 60});
+        }
+    });
+
+    function mangleHash(hash) {
+        return hash.replace(/[#!]/g, "");
+    }
+
+    function navigateTo(divId) {
+        var $target = $("#" + divId);
+        //console.log("Would navigate to ", divId, $target);
+        
+        if (typeof(_gaq) !== "undefined") { // track with Google Analytics
+            _gaq.push(['_trackEvent', 'Navigation', divId]);
+        }
+
+        if (divId == 'sponsors') { // scroll down!
+            $('html,body').animate({scrollTop: $target.offset().top}, 500);
+        } else { // just fade content in
+            $('.page:visible').fadeOut();
+            $('ul#menu li a.active').removeClass('active');
+            $('ul#menu a[href$=#' + divId + ']').addClass('active');
+            $("#content").animate({height: $target.height() + 60});
+            $target.fadeIn();
+        }
+        location.hash = "#!" + divId;
+        
+    }
+
+    // navigation
+    $('#navigation a[href^="#"], a.pagelink').click(function(e) {
+
         if(mobilize.isMobile()) {
             return true;
         }
 
+        var thisHash = mangleHash(this.hash);
+        var locationHash = mangleHash(location.hash);
+        if(thisHash == locationHash) {
+            // if current page is same as link, do nothing.
+        }
+        else {
+            // navigate to different page
+            navigateTo(thisHash);
+        }
+        e.preventDefault();
+        return false;
+    });
+
+    $('a.btn').click(function(e){
         // We hit modal dialog trigger
         if($(this).attr("data-toggle") == "modal" || $(this).attr("data-dismiss") == "modal") {
             // Let bootstrap take over
             return true;
         }
-
-        // track with Google Analytics
-        if (typeof(_gaq) !== "undefined") {
-            _gaq.push(['_trackEvent', 'Navigation', ref.slice(1)]);
-        }
-
-        $('.quarter').attr('style', '');
-        $('.content').attr('style', '');
-        $('.content').fadeOut();
-        $('body > header a.active').removeClass('active');
-        $('body > header a[href="'+ref+'"]').addClass('active');
-
-        if (ref !== '#sponsors') {
-            // calculate height and render css accordingly
-            if (target.height() > (($(window).height()-120)/2)) {
-                target.css({'overflow-y':'scroll', 'height':'100%'});
-            } else {
-                target.css('height', '100%');
-            }
-            // fade content in
-            target.fadeIn();
-        } else {
-            $('html,body').animate({scrollTop: target.offset().top}, 500);
-        }
-
-        try {
-            // http://stackoverflow.com/questions/4715073/window-location-hash-prevent-scrolling-to-the-top
-            e.preventDefault();
-            window.location.hash = ref;
-            $(window).scrollTop(0);
-        } catch(e) {
-        }
-
-        e.stopPropagation();
-        return false;
     });
 
-    // hide content if click outside
-    $(document).click(function(e) {
-        var clickTarget = $(e.target);
-
-        if(mobilize.isMobile()) {
-            return true;
-        }
-
-        if (!clickTarget.closest('.content').get(0)) {
-            $('.quarter').attr('style', '');
-            $('.content').attr('style', '');
-            $('.content').fadeOut();
-            $('body > header a.active').removeClass('active');
-            window.location.hash = '';
-        }
-    });
 
     var update_price = function() {
         var prices = {
@@ -108,6 +100,9 @@ $(document).ready(function(){
         $('#dinner-disclaimer').toggle(is_corporate || is_normal);
         $('#id_dinner').attr('checked', is_corporate || is_normal);
         $('#companywrapper').toggle(is_corporate);
+        if(!mobilize.isMobile()) {
+            $("#content").animate({height: $('div#registration').height() + 60});
+        }
         update_price();
     });
 
@@ -162,6 +157,9 @@ $(document).ready(function(){
                         });
                     });
                     $('#errorcontainer').show();
+                    if(!mobilize.isMobile()) {
+                        $("#content").animate({height: $('div#registration').height() + 60});
+                    }
                     $(self).find('input, select').prop('disabled', false);
                 }
             },
@@ -176,9 +174,15 @@ $(document).ready(function(){
 
     // See if we have a fragment and scroll there
     function init() {
-        var frag = window.location.hash;
+        var frag = mangleHash(location.hash);
+        var showIndex = false;
+        if(!frag) { frag = 'about'; }
+        if(frag == "sponsors"){
+            $("#about").fadeIn();
+        }
+
         if(frag && !mobilize.isMobile()) {
-            $("a[href=" + frag + "]").first().click();
+            navigateTo(frag, showIndex);
         }
     }
 

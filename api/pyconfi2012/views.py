@@ -56,18 +56,18 @@ def send_confirmation_email(registration):
     elif registration.ticket_type == 'student':
         price = 10
 
-        if registration.snailmail_bill:
-            price += 5
+    if registration.snailmail_bill:
+        price += 5
 
-            send_mail(
-                'Your registration to PyCon Finland 2012',
-                email_body.render(Context({
-                    'x': registration,
-                    'price': price,
-                    })),
-                'hallitus@python.fi',
-                [u'%s <%s>' % (registration.name, registration.email)],
-                )
+    send_mail(
+        'Your registration to PyCon Finland 2012',
+        email_body.render(Context({
+            'x': registration,
+            'price': price,
+            })),
+        'hallitus@python.fi',
+        [u'%s <%s>' % (registration.name, registration.email)],
+    )
 
 
 @csrf_exempt
