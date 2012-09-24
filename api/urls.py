@@ -11,7 +11,7 @@ urlpatterns = patterns('',
     ('^api/admin/', include(admin.site.urls)),
 
     url('^api/2012/country$', 'api.pyconfi2012.views.autocomplete_country'),
-    (r'^$', 'api.pyconfi2012.views.index'),
+    (r'^2012/$', 'api.pyconfi2012.views.index'),
 )
 
 if settings.DEBUG:
