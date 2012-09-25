@@ -113,39 +113,39 @@ Vartiokuja 1 E 37
 ''')
 
 confirmation_email_body = Template('''\
-    Thanks for registering to PyCon Finland 2012!
+Thanks for registering to PyCon Finland 2012!
 
-    Here's your registration info:
-    {% autoescape off %}
-    Name: {{ x.name }}
-    E-mail: {{ x.email }}
-    Ticket type: {{ x.ticket_type }}{% if x.ticket_type == "corporate" %}
-    Company: {{ x.company }}
-    Dinner: {{ x.dinner|yesno:"yes,no" }}{% endif %}
-    Paper bill: {{ x.snailmail_bill|yesno:"yes,no" }}{% if x.snailmail_bill %}
-    Billing address: {{ x.billing_address }}, {{ x.billing_zipcode }} {{ x.billing_city}}{% endif %}{% if x.extra %}
-    Additional info:
-    {{ x.extra }}{% endif %}
+Here's your registration info:
+{% autoescape off %}
+Name: {{ x.name }}
+E-mail: {{ x.email }}
+Ticket type: {{ x.ticket_type }}{% if x.ticket_type == "corporate" %}
+Company: {{ x.company }}
+Dinner: {{ x.dinner|yesno:"yes,no" }}{% endif %}
+Paper bill: {{ x.snailmail_bill|yesno:"yes,no" }}{% if x.snailmail_bill %}
+Billing address: {{ x.billing_address }}, {{ x.billing_zipcode }} {{ x.billing_city}}{% endif %}{% if x.extra %}
+Additional info:
+{{ x.extra }}{% endif %}
 
-    Total price: {{ price }} EUR
-    {% endautoescape %}
-    If there's anything wrong with the information above, please contact
-    hallitus@python.fi to resolve the issue.
-    
-    If you're in need of accommodation, we have a special deal with 
-    Radisson Blu Hotel Espoo. Using code PYTHON you get discount prices
-    for single and double rooms.    
+Total price: {{ price }} EUR
+{% endautoescape %}
+If there's anything wrong with the information above, please contact
+hallitus@python.fi to resolve the issue.
 
-    You will receive a bill in a separate email closer to the event.
+If you're in need of accommodation, we have a special deal with 
+Radisson Blu Hotel Espoo (http://www.radissonblu.fi/hotelli-espoo). Using code PYTHON you get discount prices
+for single and double rooms.    
 
-    The registration can be cancelled by contacting
-    hallitus@python.fi. 25 EUR cancellation fee until and including
-    September 30th. No return after September 30th.
+You will receive a bill in a separate email closer to the event.
 
-    See you in PyCon Finland 2012!
+The registration can be cancelled by contacting
+hallitus@python.fi. 25 EUR cancellation fee until and including
+September 30th. No return after September 30th.
 
-    Best regards,
-    Organizers
+See you in PyCon Finland 2012!
+
+Best regards,
+Organizers
 
 ''')
 
