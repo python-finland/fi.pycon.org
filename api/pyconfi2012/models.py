@@ -52,7 +52,7 @@ class Registration(models.Model):
     @property
     def price(self):
         if self.ticket_type == 'corporate':
-            return 100
+            return 125
         elif self.ticket_type == 'normal':
             return 50
         elif self.ticket_type == 'student':
