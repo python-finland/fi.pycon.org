@@ -112,44 +112,6 @@ Vartiokuja 1 E 37
 ------------------------------------------------------------------------
 ''')
 
-confirmation_email_body = Template('''\
-Thanks for registering to PyCon Finland 2012!
-
-Here's your registration info:
-{% autoescape off %}
-Name: {{ x.name }}
-E-mail: {{ x.email }}
-Ticket type: {{ x.ticket_type }}{% if x.ticket_type == "corporate" %}
-Company: {{ x.company }}
-Dinner: {{ x.dinner|yesno:"yes,no" }}{% endif %}
-Paper bill: {{ x.snailmail_bill|yesno:"yes,no" }}{% if x.snailmail_bill %}
-Billing address: {{ x.billing_address }}, {{ x.billing_zipcode }} {{ x.billing_city}}{% endif %}{% if x.extra %}
-Additional info:
-{{ x.extra }}{% endif %}
-
-Total price: {{ price }} EUR
-{% endautoescape %}
-If there's anything wrong with the information above, please contact
-hallitus@python.fi to resolve the issue.
-
-If you're in need of accommodation, we have a special deal with 
-Radisson Blu Hotel Espoo (http://www.radissonblu.fi/hotelli-espoo). 
-Using code PYTHON you get discount prices
-for single and double rooms.    
-
-You will receive a bill in a separate email closer to the event.
-
-The registration can be cancelled by contacting
-hallitus@python.fi. 25 EUR cancellation fee until and including
-September 30th. No return after September 30th.
-
-See you in PyCon Finland 2012!
-
-Best regards,
-Organizers
-
-''')
-
 class RegistrationAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'country',
                     'ticket_type', 'snailmail_bill',
@@ -160,7 +122,7 @@ class RegistrationAdmin(admin.ModelAdmin):
                    'ticket_type', 'country', 'dinner', 
                    'accommodation', 'preconf')
     ordering = ['-registered_timestamp']
-    actions = ['send_bill', 'send_payment_notification', 'show_email_addresses',       'send_confirmation_email']
+    actions = ['send_bill', 'send_payment_notification', 'show_email_addresses']
 
     def bill_overdue(self, obj):
         return (obj.billed and not obj.paid and
@@ -237,30 +199,5 @@ class RegistrationAdmin(admin.ModelAdmin):
 
     show_email_addresses.short_description = ('Show email addresses of the '
                                               'selected registrants')
-
-    def send_confirmation_email(self, request, queryset):
-        smtp_connection = get_connection()
-
-        for registration in queryset:
-            if registration.ticket_type == 'corporate':
-                price = 125
-            elif registration.ticket_type == 'normal':
-                price = 50
-            elif registration.ticket_type == 'student':
-                price = 10
-
-            if registration.snailmail_bill:
-                price += 5
-
-            send_mail(
-                'Your registration to PyCon Finland 2012',
-                confirmation_email_body.render(Context({
-                    'x': registration,
-                    'price': price,
-                    })),
-                'hallitus@python.fi',
-                [u'%s <%s>' % (registration.name, registration.email)],
-            )
-    send_confirmation_email.short_description = 'Send confirmation email'
 
 admin.site.register(Registration, RegistrationAdmin)
