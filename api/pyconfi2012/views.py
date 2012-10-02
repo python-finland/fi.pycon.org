@@ -17,11 +17,9 @@ email_body = Template('''\
     {% autoescape off %}
     Name: {{ x.name }}
     E-mail: {{ x.email }}
-    Ticket type: {{ x.ticket_type }}
-    {% if x.ticket_type == "corporate" %}
+    Ticket type: {{ x.ticket_type }}{% if x.ticket_type == "corporate" %}
     Company: {{ x.company }}
-    Dinner: {{ x.dinner|yesno:"yes,no" }}
-    {% endif %}
+    Dinner: {{ x.dinner|yesno:"yes,no" }}{% endif %}
     Paper bill: {{ x.snailmail_bill|yesno:"yes,no" }}{% if x.snailmail_bill %}
     Billing address: {{ x.billing_address }}, {{ x.billing_zipcode }} {{ x.billing_city}}{% endif %}{% if x.extra %}
     Additional info:
