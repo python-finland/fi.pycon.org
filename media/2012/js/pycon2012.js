@@ -55,7 +55,7 @@ $(document).ready(function() {
                 var thisDiv = $('a[href=#'+divId+']');
 
                 $('ul#menu a[href^=#talks]').addClass('active');
-                
+
                 if (location.hash.indexOf('talks') === 1 && thisDiv.length > 0) {
                     $(window).scrollTop(thisDiv.position().top + 120);
                 } else {
@@ -64,7 +64,6 @@ $(document).ready(function() {
                     $('#talks').load('../2012/_talks.html', function() {
                         $(this).fadeIn();
                         $("#content").animate({height: $(this).height() + 60}, function() {
-                            console.debug($('a[href=#'+divId+']').offset().top)
                             $(window).scrollTop($('a[href=#'+divId+']').offset().top - 30);
                         });
                     });
