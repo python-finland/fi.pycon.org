@@ -17,9 +17,11 @@ email_body = Template('''\
     {% autoescape off %}
     Name: {{ x.name }}
     E-mail: {{ x.email }}
-    Ticket type: {{ x.ticket_type }}{% if x.ticket_type == "corporate" %}
+    Ticket type: {{ x.ticket_type }}
+    {% if x.ticket_type == "corporate" %}
     Company: {{ x.company }}
-    Dinner: {{ x.dinner|yesno:"yes,no" }}{% endif %}
+    Dinner: {{ x.dinner|yesno:"yes,no" }}
+    {% endif %}
     Paper bill: {{ x.snailmail_bill|yesno:"yes,no" }}{% if x.snailmail_bill %}
     Billing address: {{ x.billing_address }}, {{ x.billing_zipcode }} {{ x.billing_city}}{% endif %}{% if x.extra %}
     Additional info:
@@ -35,18 +37,19 @@ email_body = Template('''\
     Using code PYTHON you get discount prices
     for single and double rooms.    
 
+    {% if x.ticket_type == "corporate" or x.ticket_type == "normal" or x.ticket_type == "student" %}
     You will receive a bill in a separate email closer to the event.
 
     The registration can be cancelled by contacting
     hallitus@python.fi. 25 EUR cancellation fee until and including
     September 30th. No return after September 30th.
-
+    {% endif %}
     See you in PyCon Finland 2012!
 
     Best regards,
     Organizers
 
-                      ''')
+''')
 
 
 def send_confirmation_email(registration):
@@ -56,6 +59,10 @@ def send_confirmation_email(registration):
         price = 50
     elif registration.ticket_type == 'student':
         price = 10
+    elif (registration.ticket_type == 'sponsor'
+        or registration.ticket_type == 'speaker'
+        or registration.ticket_type == 'organizer'):
+        price = 0
 
     if registration.snailmail_bill:
         price += 5

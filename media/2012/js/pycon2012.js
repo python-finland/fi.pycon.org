@@ -102,7 +102,10 @@ $(document).ready(function() {
         var prices = {
             'corporate': 125,
             'normal': 50,
-            'student': 10
+            'student': 10,
+            'sponsor': 0,
+            'speaker': 0,
+            'organizer': 0
         };
         var price = prices[$('#id_ticket_type').val()] +
             ($('#id_snailmail_bill').is(':checked') ? 5 : 0);
@@ -120,10 +123,12 @@ $(document).ready(function() {
         $('#id_ticket_type').change(function() {
             var val = $(this).val(),
                 is_corporate = (val == 'corporate'),
-                is_normal = (val == 'normal');
-            $('#dinner-disclaimer').toggle(is_corporate || is_normal);
-            $('#id_dinner').attr('checked', is_corporate || is_normal);
-            $('#companywrapper').toggle(is_corporate);
+                is_normal = (val == 'normal')
+                is_special = (val=='sponsor' || val=='speaker' || val=='organizer');
+            $('#dinner-disclaimer').toggle(is_corporate || is_normal || is_special);
+            $('#id_dinner').attr('checked', is_corporate || is_normal || is_special);
+            $('#companywrapper').toggle(is_corporate || val=='sponsor');
+            $('#papermail-disclaimer').toggle(!is_special);
             if(!mobilize.isMobile()) {
                 $("#content").animate({height: $('div#registration').height() + 60});
             }
