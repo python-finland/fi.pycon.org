@@ -44,21 +44,43 @@ $(document).ready(function() {
         }
 
         $('ul#menu li a.active').removeClass('active');
-        $('ul#menu a[href$=#' + divId + ']').addClass('active');
+        $('ul#menu a[href^=#' + divId + ']').addClass('active');
 
         if (divId == 'sponsors') { // scroll down!
             $('html,body').animate({scrollTop: target.offset().top}, 500);
-        } else { // just fade content in
-            $('.page:visible').fadeOut();
-            
-            // load content from sub template
-            target.load('../2012/_' + divId + '.html', function() {
-                $("#content").animate({height: target.height() + 60});
-                target.fadeIn();
-                if (divId === 'registration') {
-                    initialize_registration();
+            $('ul#menu a[href$=#' + divId + ']').addClass('active');
+        } else {
+            // if is talk
+            if (divId.indexOf('talks') === 0 && divId.length > 5) {
+                var thisDiv = $('a[href=#'+divId+']');
+
+                $('ul#menu a[href^=#talks]').addClass('active');
+                
+                if (location.hash.indexOf('talks') === 1 && thisDiv.length > 0) {
+                    $(window).scrollTop(thisDiv.position().top + 120);
+                } else {
+                    // fade out current page
+                    $('.page:visible').fadeOut();
+                    $('#talks').load('../2012/_talks.html', function() {
+                        $(this).fadeIn();
+                        $("#content").animate({height: $(this).height() + 60}, function() {
+                            console.debug($('a[href=#'+divId+']').offset().top)
+                            $(window).scrollTop($('a[href=#'+divId+']').offset().top - 30);
+                        });
+                    });
                 }
-            });
+            } else {
+                // fade out current page
+                $('.page:visible').fadeOut();
+                // load content from sub template
+                target.load('../2012/_' + divId + '.html', function() {
+                    $("#content").animate({height: target.height() + 60});
+                    target.fadeIn();
+                    if (divId === 'registration') {
+                        initialize_registration();
+                    }
+                });
+            }   
         }
         //location.hash = "#" + divId;
     }
@@ -76,14 +98,14 @@ $(document).ready(function() {
         if (thisHash === locationHash) {
             // if current page is same as link, do nothing.
         } else {
-            // navigate to different page
-            navigateTo(thisHash);
             try {
                 // http://stackoverflow.com/questions/4715073/window-location-hash-prevent-scrolling-to-the-top
                 e.preventDefault();
                 location.hash = "#" + thisHash;
                 $(window).scrollTop(0);
             } catch(e) {}
+            // navigate to different page
+            navigateTo(thisHash);
         }
         e.preventDefault();
         return false;
