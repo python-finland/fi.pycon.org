@@ -193,7 +193,7 @@ class RegistrationAdmin(admin.ModelAdmin):
             registration.billed = True
             registration.save()
 
-    send_bill.short_description = 'Send an e-mail bill to late bird signups'
+    send_late_bird_bill.short_description = 'Send an late bird bill to signups'
 
     def send_payment_notification(self, request, queryset):
         for registration in queryset:
