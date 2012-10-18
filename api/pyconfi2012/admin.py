@@ -122,7 +122,8 @@ class RegistrationAdmin(admin.ModelAdmin):
                    'ticket_type', 'country', 'dinner', 
                    'accommodation', 'preconf')
     ordering = ['-registered_timestamp']
-    actions = ['send_bill', 'send_payment_notification', 'show_email_addresses']
+    actions = ['send_bill', 'send_payment_notification', 'show_email_addresses',
+               'send_late_bird_bill']
 
     def bill_overdue(self, obj):
         return (obj.billed and not obj.paid and
@@ -150,7 +151,7 @@ class RegistrationAdmin(admin.ModelAdmin):
 
             if registration.snailmail_bill:
                 self.message_user(request, 'Some of the selected registrations '
-                                  'shuld be billed via snail mail')
+                                  'should be billed via snail mail')
 
         smtp_connection = get_connection()
 
@@ -166,6 +167,33 @@ class RegistrationAdmin(admin.ModelAdmin):
             registration.save()
 
     send_bill.short_description = 'Send an e-mail bill'
+
+    def send_late_bird_bill(self, request, queryset):
+        for registration in queryset:
+            if registration.billed:
+                self.message_user(request, 'Some of the selected registrations '
+                                  'have already been billed')
+                return
+
+            if registration.snailmail_bill:
+                self.message_user(request, 'Some of the selected registrations '
+                                  'should be billed via snail mail')
+
+        smtp_connection = get_connection()
+
+        for registration in queryset:
+            registration.bill_date = date.today()
+            registration.total_price = 50 # HARD-CODED PRICE
+            self.send_message(
+                smtp_connection,
+                'Invoice for PyCon Finland 2012',
+                bill_body,
+                registration,
+            )
+            registration.billed = True
+            registration.save()
+
+    send_bill.short_description = 'Send an e-mail bill to late bird signups'
 
     def send_payment_notification(self, request, queryset):
         for registration in queryset:
