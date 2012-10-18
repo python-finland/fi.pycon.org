@@ -57,6 +57,10 @@ class Registration(models.Model):
             return 50
         elif self.ticket_type == 'student':
             return 10
+
+        elif self.ticket_type == 'late_bird': # HARD-CODE price
+            return 50
+            
         else:
             raise ValueError('No price for ticket type %s' % self.ticket_type)
 

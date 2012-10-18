@@ -5,9 +5,9 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    #('Petri Lehtinen', 'petri@digip.org'),
-    ('Jyrki Pulliainen', 'jyrki@dywypi.org'),
     ('Hieu Nguyen', 'webmaster@python.fi'),
+    #('Petri Lehtinen', 'petri@digip.org'),
+    #('Jyrki Pulliainen', 'jyrki@dywypi.org'),
 )
 
 MANAGERS = ADMINS

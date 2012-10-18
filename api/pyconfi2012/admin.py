@@ -183,7 +183,7 @@ class RegistrationAdmin(admin.ModelAdmin):
 
         for registration in queryset:
             registration.bill_date = date.today()
-            registration.total_price = 50 # HARD-CODED PRICE
+            registration.ticket_type = 'late_bird' # HARD-CODED PRICE
             self.send_message(
                 smtp_connection,
                 'Invoice for PyCon Finland 2012',
@@ -193,7 +193,7 @@ class RegistrationAdmin(admin.ModelAdmin):
             registration.billed = True
             registration.save()
 
-    send_late_bird_bill.short_description = 'Send an late bird bill to signups'
+    send_late_bird_bill.short_description = 'Send late bird bill'
 
     def send_payment_notification(self, request, queryset):
         for registration in queryset:
