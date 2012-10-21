@@ -128,6 +128,23 @@ transcodings and distributing large amount of data around the world.
     </p>
 </article>
 
+<article>
+    <h3><a href="#talks-taming-python-zookeeper" class="pagelink">
+        Jyrki Pulliainen - Taming Pythons with ZooKeeper
+    </a></h3>
+    <p>
+        Concurrency is hard. Consistency in distributed systems is hard. And then the whole thing should be highly-available and error resilient.
+
+In the past we used to deploy new indices using sequential scripts, which would move files around in network and then tell services to upgrade their indices via complex command line calls over SSH. As number of services and thus indices and machines grew, this approach came more and more fragile.
+
+To address the fragility, we decided to start providing index distribution as a service. No longer we would need to deal with individual services but aim only to offer robust and trustworthy way of orchestrating the publishing of new indices. Due to the nature of indices, where things need to happen in a certain order, we needed to be able to have consistency over the services inside a datacenter. For this problem, we decided to take the highly consistent ZooKeeper to help us.
+
+With the help of ZooKeeper we built a self-orchestrating fault resilient, distributed system that we now can offer as a service for other teams needing to distribute indices.
+
+The content of the talk will be in three parts: - Introducing our system and problem domain of index distribution - How we used to deal with this in the past - Why did we pick ZooKeeper - How do we built our system on top of primitives provided by ZooKeeper using Python.
+    </p>
+</article>
+
 
 <h1 style="padding-top:20px">Sprints</h1>
 
