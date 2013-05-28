@@ -107,15 +107,15 @@ def seats_left(request):
 def autocomplete_country(request):
     results = []
     for name, code in COUNTRIES:
-        if request.GET.get('query').lower() in name.lower():
+        if (request.GET.get('query')
+            and request.GET.get('query').lower() in name.lower()):
             results.append(name)
     return HttpResponse(json.dumps(results))
 
-# index.html hack
 
+# index.html hack
 def index(request):
     from django.template import loader
     t = loader.get_template("index.html")
     c = Context({})
     return HttpResponse(t.render(c))
-
