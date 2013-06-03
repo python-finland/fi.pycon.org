@@ -23,7 +23,7 @@ $(document).ready(function() {
     if (mobilize.isMobile()) {
         $('#content > .page').each(function() {
             var thisName = $(this).attr('id'),
-                thisSubTemplate = '../2012/_' + thisName + '.html';
+                thisSubTemplate = '../2013/_' + thisName + '.html';
             $(this).load(thisSubTemplate, function() {
                 if (thisName === 'registration') {
                     initialize_registration();
@@ -61,7 +61,7 @@ $(document).ready(function() {
                 } else {
                     // fade out current page
                     $('.page:visible').fadeOut();
-                    $('#talks').load('../2012/_talks.html', function() {
+                    $('#talks').load('../2013/_talks.html', function() {
                         $(this).fadeIn();
                         $("#content").animate({height: $(this).height() + 60}, function() {
                             $(window).scrollTop($('a[href=#'+divId+']').offset().top - 30);
@@ -72,7 +72,7 @@ $(document).ready(function() {
                 // fade out current page
                 $('.page:visible').fadeOut();
                 // load content from sub template
-                target.load('../2012/_' + divId + '.html', function() {
+                target.load('../2013/_' + divId + '.html', function() {
                     $("#content").animate({height: target.height() + 60});
                     target.fadeIn();
                     if (divId === 'registration') {
