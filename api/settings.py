@@ -102,7 +102,7 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'api.urls'
 
-ROOT_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "2012"))
+ROOT_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "2013"))
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
