@@ -58,7 +58,7 @@ div#wrapper {
 }
 
 a#logo {
-    background: transparent url(../img/pycon-logo.png) no-repeat top center;
+    background: transparent url(../img/logo.png) no-repeat top center;
     width: 215px;
     height: 215px;
     position: absolute;
