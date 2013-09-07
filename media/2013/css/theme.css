@@ -246,13 +246,15 @@ div#sponsors a.sitedesign {
 }
 #registration-form input[type="text"],
 #registration-form input[type="email"], 
-#registration-form select {
+#registration-form select,
+#registration textarea {
     width: 150px;
     display: block;
     float: left;
     border: 1px solid #2a2a2a;
     padding: 3px;
 }
+#registration textarea { width: 100%; }
 #registration-form input:disabled {
     border: 1px solid #ccc;
 }
