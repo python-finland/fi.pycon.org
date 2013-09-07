@@ -120,7 +120,7 @@ $(document).ready(function() {
     });
 
 
-    var update_price = function() {
+    function update_price() {
         var prices = {
             'corporate': 150,
             'normal': 50,
@@ -133,9 +133,11 @@ $(document).ready(function() {
             ($('#id_snailmail_bill').is(':checked') ? 5 : 0);
 
         $('#registration form span.price').html(price + ' &euro;');
-    };
+    }
 
-    var initialize_registration = function() {
+    function initialize_registration() {
+        update_price();
+
         $('input#id_snailmail_bill').click(function () {
             if(!mobilize.isMobile()) {
                 $("#content").animate({height: $('div#registration').height() + 60});
@@ -223,7 +225,7 @@ $(document).ready(function() {
 
             return false;
         });
-    };
+    }
 
     // See if we have a fragment and scroll there
     function init() {
