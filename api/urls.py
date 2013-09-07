@@ -5,13 +5,17 @@ from django.conf import settings
 from django.contrib import admin
 admin.autodiscover()
 
-urlpatterns = patterns('',
-    url('^api/2012/register/$', 'api.pyconfi2012.views.register'),
-    url('^api/2012/seats_left$', 'api.pyconfi2012.views.seats_left'),
+YEAR = settings.YEAR
+
+urlpatterns = patterns(
+    '',
+    url('^api/%s/register/$' % YEAR, 'api.pyconfi%s.views.register' % YEAR),
+    url('^api/%s/seats_left$' % YEAR, 'api.pyconfi%s.views.seats_left' % YEAR),
     ('^api/admin/', include(admin.site.urls)),
 
-    url('^api/2012/country$', 'api.pyconfi2012.views.autocomplete_country'),
-    (r'^$', 'api.pyconfi2012.views.index'),
+    url('^api/%s/country$' % YEAR,
+        'api.pyconfi%s.views.autocomplete_country' % YEAR),
+    (r'^$', 'api.pyconfi%s.views.index' % YEAR),
 )
 
 if settings.DEBUG:

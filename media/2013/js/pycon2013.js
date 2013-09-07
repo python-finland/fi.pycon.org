@@ -38,7 +38,7 @@ $(document).ready(function() {
 
     function navigateTo(divId) {
         var target = $("#" + divId);
-        
+
         if (typeof(_gaq) !== "undefined") { // track with Google Analytics
             _gaq.push(['_trackEvent', 'Navigation', divId]);
         }
@@ -79,7 +79,7 @@ $(document).ready(function() {
                         initialize_registration();
                     }
                 });
-            }   
+            }
         }
         //location.hash = "#" + divId;
     }
@@ -102,26 +102,27 @@ $(document).ready(function() {
                 e.preventDefault();
                 location.hash = "#" + thisHash;
                 $(window).scrollTop(0);
-            } catch(e) {}
+            } catch(error) {}
             // navigate to different page
             navigateTo(thisHash);
         }
-        e.preventDefault();
+
         return false;
     });
 
-    $('a#coc').click(function(e){
+    $('a#coc').click(function () {
         // We hit modal dialog trigger
-        if($(this).attr("data-toggle") == "modal" || $(this).attr("data-dismiss") == "modal") {
+        if ($(this).attr("data-toggle") === "modal" || $(this).attr("data-dismiss") === "modal") {
             // Let bootstrap take over
             return true;
         }
+        return false;
     });
 
 
     var update_price = function() {
         var prices = {
-            'corporate': 125,
+            'corporate': 150,
             'normal': 50,
             'student': 10,
             'sponsor': 0,
@@ -135,16 +136,16 @@ $(document).ready(function() {
     };
 
     var initialize_registration = function() {
-        $('input#id_snailmail_bill').click(function(){
+        $('input#id_snailmail_bill').click(function () {
             if(!mobilize.isMobile()) {
                 $("#content").animate({height: $('div#registration').height() + 60});
             }
         });
 
-        $('#id_ticket_type').change(function() {
+        $('#id_ticket_type').change(function () {
             var val = $(this).val(),
                 is_corporate = (val == 'corporate'),
-                is_normal = (val == 'normal')
+                is_normal = (val == 'normal'),
                 is_special = (val=='sponsor' || val=='speaker' || val=='organizer');
             $('#dinner-disclaimer').toggle(is_corporate || is_normal || is_special);
             $('#id_dinner').attr('checked', is_corporate || is_normal || is_special);
@@ -165,18 +166,17 @@ $(document).ready(function() {
             minLength: 1,
             items: 10,
             source: function (query, process) {
-                return $.get('/api/2012/country', { query: query }, function (data) {
+                return $.get('/api/2013/country', { query: query }, function (data) {
                     return process(data);
                 }, 'json');
             }
         });
 
-        $('#registration-form').submit(function(e) {
-            e.preventDefault();
+        $('#registration-form').submit(function() {
             var self = this;
 
             $.ajax({
-                url: '/api/2012/register/',
+                url: '/api/2013/register/',
                 type: 'POST',
                 dataType: 'json',
                 data: $(this).serialize(),
@@ -220,6 +220,8 @@ $(document).ready(function() {
                     $(self).find('input, select').prop('disabled', false);
                 }
             });
+
+            return false;
         });
     };
 

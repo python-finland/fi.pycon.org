@@ -1,8 +1,8 @@
+from django.db import models
+from django.conf import settings
+
 from itertools import izip_longest
 from datetime import timedelta
-from django.db import models
-
-SEATS_AVAILABLE = 200
 
 
 def grouper(n, iterable, fillvalue=None):
@@ -14,7 +14,9 @@ def grouper(n, iterable, fillvalue=None):
 def reference_number(data):
     chk = -sum(int(x) * [7, 3, 1][i % 3] for i, x in enumerate(data[::-1])) % 10
     ref = '%s%d' % (data, chk)
-    return ' '.join(reversed([''.join(reversed(x)) for x in grouper(5, reversed(ref), '')]))
+    return ' '.join(reversed(
+        [''.join(reversed(x)) for x in grouper(5, reversed(ref), '')]
+    ))
 
 
 class Registration(models.Model):
@@ -51,18 +53,11 @@ class Registration(models.Model):
 
     @property
     def price(self):
-        if self.ticket_type == 'corporate':
-            return 125
-        elif self.ticket_type == 'normal':
-            return 50
-        elif self.ticket_type == 'student':
-            return 10
-
-        elif self.ticket_type == 'late_bird': # HARD-CODE price
-            return 50
-            
+        ticket_type = self.ticket_type
+        if ticket_type in settings.TICKET_PRICES:
+            return settings.TICKET_PRICES[ticket_type]
         else:
-            raise ValueError('No price for ticket type %s' % self.ticket_type)
+            raise ValueError('No price for ticket type %s' % ticket_type)
 
     @property
     def total_price(self):

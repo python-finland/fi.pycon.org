@@ -1,14 +1,15 @@
-import os
-
 from django.http import HttpResponse
 from django.core.mail import send_mail
 from django.template import Context, Template
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST, require_GET
+from django.conf import settings
+from django.shortcuts import render
+
+from .forms import RegistrationForm, COUNTRIES
+from .models import Registration
 
 import json
-from .forms import RegistrationForm, COUNTRIES
-from .models import Registration, SEATS_AVAILABLE
 
 email_body = Template('''\
     Thanks for registering to PyCon Finland 2012!
@@ -33,7 +34,7 @@ email_body = Template('''\
     If you're in need of accommodation, we have a special deal with 
     Radisson Blu Hotel Espoo (http://www.radissonblu.fi/hotelli-espoo). 
     Using code PYTHON you get discount prices
-    for single and double rooms.    
+    for single and double rooms.
 
     {% if x.ticket_type == "corporate" or x.ticket_type == "normal" or x.ticket_type == "student" %}
     You will receive a bill in a separate email closer to the event.
@@ -51,16 +52,11 @@ email_body = Template('''\
 
 
 def send_confirmation_email(registration):
-    if registration.ticket_type == 'corporate':
-        price = 125
-    elif registration.ticket_type == 'normal':
-        price = 50
-    elif registration.ticket_type == 'student':
-        price = 10
-    elif (registration.ticket_type == 'sponsor'
-        or registration.ticket_type == 'speaker'
-        or registration.ticket_type == 'organizer'):
-        price = 0
+    ticket_type = registration.ticket_type
+    if ticket_type in settings.TICKET_PRICES:
+        price = settings.TICKET_PRICES[ticket_type]
+    else:
+        raise ValueError('No price for ticket type %s' % ticket_type)
 
     if registration.snailmail_bill:
         price += 5
@@ -70,7 +66,7 @@ def send_confirmation_email(registration):
         email_body.render(Context({
             'x': registration,
             'price': price,
-            })),
+        })),
         'hallitus@python.fi',
         [u'%s <%s>' % (registration.name, registration.email)],
     )
@@ -79,7 +75,7 @@ def send_confirmation_email(registration):
 @csrf_exempt
 @require_POST
 def register(request):
-    if Registration.objects.count() >= SEATS_AVAILABLE:
+    if Registration.objects.count() >= settings.SEATS_AVAILABLE:
         return HttpResponse(json.dumps({
             'ok': False,
             'errors': {
@@ -99,7 +95,7 @@ def register(request):
 
 @require_GET
 def seats_left(request):
-    count = SEATS_AVAILABLE - Registration.objects.count()
+    count = settings.SEATS_AVAILABLE - Registration.objects.count()
     return HttpResponse(json.dumps({'ok': True, 'count': count}))
 
 
@@ -107,15 +103,14 @@ def seats_left(request):
 def autocomplete_country(request):
     results = []
     for name, code in COUNTRIES:
-        if (request.GET.get('query')
-            and request.GET.get('query').lower() in name.lower()):
+        if (
+            request.GET.get('query')
+            and request.GET.get('query').lower() in name.lower()
+        ):
             results.append(name)
     return HttpResponse(json.dumps(results))
 
 
-# index.html hack
+# some hacking to get empty template
 def index(request):
-    from django.template import loader
-    t = loader.get_template("index.html")
-    c = Context({})
-    return HttpResponse(t.render(c))
+    return render(request, 'index.html', {})
