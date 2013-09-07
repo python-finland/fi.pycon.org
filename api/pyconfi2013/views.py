@@ -12,7 +12,7 @@ from .models import Registration
 import json
 
 email_body = Template('''\
-    Thanks for registering to PyCon Finland 2012!
+    Thanks for registering to PyCon Finland {{ year }}!
 
     Here's your registration info:
     {% autoescape off %}
@@ -30,11 +30,6 @@ email_body = Template('''\
     {% endautoescape %}
     If there's anything wrong with the information above, please contact
     hallitus@python.fi to resolve the issue.
-    
-    If you're in need of accommodation, we have a special deal with 
-    Radisson Blu Hotel Espoo (http://www.radissonblu.fi/hotelli-espoo). 
-    Using code PYTHON you get discount prices
-    for single and double rooms.
 
     {% if x.ticket_type == "corporate" or x.ticket_type == "normal" or x.ticket_type == "student" %}
     You will receive a bill in a separate email closer to the event.
@@ -43,7 +38,7 @@ email_body = Template('''\
     hallitus@python.fi. 25 EUR cancellation fee until and including
     September 30th. No return after September 30th.
     {% endif %}
-    See you in PyCon Finland 2012!
+    See you in PyCon Finland {{ year }}!
 
     Best regards,
     Organizers
@@ -62,10 +57,11 @@ def send_confirmation_email(registration):
         price += 5
 
     send_mail(
-        'Your registration to PyCon Finland 2012',
+        'Your registration to PyCon Finland %s' % settings.YEAR,
         email_body.render(Context({
             'x': registration,
             'price': price,
+            'year': settings.YEAR,
         })),
         'hallitus@python.fi',
         [u'%s <%s>' % (registration.name, registration.email)],

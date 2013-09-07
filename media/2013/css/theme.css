@@ -87,10 +87,6 @@ ul#menu {
     text-align: right;
 }
 
-ul#menu li {
-
-}
-
 ul#menu li a {
     display: block;
     color: #b4b4b4;
@@ -228,9 +224,6 @@ div#sponsors a.sitedesign {
 #thankyou,
 #loader,
 #billing-details {
-    display: none;
-}
-{
     display: none;
 }
 #registration-form .input-wrapper,

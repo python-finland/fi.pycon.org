@@ -6,11 +6,12 @@ from django.contrib import admin
 from django.http import HttpResponse
 from django.template import Context, Template
 from django.core.mail import EmailMessage, get_connection
+from django.conf import settings
+
 from .models import Registration
-from django.core.mail import send_mail
 
 bill_body = Template('''\
-Billing information for PyCon Finland 2012
+Billing information for PyCon Finland {{ year }}
 
 Invoice number: {{ obj.invoice_number }}
 Invoice date: {{ obj.bill_date|date }}
@@ -50,7 +51,7 @@ See you in the conference!
 Cheers,
 PyCon Finland organizers
 
--- 
+--
 ------------------------------------------------------------------------
 Python Suomi ry                                       hallitus@python.fi
 c/o Joni Orponen, Dodreams Ltd.                         http://python.fi
@@ -61,7 +62,7 @@ Erottajankatu 15-17 A 7th floor
 ''')
 
 payment_notification_body = Template('''\
-You're PyCon Finland 2012 bill is overdue. The due date
+You're PyCon Finland {{ year }} bill is overdue. The due date
 was {{ obj.due_date|date }}. Please place the payment as soon as
 possible.
 
@@ -103,7 +104,7 @@ See you in the conference!
 Cheers,
 PyCon Finland organizers
 
--- 
+--
 ------------------------------------------------------------------------
 Python Suomi ry                                       hallitus@python.fi
 c/o Jyrki Pulliainen                                    http://python.fi
@@ -112,6 +113,7 @@ Vartiokuja 1 E 37
 ------------------------------------------------------------------------
 ''')
 
+
 class RegistrationAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'country',
                     'ticket_type', 'snailmail_bill',
@@ -119,7 +121,7 @@ class RegistrationAdmin(admin.ModelAdmin):
                     'registered_timestamp')
     list_editable = ('paid',)
     list_filter = ('snailmail_bill', 'billed', 'paid',
-                   'ticket_type', 'country', 'dinner', 
+                   'ticket_type', 'country', 'dinner',
                    'accommodation', 'preconf')
     ordering = ['-registered_timestamp']
     actions = ['send_bill', 'send_payment_notification', 'show_email_addresses',
@@ -134,7 +136,7 @@ class RegistrationAdmin(admin.ModelAdmin):
     def send_message(self, conn, subject, body_template, obj):
         email = EmailMessage(
             subject,
-            body_template.render(Context({'obj': obj})),
+            body_template.render(Context({'obj': obj, 'year': settings.YEAR})),
             bcc=['taloudenhoitaja@python.fi'],
             from_email='Python Suomi ry / Taloudenhoitaja <taloudenhoitaja@python.fi>',
             to=[obj.email],
@@ -159,7 +161,7 @@ class RegistrationAdmin(admin.ModelAdmin):
             registration.bill_date = date.today()
             self.send_message(
                 smtp_connection,
-                'Invoice for PyCon Finland 2012',
+                'Invoice for PyCon Finland %s' % settings.YEAR,
                 bill_body,
                 registration,
             )
@@ -183,10 +185,10 @@ class RegistrationAdmin(admin.ModelAdmin):
 
         for registration in queryset:
             registration.bill_date = date.today()
-            registration.ticket_type = 'late_bird' # HARD-CODED PRICE
+            registration.ticket_type = 'late_bird'
             self.send_message(
                 smtp_connection,
-                'Invoice for PyCon Finland 2012',
+                'Invoice for PyCon Finland %s' % settings.YEAR,
                 bill_body,
                 registration,
             )
@@ -211,7 +213,7 @@ class RegistrationAdmin(admin.ModelAdmin):
         for registration in queryset:
             self.send_message(
                 smtp_connection,
-                'Payment notification for PyCon Finland 2012',
+                'Payment notification for PyCon Finland %s' % settings.YEAR,
                 payment_notification_body,
                 registration,
             )
