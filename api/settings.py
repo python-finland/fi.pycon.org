@@ -154,8 +154,8 @@ EMAIL_HOST = 'smtp.zoner.fi'
 SEATS_AVAILABLE = 150
 
 TICKET_PRICES = {
-    'corporate': 150,
-    'normal': 50,
+    'corporate': 120,
+    'normal': 40,
     'student': 10,
     'sponsor': 0,
     'speaker': 0,

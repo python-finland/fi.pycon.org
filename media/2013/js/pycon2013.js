@@ -122,8 +122,8 @@ $(document).ready(function() {
 
     function update_price() {
         var prices = {
-            'corporate': 150,
-            'normal': 50,
+            'corporate': 120,
+            'normal': 40,
             'student': 10,
             'sponsor': 0,
             'speaker': 0,
