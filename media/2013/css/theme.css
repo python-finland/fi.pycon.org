@@ -108,13 +108,13 @@ div#socialmedia {
     margin: 30px;
     text-align: right;
     color: #b4b4b4;
-    font-size: 11px;
-    line-height: 20px;
+    font-size: 14px;
+    line-height: 22px;
 }
 
 div#socialmedia h5 {
     margin-top: 20px;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 div#socialmedia a {
@@ -127,13 +127,10 @@ div#content {
     background-color: #fff;
     float: left;
     min-height: 600px;
-/*    max-height: 650px;
-    overflow: hidden;*/
     -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
     -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
     position: relative;
-/*    overflow-y: auto;*/
 }
 
 div.page {
