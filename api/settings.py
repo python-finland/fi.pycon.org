@@ -151,10 +151,10 @@ DATE_FORMAT = 'Y-m-d'
 
 EMAIL_HOST = 'smtp.zoner.fi'
 
-SEATS_AVAILABLE = 150
+SEATS_AVAILABLE = 120
 
 TICKET_PRICES = {
-    'corporate': 120,
+    'corporate': 100,
     'normal': 40,
     'student': 10,
     'sponsor': 0,

@@ -122,7 +122,7 @@ $(document).ready(function() {
 
     function update_price() {
         var prices = {
-            'corporate': 120,
+            'corporate': 100,
             'normal': 40,
             'student': 10,
             'sponsor': 0,
