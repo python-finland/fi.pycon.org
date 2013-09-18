@@ -5,7 +5,7 @@ datadir = os.path.join(os.path.dirname(__file__), '..', '..')
 YEAR = '2013'
 # ----------------------------------------------------------
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
