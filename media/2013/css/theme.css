@@ -207,11 +207,18 @@ div#sponsors {
 
 div#sponsors a {
     text-decoration: none;
+    margin: 20px;
 }
+    div#sponsors a img {
+        max-width: 200px;
+        max-height: 120px;
+    }
 
 div#sponsors a.sitedesign {
     font-size: 11px;
 }
+
+
 
 
 /*--------------------- Details ---------------------*/
