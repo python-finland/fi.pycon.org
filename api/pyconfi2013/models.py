@@ -29,6 +29,8 @@ class Registration(models.Model):
         ('speaker', 'Speaker'),
         ('sponsor', 'Sponsor'),
         ('organizer', 'Organizer'),
+        ('latebird', 'Late Bird'),
+        ('latestudent', 'Late Student'),
     ))
     country = models.CharField(max_length=2)
     company = models.CharField(max_length=100, null=True, blank=True)
