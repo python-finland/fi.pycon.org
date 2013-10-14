@@ -160,4 +160,6 @@ TICKET_PRICES = {
     'sponsor': 0,
     'speaker': 0,
     'organizer': 0,
+    'latebird': 20,
+    'latestudent': 10,
 }

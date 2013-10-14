@@ -127,7 +127,9 @@ $(document).ready(function() {
             'student': 10,
             'sponsor': 0,
             'speaker': 0,
-            'organizer': 0
+            'organizer': 0,
+            'latebird': 20,
+            'latestudent': 10
         };
         var price = prices[$('#id_ticket_type').val()] +
             ($('#id_snailmail_bill').is(':checked') ? 5 : 0);

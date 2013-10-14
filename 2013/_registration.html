@@ -33,9 +33,11 @@
         <section>
             <label for="id_ticket_type">Ticket type</label>
             <select id="id_ticket_type" name="ticket_type">
-                <option value="corporate">Corporate (100 EUR)</option>
+                <!--option value="corporate">Corporate (100 EUR)</option>
                 <option value="normal">Normal (40 EUR)</option>
-                <option value="student">Student (10 EUR)</option>
+                <option value="student">Student (10 EUR)</option-->
+                <option value="latebird">Late Bird (20 EUR)</option>
+                <option value="student">Late Student (10 EUR)</option>
                 <option value="sponsor">Sponsor</option>
                 <option value="speaker">Speaker</option>
                 <option value="organizer">Organizer</option>
@@ -85,7 +87,7 @@
                 <label class="placeholder" for="id_billing_city">City</label>
                 <input type="text" name="billing_city" id="id_billing_city"></div>
         </div>
-        <div id="dinner-disclaimer" class="checkbox">
+        <!--div id="dinner-disclaimer" class="checkbox">
             <div>
                 <label for="id_dinner">Dinner?</label>
                 <input type="checkbox" id="id_dinner" name="dinner" checked>
@@ -101,7 +103,7 @@
                 <label class="placeholder" for="id_extra">Additional info (diet, allergies)</label>
                 <textarea cols="30" rows="3" id="id_extra" name="extra"></textarea>
             </div>
-        </div>
+        </div-->
         <p id="submit">
             <span class="label label-info">Total price</span>
             <span class="price"></span>
@@ -113,7 +115,7 @@
 <ul>
     <li><del>Corporate: includes lunch, dinner, coffee.</del></li>
     <li><del>Normal: includes lunch, coffee.</del></li>
-    <li>Late Signup: doesn't include lunch or dinner because of booking
+    <li>Late Bird: doesn't include lunch or dinner because of booking
     constraints</li>
     <li>
         Student: includes coffee. Note that you can get student card discounted lunch at the conference site.
