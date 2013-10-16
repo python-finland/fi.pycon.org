@@ -41,9 +41,9 @@ In your ``.ssh/config`` add::
 
     # fi.pycon.org django server
     Host pythonfi
-    ForwardAgent yes
-    User pythonfi
-    Hostname vps1207.zoner-asiakas.fi
+        ForwardAgent yes
+        User pythonfi
+        Hostname vps1207.zoner-asiakas.fi
 
 Add your SSH key to the server using the organization password::
 
@@ -55,15 +55,12 @@ Now you can enter the server::
 
 Restart and refresh the production server::
 
-    screen -x # screen if not active yet
-    cd /srv/fi.pycon.org/www
-    source ../virtualenv/bin/activate
-    git pull # Load new code from github
-    killall python; sleep 1; virtualenv/bin/python www/api/manage.py runfcgi host=127.0.0.1 port=8080
+    server-admin -a
+   
+Or, if you like interactivity, just 
 
-... or ... ::
+    server-admin
 
-    killall python; sleep 1; cd /srv/fi.pycon.org/www ; git pull ; ../virtualenv/bin/python api/manage.py runfcgi host=127.0.0.1 port=8080
 
 Editing the pages
 --------------------
