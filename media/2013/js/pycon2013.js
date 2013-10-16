@@ -125,6 +125,7 @@ $(document).ready(function() {
             'corporate': 100,
             'normal': 40,
             'student': 10,
+            'adfstudent': 0,
             'sponsor': 0,
             'speaker': 0,
             'organizer': 0,
