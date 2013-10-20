@@ -247,7 +247,10 @@ class RegistrationAdmin(admin.ModelAdmin):
         writer.writerow(field_names)
         # Write data rows
         for obj in queryset:
-            writer.writerow([getattr(obj, field) for field in field_names])
+            writer.writerow(
+                [unicode(getattr(obj, field)).encode('utf-8') 
+                for field in field_names]
+            )
         return response
     export_as_csv.short_description = 'Export registrations as CSV file'
 
