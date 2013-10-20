@@ -21,18 +21,18 @@
     <div class="half-quarter">
         <div class="input-wrapper">
             <label class="placeholder" for="id_name">Your Name</label>
-            <input type="text" id="id_name" name="name"></div>
+            <input disabled type="text" id="id_name" name="name"></div>
         <div class="input-wrapper">
             <label class="placeholder" for="id_email">Your Email</label>
-            <input type="text" id="id_email" name="email">
+            <input disabled type="text" id="id_email" name="email">
             <script type="text/javascript">document.getElementById('id_email').type = 'email';</script>
         </div>
         <div class="input-wrapper">
             <label class="placeholder" for="id_country">Country</label>
-            <input type="text" id="id_country" name="country"></div>
+            <input disabled type="text" id="id_country" name="country"></div>
         <section>
             <label for="id_ticket_type">Ticket type</label>
-            <select id="id_ticket_type" name="ticket_type">
+            <select disabled id="id_ticket_type" name="ticket_type">
                 <!--option value="corporate">Corporate (100 EUR)</option>
                 <option value="normal">Normal (40 EUR)</option>
                 <option value="student">Student (10 EUR)</option-->
@@ -60,9 +60,9 @@
         <div id="preconf-disclaimer" class="checkbox">
             <div>
                 <label for="id_preconf">Pre-conference activities?</label>
-                <input type="checkbox" id="id_preconf" name="preconf">
+                <input disabled type="checkbox" id="id_preconf" name="preconf">
                 <span class="checkwrapper"></span>
-            </div>
+        </div>
             <p class="checkbox-help">If you plan to join us in pre-conferenece activities on Sunday, please check the box.</p>
         </div>
         </section>
@@ -72,7 +72,7 @@
         <div id="papermail-disclaimer" class="checkbox">
             <div>
                 <label for="id_snailmail_bill">Paper bill?</label>
-                <input type="checkbox" id="id_snailmail_bill"
+                <input disabled type="checkbox" id="id_snailmail_bill"
                         name="snailmail_bill">
                 <span class="checkwrapper"></span>
             </div>
@@ -109,7 +109,8 @@
         <p id="submit">
             <span class="label label-info">Total price</span>
             <span class="price"></span>
-            <input type="submit" value="Let's do this!" class="btn btn-large btn-primary" />
+            <button type="submit" value="Registration closed" class="btn
+            btn-large btn-inverse" />
         </p>
     </div>
 </form>
