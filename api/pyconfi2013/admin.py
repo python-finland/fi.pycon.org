@@ -55,10 +55,10 @@ PyCon Finland organizers
 --
 ------------------------------------------------------------------------
 Python Suomi ry                                       hallitus@python.fi
-c/o Joni Orponen, Dodreams Ltd.                         http://python.fi
+c/o Tuure Laurinolli                                    http://python.fi
 
-Erottajankatu 15-17 A 7th floor
-00130 Helsinki, Finland
+Kylätie 9A3
+00320 Helsinki, Finland
 ------------------------------------------------------------------------
 ''')
 
@@ -108,9 +108,10 @@ PyCon Finland organizers
 --
 ------------------------------------------------------------------------
 Python Suomi ry                                       hallitus@python.fi
-c/o Jyrki Pulliainen                                    http://python.fi
-Vartiokuja 1 E 37
-20700 Turku, Finland
+c/o Tuure Laurinolli                                    http://python.fi
+
+Kylätie 9A3
+00320 Helsinki, Finland
 ------------------------------------------------------------------------
 ''')
 
