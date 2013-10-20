@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from datetime import date, timedelta
+import csv
 
 from django.contrib import admin
 from django.http import HttpResponse
@@ -124,8 +125,13 @@ class RegistrationAdmin(admin.ModelAdmin):
                    'ticket_type', 'country', 'dinner',
                    'accommodation', 'preconf')
     ordering = ['-registered_timestamp']
-    actions = ['send_bill', 'send_payment_notification', 'show_email_addresses',
-               'send_late_bird_bill']
+    actions = [
+        'send_bill',
+        'send_payment_notification',
+        'show_email_addresses',
+        'send_late_bird_bill',
+        'export_as_csv',
+    ]
 
     def bill_overdue(self, obj):
         return (obj.billed and not obj.paid and
@@ -229,5 +235,19 @@ class RegistrationAdmin(admin.ModelAdmin):
 
     show_email_addresses.short_description = ('Show email addresses of the '
                                               'selected registrants')
+
+    def export_as_csv(self, request, queryset):
+        opts = self.model._meta
+        response = HttpResponse(mimetype='text/csv')
+        response['Content-Disposition'] = 'attachment; filename=%s.csv' % unicode(opts).replace('.', '_')
+        writer = csv.writer(response)
+        field_names = [field.name for field in opts.fields]
+        # Write a first row with header information
+        writer.writerow(field_names)
+        # Write data rows
+        for obj in queryset:
+            writer.writerow([getattr(obj, field) for field in field_names])
+        return response
+    export_as_csv.short_description = 'Export registrations as CSV file'
 
 admin.site.register(Registration, RegistrationAdmin)
