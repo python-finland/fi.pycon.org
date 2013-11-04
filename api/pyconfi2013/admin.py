@@ -144,8 +144,8 @@ class RegistrationAdmin(admin.ModelAdmin):
         email = EmailMessage(
             subject,
             body_template.render(Context({'obj': obj, 'year': settings.YEAR})),
-            bcc=['taloudenhoitaja@python.fi'],
-            from_email='Python Suomi ry / Taloudenhoitaja <taloudenhoitaja@python.fi>',
+            bcc=['rahastonhoitaja@python.fi'],
+            from_email='Python Suomi ry / Rahastonhoitaja <rahastonhoitaja@python.fi>',
             to=[obj.email],
             connection=conn,
         )
