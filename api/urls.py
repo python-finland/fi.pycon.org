@@ -9,13 +9,16 @@ YEAR = settings.YEAR
 
 urlpatterns = patterns(
     '',
-    url('^api/%s/register/$' % YEAR, 'api.pyconfi%s.views.register' % YEAR),
-    url('^api/%s/seats_left$' % YEAR, 'api.pyconfi%s.views.seats_left' % YEAR),
-    ('^api/admin/', include(admin.site.urls)),
+    url(r'^api/admin/', include(admin.site.urls)),
 
-    url('^api/%s/country$' % YEAR,
+    # API
+    url(r'^$', 'api.pyconfi%s.views.index' % YEAR),
+    url(r'^api/%s/register/$' % YEAR,
+        'api.pyconfi%s.views.register' % YEAR),
+    url(r'^api/%s/seats_left$' % YEAR,
+        'api.pyconfi%s.views.seats_left' % YEAR),
+    url(r'^api/%s/country$' % YEAR,
         'api.pyconfi%s.views.autocomplete_country' % YEAR),
-    (r'^$', 'api.pyconfi%s.views.index' % YEAR),
 )
 
 if settings.DEBUG:

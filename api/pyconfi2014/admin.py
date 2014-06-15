@@ -145,7 +145,8 @@ class RegistrationAdmin(admin.ModelAdmin):
             subject,
             body_template.render(Context({'obj': obj, 'year': settings.YEAR})),
             bcc=['rahastonhoitaja@python.fi'],
-            from_email='Python Suomi ry / Rahastonhoitaja <rahastonhoitaja@python.fi>',
+            from_email='Python Suomi ry / '
+                       'Rahastonhoitaja <rahastonhoitaja@python.fi>',
             to=[obj.email],
             connection=conn,
         )
@@ -154,13 +155,19 @@ class RegistrationAdmin(admin.ModelAdmin):
     def send_bill(self, request, queryset):
         for registration in queryset:
             if registration.billed:
-                self.message_user(request, 'Some of the selected registrations '
-                                  'have already been billed')
+                self.message_user(
+                    request,
+                    'Some of the selected registrations have '
+                    'already been billed'
+                )
                 return
 
             if registration.snailmail_bill:
-                self.message_user(request, 'Some of the selected registrations '
-                                  'should be billed via snail mail')
+                self.message_user(
+                    request,
+                    'Some of the selected registrations '
+                    'should be billed via snail mail'
+                )
 
         smtp_connection = get_connection()
 
@@ -180,13 +187,19 @@ class RegistrationAdmin(admin.ModelAdmin):
     def send_late_bird_bill(self, request, queryset):
         for registration in queryset:
             if registration.billed:
-                self.message_user(request, 'Some of the selected registrations '
-                                  'have already been billed')
+                self.message_user(
+                    request,
+                    'Some of the selected registrations '
+                    'have already been billed'
+                )
                 return
 
             if registration.snailmail_bill:
-                self.message_user(request, 'Some of the selected registrations '
-                                  'should be billed via snail mail')
+                self.message_user(
+                    request,
+                    'Some of the selected registrations '
+                    'should be billed via snail mail'
+                )
 
         smtp_connection = get_connection()
 
@@ -207,13 +220,19 @@ class RegistrationAdmin(admin.ModelAdmin):
     def send_payment_notification(self, request, queryset):
         for registration in queryset:
             if not registration.billed:
-                self.message_user(request, 'Some of the selected registrations '
-                                  'have not been billed yet')
+                self.message_user(
+                    request,
+                    'Some of the selected registrations '
+                    'have not been billed yet'
+                )
                 return
 
             if registration.snailmail_bill:
-                self.message_user(request, 'Some of the selected registrations '
-                                  'should be billed via snail mail')
+                self.message_user(
+                    request,
+                    'Some of the selected registrations '
+                    'should be billed via snail mail'
+                )
 
         smtp_connection = get_connection()
 
@@ -234,23 +253,26 @@ class RegistrationAdmin(admin.ModelAdmin):
 
         return HttpResponse(generate_emails(), mimetype='text/plain')
 
-    show_email_addresses.short_description = ('Show email addresses of the '
-                                              'selected registrants')
+    show_email_addresses.short_description = (
+        'Show email addresses of the selected registrants'
+    )
 
     def export_as_csv(self, request, queryset):
         opts = self.model._meta
         response = HttpResponse(mimetype='text/csv')
-        response['Content-Disposition'] = 'attachment; filename=%s.csv' % unicode(opts).replace('.', '_')
+        response['Content-Disposition'] = (
+            'attachment; filename=%s.csv' % unicode(opts).replace('.', '_')
+        )
         writer = csv.writer(response)
         field_names = [field.name for field in opts.fields]
         # Write a first row with header information
         writer.writerow(field_names)
         # Write data rows
         for obj in queryset:
-            writer.writerow(
-                [unicode(getattr(obj, field)).encode('utf-8') 
-                for field in field_names]
-            )
+            writer.writerow([
+                unicode(getattr(obj, field)).encode('utf-8')
+                for field in field_names
+            ])
         return response
     export_as_csv.short_description = 'Export registrations as CSV file'
 

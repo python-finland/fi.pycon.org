@@ -75,7 +75,7 @@ def register(request):
         return HttpResponse(json.dumps({
             'ok': False,
             'errors': {
-            '__all__': 'No seats left'
+                '__all__': 'No seats left'
             },
         }))
 

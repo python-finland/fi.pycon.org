@@ -12,7 +12,9 @@ def grouper(n, iterable, fillvalue=None):
 
 
 def reference_number(data):
-    chk = -sum(int(x) * [7, 3, 1][i % 3] for i, x in enumerate(data[::-1])) % 10
+    chk = -sum(
+        int(x) * [7, 3, 1][i % 3] for i, x in enumerate(data[::-1])
+    ) % 10
     ref = '%s%d' % (data, chk)
     return ' '.join(reversed(
         [''.join(reversed(x)) for x in grouper(5, reversed(ref), '')]
