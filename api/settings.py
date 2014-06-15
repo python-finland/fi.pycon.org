@@ -2,7 +2,7 @@ import os
 datadir = os.path.join(os.path.dirname(__file__), '..', '..')
 
 # -------------- NOTE: change this every year --------------
-YEAR = '2013'
+YEAR = '2014'
 # ----------------------------------------------------------
 
 DEBUG = False
@@ -121,7 +121,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
 
     'south',
-    'pyconfi2013',
+    'pyconfi2014',
 )
 
 # A sample logging configuration. The only tangible logging

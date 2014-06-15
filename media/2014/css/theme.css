@@ -1,0 +1,293 @@
+/*--------------------- Global ---------------------*/
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    font: normal 13px/16px Arial, Helvetica, sans-serif !important;
+    color: #333;
+}
+h1 {
+    font-weight: normal;
+    margin: 0;
+    padding: 5px 0;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+pre {
+    white-space: pre-wrap;       /* css-3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+li {
+    line-height: 1.5em;
+}
+
+article {
+    padding-top: 10px;
+    border-bottom: 1px solid #ddd;
+}
+article:last-child {
+    border-bottom: none;
+}
+
+section {clear:both;}
+
+.clear {clear:both;}
+
+
+/*--------------------- Main sections ---------------------*/
+
+div#footerfix {
+    position: relative;
+    min-height: 100%;
+    background: #00324b url(../img/bg4resized.jpg) no-repeat top center;
+    background-size: cover;
+}
+
+div#wrapper {
+    margin: 0 auto;
+    width: 798px;
+    padding-bottom: 510px;
+    background: transparent none;
+    position: relative;
+    padding-top: 110px;
+}
+
+a#logo {
+    background: transparent url(../img/logo.png) no-repeat top center;
+    width: 215px;
+    height: 215px;
+    position: absolute;
+    display: block;
+    top: 25px;
+    left: -55px;
+}
+
+div.corner {
+    width: 256px;
+    background: #141414 url(../img/navtop.jpg) no-repeat top right;
+    height: 39px;
+}
+
+
+div#navigation {
+    width: 211px;
+    background-color: #141414;
+    padding: 80px 0 0 0;
+    float: left;
+}
+
+ul#menu {
+    list-style: none;
+    margin: 0;
+    text-align: right;
+}
+
+ul#menu li a {
+    display: block;
+    color: #b4b4b4;
+    text-transform: uppercase;
+    font-size: 17px;
+    padding: 5px 30px 5px 0;
+    text-decoration: none;
+}
+
+ul#menu li a.active {
+    background: #00ace8 url(../img/active-menu.png) top right repeat-y;
+    color: #fff;
+}
+
+ul#menu li a:hover {color: #fff;}
+
+div#socialmedia {
+    border-top: 1px solid #616161;
+    margin: 30px;
+    text-align: right;
+    color: #b4b4b4;
+    font-size: 14px;
+    line-height: 22px;
+}
+
+div#socialmedia h5 {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+div#socialmedia a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+div#content {
+    width: 585px;
+    background-color: #fff;
+    float: left;
+    min-height: 600px;
+    -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+div.page {
+    padding: 30px;
+    display: none;
+    position: absolute;
+    left:0;
+    top:0;
+    width: 525px;
+    background-color: #fff;
+}
+
+div.page h1 {
+    font-size: 20px;
+    line-height: 20px;
+    padding: 0;
+    margin-bottom: 15px;
+}
+
+div.page h2 {
+    font-size: 18px;
+    line-height: 16px;
+    margin-bottom: 20px;
+}
+
+div.page h3 {
+    font-size: 16px;
+    line-height: 16px;
+}
+
+p#submit {
+    display: block;
+    clear:both;
+}
+
+div#footer {
+    width: 100%;
+    background: #fff none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    text-align: center;
+}
+
+div#sponsorship {
+    width: 100%;
+    background-color: #141414;
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 20px 0;
+    color: #fff;
+    line-height: 25px;
+}
+
+div#sponsorship a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+div#sponsorship a.available {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+div#sponsorship p {
+    padding: 0;
+    margin: 0;
+}
+
+div#sponsors {
+    padding: 20px;
+}
+
+div#sponsors a {
+    text-decoration: none;
+    margin: 20px;
+}
+    div#sponsors a img {
+        max-height: 120px;
+    }
+
+div#sponsors a.sitedesign {
+    font-size: 11px;
+}
+
+
+
+
+/*--------------------- Details ---------------------*/
+
+#errorcontainer,
+#thankyou,
+#loader,
+#billing-details {
+    display: none;
+}
+#registration-form .input-wrapper,
+#registration-form .checkbox {
+    clear:both;
+    padding: 3px 0;
+}
+#registration-form label {
+    width: 120px;
+    display: block;
+    float: left;
+    text-align: left;
+}
+#registration-form input[type="text"],
+#registration-form input[type="email"], 
+#registration-form select,
+#registration textarea {
+    width: 150px;
+    display: block;
+    float: left;
+    border: 1px solid #2a2a2a;
+    padding: 3px;
+}
+#registration textarea { width: 100%; }
+#registration-form input:disabled {
+    border: 1px solid #ccc;
+}
+#registration-form p {
+    margin: 0;
+}
+#registration form .error {
+    border-color: #f55;
+}
+.error:focus {
+    border-color: #2a2a2a;
+}
+.checkbox label {
+    width: 95% !important;
+}
+.checkbox-help {
+    display: inline-block;
+    font-size: 12px;
+}
+
+#schedule strong {
+    font-size: 14px;
+}
+
+#schedule span.track {
+    display: block;
+    padding: 5px 0 0 25px;
+}
+
+/* Dialogs */
+
+#center .modal {
+    text-align: left;
+    width: 800px;
+    margin-left: -400px;
+}
+
+#thankyou {
+    background: yellow;
+    padding: 10px;
+}
