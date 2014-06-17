@@ -28,7 +28,7 @@ Commands to duplicate the production site locally. First see how to add your SSH
     curl -L -o virtualenv.py https://raw.github.com/pypa/virtualenv/master/virtualenv.py
     python virtualenv.py venv  # Create virtualenv
     source venv/bin/activate
-    pip install Django South
+    pip install -r requirements.txt
     scp pythonfi:/srv/fi.pycon.org/db2012.sqlite3 .
     cd api
     touch ../../secret # Create secret file
