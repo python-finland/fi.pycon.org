@@ -266,8 +266,6 @@ class RegistrationForm(forms.ModelForm):
 
     def clean(self):
         required = ()
-        if is_corporate(self.cleaned_data.get('ticket_type')):
-            required += ('billing_address')
 
         for field in required:
             if not self.cleaned_data.get(field):
