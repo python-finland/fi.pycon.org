@@ -154,12 +154,6 @@ $(document).ready(function() {
     function initialize_registration() {
         update_form();
 
-        $('input#id_snailmail_bill').click(function () {
-            if(!mobilize.isMobile()) {
-                $("#content").animate({height: $('div#registration').height() + 60});
-            }
-        });
-
         $('#id_ticket_type').change(update_form);
 
         $('#id_country').typeahead({
