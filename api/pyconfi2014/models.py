@@ -20,20 +20,21 @@ def reference_number(data):
         [''.join(reversed(x)) for x in grouper(5, reversed(ref), '')]
     ))
 
+def is_corporate(ticket_type):
+    return ticket_type.startswith('corporate')
 
 class Registration(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
     ticket_type = models.CharField(max_length=30, choices=(
-        ('normal', 'Normal'),
-        ('corporate', 'Corporate'),
-        ('student', 'Student'),
-        ('speaker', 'Speaker'),
-        ('sponsor', 'Sponsor'),
-        ('organizer', 'Organizer'),
-        ('latebird', 'Late Bird'),
-        ('latestudent', 'Late Student'),
-        ('adfstudent', 'Student (ADF)'),
+            ('individual_eb', 'Individual Early Bird'),
+            ('individual', 'Individual'),
+            ('corporate_eb', 'Corporate Early Bird'),
+            ('corporate', 'Corporate'),
+            ('student', 'Student'),
+            ('organizer', 'Organizer'),
+            ('speaker', 'Speaker'),
+            ('sponsor', 'Sponsor')
     ))
     country = models.CharField(max_length=2)
     company = models.CharField(max_length=100, null=True, blank=True)
@@ -44,14 +45,13 @@ class Registration(models.Model):
     accommodation = models.BooleanField()
     preconf = models.BooleanField()
 
-    snailmail_bill = models.BooleanField(default=False)
-    billing_address = models.CharField(max_length=100, null=True, blank=True)
-    billing_zipcode = models.CharField(max_length=15, null=True, blank=True)
-    billing_city = models.CharField(max_length=100, null=True, blank=True)
+    billing_address = models.TextField(null=True, blank=True)
 
     billed = models.BooleanField(default=False)
     bill_date = models.DateField(null=True, blank=True)
+    bill_text = models.TextField(null=True, blank=True)
     notified_date = models.DateField(null=True, blank=True)
+    notify_text = models.TextField(null=True, blank=True)
     paid = models.BooleanField(default=False)
 
     registered_timestamp = models.DateTimeField(auto_now_add=True)
@@ -66,10 +66,7 @@ class Registration(models.Model):
 
     @property
     def total_price(self):
-        if self.snailmail_bill:
-            return self.price + 5
-        else:
-            return self.price
+        return self.price
 
     @property
     def invoice_number(self):

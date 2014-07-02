@@ -122,24 +122,37 @@ $(document).ready(function() {
 
     function update_price() {
         var prices = {
-            'corporate': 100,
-            'normal': 40,
+            'corporate_eb': 100,
+            'corporate': 125,
+            'individual': 60,
+            'individual_eb': 50,
             'student': 10,
-            'adfstudent': 0,
             'sponsor': 0,
             'speaker': 0,
             'organizer': 0,
-            'latebird': 20,
-            'latestudent': 10
         };
-        var price = prices[$('#id_ticket_type').val()] +
-            ($('#id_snailmail_bill').is(':checked') ? 5 : 0);
+        var price = prices[$('#id_ticket_type').val()];
 
         $('#registration form span.price').html(price + ' &euro;');
     }
 
-    function initialize_registration() {
+    function update_form() {
+        var val = $('#id_ticket_type').val(),
+        is_corporate = (val == 'corporate' || val == 'corporate_eb'),
+        is_normal = (val == 'individual' || val == 'individual_eb'),
+        is_special = (val=='sponsor' || val=='speaker' || val=='organizer');
+        $('#dinner-disclaimer').toggle(is_corporate || is_special);
+        $('#id_dinner').attr('checked', is_corporate || is_special);
+        $('#companywrapper').toggle(is_corporate || val=='sponsor');
+        $('#billing-details').toggle(is_corporate);
+        if(!mobilize.isMobile()) {
+            $("#content").animate({height: $('div#registration').height() + 60});
+        }
         update_price();
+    }
+
+    function initialize_registration() {
+        update_form();
 
         $('input#id_snailmail_bill').click(function () {
             if(!mobilize.isMobile()) {
@@ -147,25 +160,7 @@ $(document).ready(function() {
             }
         });
 
-        $('#id_ticket_type').change(function () {
-            var val = $(this).val(),
-                is_corporate = (val == 'corporate'),
-                is_normal = (val == 'normal'),
-                is_special = (val=='sponsor' || val=='speaker' || val=='organizer');
-            $('#dinner-disclaimer').toggle(is_corporate || is_normal || is_special);
-            $('#id_dinner').attr('checked', is_corporate || is_normal || is_special);
-            $('#companywrapper').toggle(is_corporate || val=='sponsor');
-            $('#papermail-disclaimer').toggle(!is_special);
-            if(!mobilize.isMobile()) {
-                $("#content").animate({height: $('div#registration').height() + 60});
-            }
-            update_price();
-        });
-
-        $('#id_snailmail_bill').change(function() {
-            $('#billing-details').toggle($(this).is(':checked'));
-            update_price();
-        });
+        $('#id_ticket_type').change(update_form);
 
         $('#id_country').typeahead({
             minLength: 1,

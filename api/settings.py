@@ -148,16 +148,16 @@ DATE_FORMAT = 'Y-m-d'
 
 EMAIL_HOST = 'smtp.zoner.fi'
 
-SEATS_AVAILABLE = 120
+SEATS_AVAILABLE = 156 # From optimistic budget
+
 
 TICKET_PRICES = {
-    'corporate': 100,
-    'normal': 40,
-    'student': 10,
-    'adfstudent': 0,
-    'sponsor': 0,
-    'speaker': 0,
-    'organizer': 0,
-    'latebird': 20,
-    'latestudent': 10,
+    'individual_eb' : 50,
+    'individual' : 60,
+    'corporate_eb' : 100,
+    'corporate' : 125,
+    'student' : 10,
+    'organizer' : 0,
+    'speaker' : 0,
+    'sponsor' : 0
 }

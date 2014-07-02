@@ -1,5 +1,5 @@
 from django import forms
-from .models import Registration
+from .models import Registration, is_corporate
 
 
 COUNTRIES = (
@@ -266,8 +266,8 @@ class RegistrationForm(forms.ModelForm):
 
     def clean(self):
         required = ()
-        if self.cleaned_data.get('snailmail_bill'):
-            required += ('billing_address', 'billing_zipcode', 'billing_city')
+        if is_corporate(self.cleaned_data.get('ticket_type')):
+            required += ('billing_address')
 
         for field in required:
             if not self.cleaned_data.get(field):
