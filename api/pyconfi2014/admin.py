@@ -88,7 +88,7 @@ class RegistrationAdmin(admin.ModelAdmin):
     actions = [
         'generate_bill',
         'send_bill',
-        'generate_payment_notifiction',
+        'generate_payment_notification',
         'send_payment_notification',
         'show_email_addresses',
         'export_as_csv',
@@ -101,9 +101,9 @@ class RegistrationAdmin(admin.ModelAdmin):
     bill_overdue.boolean = True
 
     def bill_generated(self, obj):
-        return obj.bill_text is not None
+        return bool(obj.bill_text)
 
-    bill_overdue.boolean = True
+    bill_generated.boolean = True
 
     def send_message(self, conn, subject, body, obj):
         email = EmailMessage(
@@ -129,7 +129,7 @@ class RegistrationAdmin(admin.ModelAdmin):
 
         for registration in queryset:
             registration.bill_date = date.today()
-            registration.bill_text = bill_body.render(Context({'obj': obj, 'year': settings.YEAR}))
+            registration.bill_text = bill_body.render(Context({'obj': registration, 'year': settings.YEAR}))
             registration.save()
 
     generate_bill.short_description = 'Generate bill text'
@@ -183,10 +183,10 @@ class RegistrationAdmin(admin.ModelAdmin):
                 )
 
         for registration in queryset:
-            registration.notify_text = payment_notification_body.render(Context({'obj': obj, 'year': settings.YEAR}))
+            registration.notify_text = payment_notification_body.render(Context({'obj': registration, 'year': settings.YEAR}))
             registration.save()
 
-    send_bill.short_description = 'Generate payment notifications'
+    generate_payment_notification.short_description = 'Generate payment notifications'
 
     def send_payment_notification(self, request, queryset):
         for registration in queryset:
@@ -216,6 +216,8 @@ class RegistrationAdmin(admin.ModelAdmin):
             )
             registration.notified_date = date.today()
             registration.save()
+
+    send_payment_notification.short_description = 'Send payment notifications'
 
     def show_email_addresses(self, request, queryset):
         def generate_emails():
