@@ -45,6 +45,8 @@ class Registration(models.Model):
     accommodation = models.BooleanField()
     preconf = models.BooleanField()
 
+    confirmation_sent = models.BooleanField(default=False)
+
     billing_address = models.TextField(null=True, blank=True)
 
     billed = models.BooleanField(default=False)

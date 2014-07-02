@@ -77,13 +77,13 @@ Here are the bill details again:
 
 class RegistrationAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'country',
-                    'ticket_type',
+                    'ticket_type', 'confirmation_sent',
                     'billed', 'paid', 'bill_generated', 'bill_overdue',
                     'registered_timestamp')
     list_editable = ('paid',)
     list_filter = ('billed', 'paid',
                    'ticket_type', 'country', 'dinner',
-                   'accommodation', 'preconf')
+                   'accommodation', 'preconf', 'confirmation_sent')
     ordering = ['-registered_timestamp']
     actions = [
         'generate_bill',
