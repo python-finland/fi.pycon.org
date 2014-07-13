@@ -126,7 +126,7 @@ $(document).ready(function() {
             'corporate': 125,
             'individual': 60,
             'individual_eb': 50,
-            'student': 10,
+            'student': 20,
             'sponsor': 0,
             'speaker': 0,
             'organizer': 0,
