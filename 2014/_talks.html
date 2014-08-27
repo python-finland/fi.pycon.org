@@ -1,17 +1,220 @@
 <h1>Talks</h1>
+
 <article>
+    <p>
+        More to come! We still have a few unconfirmed speakers so we'll be
+        updating this page with even more super great talks in the very near
+        future.
+    </p>
+</article>
+<article>
+    <h3><a href="#talks-practical-parallelism" class="pagelink">
+        Michael Cetrulo - Practical Parallelism and Concurrency in Python -
+        from Threads to AsyncIO
+    </a></h3>
+<p>
+We'll be exploring the different mechanisms and libraries in the Python
+ecosystem for concurrent and/or parallel systems while comparing benchmarks
+and discussing the pros and cons of each approach.
+</p>
+<p>
+<b>About the author:</b> Michael Cetrulo is a software architect from Uruguay working
+at the the High-Performance Studio at Globant. His interests include parallel
+computing and large scale / high performance systems. 
+</p></article>
+
+<article>
+    <h3><a href="#talks-enough-ml" class="pagelink">
+        Ned Jackson Lovely - Enough Machine Learning to Make Hacker News
+        Readable Again
+    </a></h3>
+<p>
+It's inevitable that online communities will change, and that we'll remember
+the community with a fondness that likely doesn't accurately reflect the
+former reality. We'll explore how we can take a set of articles from an online
+community and winnow out the stuff we feel is unworthy. We'll explore some of
+the machine learning tools that are just a "pip install" away, such as
+scikit-learn and nltk.
+
+</p><p>
+<b>About the author:</b> Ned Jackson Lovely is a full-stack Python engineer from
+Boston, MA. He is a principal engineer at Spotify is Somerville, MA, where he
+helps invent the future of music. At various points in his life he has been a
+freelance software consultant, a high school science teacher, and a product
+manager. His coolest job was getting paid to teach physics and go on roller
+coasters at Walt Disney World.
+</p>
+
+</article>
+<article>
+    <h3><a href="#talks-rope-traad" class="pagelink">
+        Austin Bingham - Python Refactoring with Rope and Traad
+    </a></h3>
+<p>
+Python is a modern, dynamic language which is growing in popularity, but tool
+support for it is sometime lacking or only available in specific environments.
+For refactoring and other common IDE functions, however, the powerful
+open-source rope library provides a set of tools which are designed to be
+integrated into almost any programming environment. Rope supports most common
+refactorings, such as renaming and method extraction, but also more
+Python-specific refactorings, such as import organization. Rope’s underlying
+code analysis engine also allows it to do things like locating method
+definitions and generating auto-completion suggestions.
+</p>
+<p>
+While rope is designed to be used from many environments, it’s not always easy
+or ideal to integrate rope directly into other programs. Traad  (Norwegian for
+“thread”) is another open-source project that addresses this problem by
+wrapping rope into a simple client-server model so that client programs (IDEs,
+editors, etc.) can perform refactorings without needing to embed rope
+directly. This simplifies dependencies, makes clients more robust in the face
+of errors, eases traad client development, and even allows clients to do
+things like switch between Python 2 and 3 refactoring in the same session.
+</p><p>
+In this session we’ll look at how rope operates, and we’ll see how traad wraps
+it to provide an easier integration interface. The audience will get enough
+information to start using rope themselves, either directly or via traad, and
+they’ll see how to use traad for integrating rope into their own environments.
+More generally, we’ll look at why client-server refactoring tools might be
+preferable to the more standard approach of direct embedding. 
+</p>
+<p>
+<b>About the author:</b> Austin is a founding director of Sixty North, a software
+consulting, training, and application development company. A native of Texas,
+in 2008 Austin moved to Stavanger, Norway where he helped develop
+industry-leading oil reservoir modeling software in C++ and Python. Austin is
+also an active member of the open source community, contributing regularly to
+various Python and Emacs projects, and he’s the founder of Stavanger Software
+Developers, one of the largest and
+most active social software groups in Stavanger. Austin holds a Master of
+Science in Computer Engineering from the University of Texas at Austin.
+</p>
+</article>
+
+<article>
+    <h3><a href="#talks-extending-python" class="pagelink">
+        Francisco Fernández - Extending Python, What Is the Best
+        Option for Me?
+    </a></h3>
+<p>
+Python is a great language, but there are occasions where we need access to
+low level operations or connect with some database driver written in C. With
+the FFI(Foreign function interface) we can connect Python with other languages
+like C, C++ and even the new Rust. There are some alternatives to achieve this
+goal, Native Extensions, Ctypes and CFFI. I'll compare this three ways of
+extending Python.
+</p>
+<p>
+    <b>About the author:</b> Francisco Fernandez works as a software engineer at
+    biicode in Madrid. He uses Python as his main programming language but he
+    also program in other languages like Scala, Go, Clojure... His main
+    interests are distributed systems, functional programming and graph
+    databases.
+    <p>
+</article>
+
+<article>
+    <h3><a href="#talks-iterators-generators" class="pagelink">
+        Andrew Dalke - Iterators, Generators, and Coroutines
+    </a></h3>
+<p>
+Python 2 introduced the iterator protocol, which has since become an essential
+language concept. Generators - functions with a yield - make it much easier to
+write an iterator. What's less commonly known is that generators have evolved
+to be usable co-routines. These are the basis for the new asyncio module in
+Python 3.3, though I won't talk about asyncio.
+</p><p>
+My presentation will structure the concepts around file I/O. I'll develop
+various iterators to read records from a file, and then show how to 'reverse'
+a generator to make a coroutine to write records to a file.
+</p>
+<p>
+<b>About the author:</b> I've been using Python full-time since the 1990s. I
+primarily work in computational chemistry and related fields. I make my living
+as a consultant doing custom software development, software sales, and Python
+training for computational chemists.
+
+I co-founded the Biopython project, and co-founded the Gothenburg Python
+User's Group (GothPy). I am also a member of the PSF.
+</p></article>
+
+
+<article>
+    <h3><a href="#talks-plotting-matplotlib" class="pagelink">
+        Jouni Seppänen - Plotting with Matplotlib
+    </a></h3>
+<p>
+Matplotlib is the most popular plotting library for Python, but getting
+started may be daunting for non-experts, especially if you want to format your
+plots differently from the default. I will show by example how to create plots
+and figure out from the Python prompt how to change the various details.
+</p>
+<p>
+<b>About the author:</b> I'm a software developer at ZenRobotics, with a doctorate in
+Computer and Information Science. I have contributed code to matplotlib: my
+main contribution is the pdf backend.
+</p>
+</article>
+
+
+<article>
+    <h3><a href="#talks-democratization" class="pagelink">
+        Espartaco Palma - Democratization of Open Data with Python & Open
+        Source
+    </a></h3>
+<p>
+Since the beginning of 2000s, Eric von Hippel has presented Models on how Paradigm Shift from Producer Innovation to User and Open Collaborative Innovation, this can be true not only on products, also in how the users can produce innovation on service like the OpenData & Open Government, don't need the main publisher, researcher or Government provide all the work. Push more innovation around this new services.
+</p><p>
+Nowadays, everybody can improve the data available, curate, create, publish and provide more value on public & open data. Learn a framework like Flask is more accessible than ever, host & publish REST services for free, host the code of project for free also. It's democratizing all the way. All can be done with Python.
+</p><p>
+In this presentation I'll demonstrate how can use GitHub to publish a data sets (and proper updates) and the code of the Python REST API with no more than 100 lines of code which can be deployed on local installation, plus, with few commands,  deploy on a service with a free tier like OpenShift for a worldwide audience.
+</p>
+<p>
+<b>About the author:</b> On day time I'm an IT worker for the Mexican government, but I'm also dedicated to provide a better experience on publishing of statistical data about Mexico public education. Recently has been involved on the first Open Data initiative of Federal Government (of Mexico).
+
+I've been working with ancient tools like Visual FoxPro, transmute to .NET framework and in the last two years, use Python on almost everything.</p->
+
+
+<article>
+    <h3><a href="#talks-pyramid-traversal" class="pagelink">
+        Dmitri Vakhrushev - Pyramid Traversal as the Right Way to Handling URLs
+    </a></h3>
+<p>
+What is Traversal in comparison with traditional regular expression based method of handling URLs in web application? What its benefits? How does it affect application architecture? What kind of problems does it solve? Answers to the questions above and little bit of Pyramid evangelism are in the my talk.
+</p>
+<p
+<b>About the author:</b> I currently work at Thumbtack Technology as a software architect. My primary specialization is web developing, and most favorite tool is Pyramid web framework. From time to time I write technical articles in <a href="http://www.kr41.net">my blog</a>, and answer to Python and Pyramid related questions on Stack Overflow.</p-->
+</article>
+
+
+<article>
+    <h3><a href="#talks-python-fit" class="pagelink">
+        Elena Oat - Python Is Keeping Me Fit
+    </a></h3>
+<p>
+The ultimate goal of this talk is to inspire people to use Python to achieve their fitness goals. Or to just get to know a little bit more about their own body. 
+</p><p>
+Some libraries and their use will be presented, that help in exploring our own body (e.g., Fitbit's python-fitbit). Additionally, I may touch on the Intel Galileo/(other boards) that help in this matter. 
+</p><p>
+The talk is inspired partly by the "Bodily Play" workshop that I participated in this summer with the folks that came from Melbourne's "Exertion Games Lab". 
+</p>
+<p>
+<b>About the author:</b> I am currently pursuing my Master's degree at Aalto University in Computer Science. 
+I consider that women are equally able to do well in this field, that's why I founded Helsinki PyLadies that aims to support women in technology. </p>
+</article>
+
+
+
+<!--article>
     <h3><a href="#talks-lorem-ipsum" class="pagelink">
         Marcus Tullius Cicero - Lorem Ipsum
     </a></h3>
 <p>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam justo purus, hendrerit posuere neque non, fringilla aliquet velit. Quisque rutrum, tellus in pulvinar porta, neque erat porta velit, in condimentum erat neque at elit. Curabitur mollis diam nisl, non pharetra nisl euismod vel. Quisque id placerat eros. Praesent ut diam magna. Ut aliquam massa quis leo dapibus pellentesque. Aliquam erat volutpat.
-</p>
-About the author: Nulla facilisi. Vivamus vel libero augue. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla euismod aliquam mi nec mattis. Ut pellentesque nec tortor in sodales. Sed mollis lobortis bibendum. Praesent a ligula nec est elementum ullamcorper. Interdum et malesuada fames ac ante ipsum primis in faucibus. In a pretium tellus. Aenean non felis a ligula accumsan adipiscing. Mauris malesuada justo non metus egestas porttitor.
-<p>
-
-</p></article>
-<article>
-    <p>
-        More to come! We'll update this page after some more confirmations.
-    </p>
+</p-->
+<!--
+<b>About the author:</b> Nulla facilisi. Vivamus vel libero augue. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla euismod aliquam mi nec mattis. Ut pellentesque nec tortor in sodales. Sed mollis lobortis bibendum. Praesent a ligula nec est elementum ullamcorper. Interdum et malesuada fames ac ante ipsum primis in faucibus. In a pretium tellus. Aenean non felis a ligula accumsan adipiscing. Mauris malesuada justo non metus egestas porttitor.
+</p-->
 </article>
+
+
