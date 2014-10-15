@@ -141,7 +141,7 @@ $(document).ready(function() {
         is_corporate = (val == 'corporate' || val == 'corporate_eb'),
         is_normal = (val == 'individual' || val == 'individual_eb'),
         is_special = (val=='sponsor' || val=='speaker' || val=='organizer');
-        $('#dinner-disclaimer').toggle(is_corporate || is_special);
+        $('#dinner-disclaimer').toggle(is_corporate || is_special || is_normal);
         $('#id_dinner').attr('checked', is_corporate || is_special);
         $('#companywrapper').toggle(is_corporate || val=='sponsor');
         $('#billing-details').toggle(is_corporate);
