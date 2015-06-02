@@ -1,0 +1,129 @@
+<h1>Registration not yet open</h1>
+
+<div id="errorcontainer">
+    <p>
+        <span>
+            Submitting registration resulted in error,
+    correct the problems below:
+        </span>
+    </p>
+    <ul></ul>
+</div>
+<div id="thankyou">
+    <h2>Thank You!</h2>
+    <p>
+        <span>
+            You've now registered! Expect to get more details
+    (and the bill) soon! See you at PyCon Finland!
+        </span>
+    </p>
+</div>
+<p>The early bird registration for 2015 is not yet open. It will come up in
+the next few weeks.</p>
+<form method="post" id="registration-form" style="display:none">
+    <div class="half-quarter">
+        <div class="input-wrapper">
+            <label class="placeholder" for="id_name">Your Name</label>
+            <input type="text" id="id_name" name="name"></div>
+        <div class="input-wrapper">
+            <label class="placeholder" for="id_email">Your Email</label>
+            <input type="text" id="id_email" name="email">
+            <script type="text/javascript">document.getElementById('id_email').type = 'email';</script>
+        </div>
+        <div class="input-wrapper">
+            <label class="placeholder" for="id_country">Country</label>
+            <input type="text" id="id_country" name="country">
+        </div>
+        <section>
+            <label for="id_ticket_type">Ticket type</label>
+            <select id="id_ticket_type" name="ticket_type">
+                <!--option value="individual_eb">Individual Early Bird (50 EUR)</option-->
+                <!--option value="corporate_eb">Corporate Early Bird (100 EUR)</option-->
+                <option value="individual">Individual (60 EUR)</option>
+                <option value="corporate">Corporate (125 EUR)</option>
+                <option value="student">Student (20 EUR)</option>
+                <option value="sponsor">Sponsor</option>
+                <option value="speaker">Speaker</option>
+                <option value="organizer">Organizer</option>
+            </select>
+            <span class="arrowwrapper"></span>
+            <span class="selectwrapper"></span>
+            <div class="input-wrapper" id="companywrapper">
+                <label class="placeholder" for="id_company">Company</label>
+                <input type="text" id="id_company" name="company">
+            </div>
+            <!--
+            <div style="display: none" id="accommodation-disclaimer" class="checkbox">
+            <div style="display: none">
+                <label for="id_accommodation">Accommodation?</label>
+                <input type="checkbox" id="id_accommodation" name="accommodation">
+                <span class="checkwrapper"></span>
+            </div>
+            <p style="display: none" class="checkbox-help">If you don't have a place to stay in Helsinki area for the conference, please check the box so we can arrange the accommodation for you.</p>
+        </div>-->
+
+        <div id="preconf-disclaimer" class="checkbox">
+            <div>
+                <label for="id_preconf">Pre-conference activities?</label>
+                <input type="checkbox" id="id_preconf" name="preconf">
+                <span class="checkwrapper"></span>
+        </div>
+            <p class="checkbox-help">If you plan to join us in pre-conferenece activities on Sunday, please check the box.</p>
+        </div>
+        </section>
+    </div>
+    <div class="half-quarter">
+
+      <!--<div id="papermail-disclaimer" class="checkbox">
+            <div>
+                <label for="id_snailmail_bill">Paper bill?</label>
+                <input disabled type="checkbox" id="id_snailmail_bill"
+                        name="snailmail_bill">
+                <span class="checkwrapper"></span>
+            </div>
+            <p class="checkbox-help">If you require a printed bill, check this box and enter billing details. We charge additional 5 &euro; for billing via snail mail.</p>
+        </div>
+      -->
+        <div id="billing-details">
+            <div class="input-wrapper">
+                <label class="placeholder" for="id_billing_address">Billing Details</label>
+                <textarea cols="40" rows="4" id="id_billing_address" name="billing_address" placeholder="If you require specific billing details to be included in your invoice, please include them here."></textarea>
+            </div>
+        </div>
+        <div id="dinner-disclaimer" class="checkbox">
+            <div>
+                <label for="id_dinner">Dinner?</label>
+                <input type="checkbox" id="id_dinner" name="dinner" checked>
+                <span class="checkwrapper"></span>
+            </div>
+            <p class="checkbox-help">If you don't plan to attend the dinner, please uncheck the box. 
+            </p>
+            <div class="input-wrapper" id="additional">
+                <label class="placeholder" for="id_extra">Additional info (diet, allergies)</label>
+                <textarea cols="30" rows="3" id="id_extra" name="extra"></textarea>
+            </div>
+        </div>
+        <p id="submit">
+            <span class="label label-info">Total price</span>
+            <span class="price"></span>
+            <input type="submit" value="Let's do this!" class="btn">
+        </p>
+    </div>
+</form>
+<h2 style="clear:both">Ticket classes</h2>
+<ul>
+    <li>Early Bird Corporate (110€): includes lunch, dinner, coffee.</li>
+    <li>Corporate (135€): includes lunch, dinner, coffee.</li>
+    <li>Early Bird Individual (55€): includes lunch, dinner, coffee.</li>
+    <li>Individual (65€): includes lunch, dinner, coffee.</li>
+    <li>Student (20€): includes coffee.</li>
+</ul>
+<p>Corporate tickets are meant for corporate visitors and can be billed to a
+company. Each corporate ticket supports the conference by a few euros.
+Individual tickets are meant for private persons paying for their attendance.
+Student tickets are meant for students. </p>
+<p><b>Note that all bills will be sent after the conference in one big batch.</b></p>
+<p><b>Group discount for corporate visitors:</b> If 5 or more corporate
+attendees sign up with the same billing details, all get the early bird price
+regardless of sign-up date.</p>
+
