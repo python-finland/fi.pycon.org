@@ -122,10 +122,10 @@ $(document).ready(function() {
 
     function update_price() {
         var prices = {
-            'corporate_eb': 100,
-            'corporate': 125,
-            'individual': 60,
-            'individual_eb': 50,
+            'corporate_eb': 110,
+            'corporate': 135,
+            'individual': 65,
+            'individual_eb': 55,
             'student': 20,
             'sponsor': 0,
             'speaker': 0,
