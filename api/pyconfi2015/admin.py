@@ -41,6 +41,10 @@ IBAN: FI27 4055 0011 0236 33
 BIC: HELSFIHH
 Reference (viitenumero): {{ obj.reference_number }}
 
+OR
+
+Virtual bar code: {{ obj.barcode }}
+
 DUE DATE: {{ obj.due_date|date }}
 
 Make sure to use the correct reference when paying. Please note that

@@ -23,6 +23,12 @@ def reference_number(data):
 def is_corporate(ticket_type):
     return ticket_type.startswith('corporate')
 
+def virtual_barcode_4(price, due_date, reference_number):
+    cents = "%08d" %(price*100)
+    refnum = ("%20s" % reference_number).replace(" ", "0")
+    duedate = due_date.strftime("%y%m%d")
+    return '4' + '2740550011023633' + cents + "000" + refnum + duedate;
+
 class Registration(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
@@ -77,6 +83,10 @@ class Registration(models.Model):
     @property
     def reference_number(self):
         return reference_number(self.invoice_number)
+
+    @property
+    def barcode(self):
+        return virtual_barcode_4(self.price, self.due_date, self.reference_number)
 
     @property
     def due_date(self):
