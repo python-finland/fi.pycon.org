@@ -152,10 +152,10 @@ SEATS_AVAILABLE = 156  # From optimistic budget
 
 
 TICKET_PRICES = {
-    'individual_eb': 50,
-    'individual': 60,
-    'corporate_eb': 100,
-    'corporate': 125,
+    'individual_eb': 55,
+    'individual': 65,
+    'corporate_eb': 110,
+    'corporate': 135,
     'student': 20,
     'organizer': 0,
     'speaker': 0,
