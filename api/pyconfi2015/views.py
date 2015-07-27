@@ -34,11 +34,19 @@ email_body = Template('''\
     hallitus@python.fi to resolve the issue.
 
     {% if "corporate" in x.ticket_type or "individual" in x.ticket_type or x.ticket_type == "student" %}
-    You will receive a bill in a separate email closer to the event.
+    You will receive an invoice in a separate email. Don't be alarmed
+    if you haven't received an invoice before the event, as we may
+    only be able to send them out afterwards, especially for late
+    registrants.
 
     The registration can be cancelled by contacting
-    hallitus@python.fi. 25 EUR cancellation fee until and including
-    September 30th. No return after September 30th.
+    hallitus@python.fi. 25 EUR cancellation fee applies until and including
+    September 30th. After September 30th cancellation is not possible.
+
+    Note that you can transfer your registration to another person
+    until the very morning of the event! If you want to do this, please
+    contact hallitus@python.fi so that we know whom to expect in your stead.
+
     {% endif %}
     See you at PyCon Finland {{ year }}!
 
