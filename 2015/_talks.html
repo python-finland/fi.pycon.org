@@ -2,317 +2,201 @@
 
 
 <article>
-    <h3><a href="#talks-keynote" class="pagelink">
-        Keynote by Tuomas Suutari - Developing and Deploying Python
-        Web Applications with Docker
-    </a></h3>
-<p>Docker is a new container technology for Linux that has recently become
-quite popular.  It allows packaging applications as images that are easy
-to create, share and deploy.  For you, as a Python developer, it is a
-new tool for your toolbox that can make yours or your sysadmin's life a
-lot easier.
-</p>
-<p>
-The talk introduces you to the world of Docker and presents some
-thoughts on why it is a good choice for deploying Python applications
-and how it can help you in the development process.
-The talk introduces you to the world of Docker and presents some
-thoughts on why it is a good choice for deploying Python applications
-and how it can help you in the development process.
-</p>
-<p>
-One of the things that we'll also discuss is the pros and cons of using
-Docker to deploy your code instead of virtualenvs or virtual machines.
-</p>
-<p>
-<b>About the author:</b> Tuomas Suutari is a software developer and a big fan
-of Open Source.  Python is his favorite programming language with
-10 years of experience. Currently he is taming snakes as a Senior Developer at Anders Innovations.
-</p>
-</article>
-
-
-
-<article>
-    <h3><a href="#talks-practical-parallelism" class="pagelink">
-        Michael Cetrulo - Practical Parallelism and Concurrency in Python -
-        from Threads to AsyncIO
-    </a></h3>
-<p>
-We'll be exploring the different mechanisms and libraries in the Python
-ecosystem for concurrent and/or parallel systems while comparing benchmarks
-and discussing the pros and cons of each approach.
-</p>
-<p>
-<b>About the author:</b> Michael Cetrulo is a software architect from Uruguay
-working for Crafted, a Web and Mobile consultancy shop based in Montevideo,
-Uruguay. His interests include parallel computing and large scale / high performance systems. 
-</p></article>
-
-<article>
-    <h3><a href="#talks-enough-ml" class="pagelink">
-        Ned Jackson Lovely - Enough Machine Learning to Make Hacker News
-        Readable Again
-    </a></h3>
-<p>
-It's inevitable that online communities will change, and that we'll remember
-the community with a fondness that likely doesn't accurately reflect the
-former reality. We'll explore how we can take a set of articles from an online
-community and winnow out the stuff we feel is unworthy. We'll explore some of
-the machine learning tools that are just a "pip install" away, such as
-scikit-learn and nltk.
-
-</p><p>
-<b>About the author:</b> Ned Jackson Lovely is a full-stack Python engineer from
-Boston, MA. He is a principal engineer at Spotify is Somerville, MA, where he
-helps invent the future of music. At various points in his life he has been a
-freelance software consultant, a high school science teacher, and a product
-manager. His coolest job was getting paid to teach physics and go on roller
-coasters at Walt Disney World.
-</p>
-
-</article>
-
-
-<article>
-    <h3><a href="#talks-lusmu" class="pagelink">
-        Antti Kaihola - Lusmu, a dataflow/reactive programming library for Python
-        </a></h3>
-<p>
-On ships sailing all over the world, Eniram helps ship crews reduce ship
-running costs and emissions by optimizing ship operations. Hundreds of
-measurements are constantly collected on each ship. Our data processing
-systems are being replaced with a unified Python-based framework. At the heart
-of it is Lusmu, a small yet powerful reactive programming library.
-</p>
-<p>
-In the reactive programming model used by Lusmu, data is fed into inputs of a
-directed graph. Calculations are done by nodes of the graph lazily only when
-resulting data is being accessed.
-</p>
-<p>
-This talk illustrates how Lusmu works by walking through a simplified
-implementation in source code. Usage scenarios for developers and end users
-are presented using real-world examples.
-</p>
-<p>See also the <a
-href="http://eniramltd.github.io/devblog/tags/lusmu.html">accompanying series
-of blog posts</a>.</p>
-<p>
-<b>About the author:</b> Antti Kaihola is a Python developer with a 15-year
-friendship with the language and a more recent background in web backend
-development. He's currently working as a Senior Research Engineer at Eniram
-Ltd in Helsinki.
-</p>
-</article>
-
-
-<article>
-    <h3><a href="#talks-rope-traad" class="pagelink">
-        Austin Bingham - Python Refactoring with Rope and Traad
-    </a></h3>
-<p>
-Python is a modern, dynamic language which is growing in popularity, but tool
-support for it is sometime lacking or only available in specific environments.
-For refactoring and other common IDE functions, however, the powerful
-open-source rope library provides a set of tools which are designed to be
-integrated into almost any programming environment. Rope supports most common
-refactorings, such as renaming and method extraction, but also more
-Python-specific refactorings, such as import organization. Rope’s underlying
-code analysis engine also allows it to do things like locating method
-definitions and generating auto-completion suggestions.
-</p>
-<p>
-While rope is designed to be used from many environments, it’s not always easy
-or ideal to integrate rope directly into other programs. Traad  (Norwegian for
-“thread”) is another open-source project that addresses this problem by
-wrapping rope into a simple client-server model so that client programs (IDEs,
-editors, etc.) can perform refactorings without needing to embed rope
-directly. This simplifies dependencies, makes clients more robust in the face
-of errors, eases traad client development, and even allows clients to do
-things like switch between Python 2 and 3 refactoring in the same session.
-</p><p>
-In this session we’ll look at how rope operates, and we’ll see how traad wraps
-it to provide an easier integration interface. The audience will get enough
-information to start using rope themselves, either directly or via traad, and
-they’ll see how to use traad for integrating rope into their own environments.
-More generally, we’ll look at why client-server refactoring tools might be
-preferable to the more standard approach of direct embedding. 
-</p>
-<p>
-<b>About the author:</b> Austin is a founding director of Sixty North, a software
-consulting, training, and application development company. A native of Texas,
-in 2008 Austin moved to Stavanger, Norway where he helped develop
-industry-leading oil reservoir modeling software in C++ and Python. Austin is
-also an active member of the open source community, contributing regularly to
-various Python and Emacs projects, and he’s the founder of Stavanger Software
-Developers, one of the largest and
-most active social software groups in Stavanger. Austin holds a Master of
-Science in Computer Engineering from the University of Texas at Austin.
-</p>
-</article>
-
-<!--<article>
-    <h3><a href="#talks-extending-python" class="pagelink">
-        Francisco Fernández - Extending Python, What Is the Best
-        Option for Me?
-    </a></h3>
-<p>
-Python is a great language, but there are occasions where we need access to
-low level operations or connect with some database driver written in C. With
-the FFI(Foreign function interface) we can connect Python with other languages
-like C, C++ and even the new Rust. There are some alternatives to achieve this
-goal, Native Extensions, Ctypes and CFFI. I'll compare this three ways of
-extending Python.
-</p>
-<p>
-    <b>About the author:</b> Francisco Fernandez works as a software engineer at
-    biicode in Madrid. He uses Python as his main programming language but he
-    also program in other languages like Scala, Go, Clojure... His main
-    interests are distributed systems, functional programming and graph
-    databases.
+    <h3>
+        <a href="#talks-pragmatic-testing" class="pagelink">
+                Charlie Hornsby - Pragmatic Testing
+        </a>
+    </h3>
     <p>
+        I would like to talk about software testing from a real world point of view, explaining a healthy testing mindset for all programming skill levels. Just as programming skill is a continuum of experience, testing best practices are also not black and white. I will begin with a brief introduction to some testing concepts (unit testing, integration testing, system testing, etc) but the main focus of the presentation will be on ways for both professional developers and hobbyist programmers to improve their use of testing in everyday life.
+    </p>
+    <p>
+        <strong>About the author:</strong> I'm a junior developer working in a Django e-commerce company in Helsinki. I've worked with Python for 3 years in both the fields of web development and scientific computing. I moved to Finland from England around 10 months ago and I love talking about Python and progamming in general.
+    </p>
 </article>
--->
+
 <article>
-    <h3><a href="#talks-iterators-generators" class="pagelink">
-        Andrew Dalke - Iterators, Generators, and Coroutines
-    </a></h3>
-<p>
-Python 2 introduced the iterator protocol, which has since become an essential
-language concept. Generators - functions with a yield - make it much easier to
-write an iterator. What's less commonly known is that generators have evolved
-to be usable co-routines. These are the basis for the new asyncio module in
-Python 3.3, though I won't talk about asyncio.
+    <h3>
+        <a href="#talks-welcome-to-async-await-era" class="pagelink">
+                Igor Davydenko - Welcome to async/await era
+        </a>
+    </h3>
+    <p>
+        PEP492 accepted and Python 3.5 will have new async/await statements. Talk will introduce them to the audience and shows examples on how to and when to use.
+        </p><p>
+Talk also covers how async/await helps to write better and clear asyncio web applications on top of aiohttp library and shows common patterns to use, while making backend applications on Python 3.5.
+    </p>
+    <p>
+        <strong>About the author:</strong> Python &amp; React.js developer from Kyiv, Ukraine. Love creating API for humans, open source libraries, and giving talks about the process. In Python 3 &amp; asyncio I trust.
+    </p>
+</article>
+
+<article>
+    <h3>
+        <a href="#talks-solid-data-structures-in-python-with-logs" class="pagelink">
+                Jyrki Pulliainen - Solid data structures in Python with logs
+        </a>
+    </h3>
+    <p>
+        We all know the classic web application that has a database connected to it. Over time the app grows and we add more bells and whistles, like a search functionality via ElasticSearch. Soon we notice that we need a cache too. 
+        </p><p>
+Now we have a fairly complex application and a completely new set of problems like the cache invalidation, stale data, consistency issues etc.
+
+        </p><p>
+What if I said that using logs would help you here? This talk looks into using Kafka via Python to build solid data structures.
+
+        </p><p>
+Overview of the talk outline is:
+<ul>
+    <li>Description of the problem</li>
+    <li>What are log based data structures</li>
+    <li>What's Kafka and why is it amazing?</li>
+    <li>Using Kafka via Python</li>
+    <li>Demo time!</li>
+</ul>
+    </p>
+    <p>
+        <strong>About the author:</strong> I'm a content engineer at the music streaming company Spotify. I've been using Python for professional and personal projects for over 10 years now. Over the course of years I've built open-source tools for Python and even contributed to the cpython itself.
+        <p></p>
+I have also been a part of creating both PyCon Finland and PyCon Sweden. I'm also organising the PySthlm meetups in Stockholm.
+    </p>
+</article>
+
+<article>
+    <h3>
+        <a href="#talks-building-a-marketplace" class="pagelink">
+                Elena Oat - Building a marketplace
+        </a>
+    </h3>
+    <p>
+        Motivation for this talk is sharing my own experience with implementing Stripe payments in a Django application. I will, specifically, touch on Stripe Connect which is meant for marketplaces. Django is still missing a package for this purpose.
+        <p></p>
+The talk will include challenges faced and some of the solutions.
+    </p>
+    <p>
+        <strong>About the author:</strong> I've been a speaker in 2014 and 2013 at PyCon Finland. I am the founder of Helsinki PyLadies.
+    </p>
+</article>
+
+<article>
+    <h3>
+        <a href="#talks-weaving-a-search-engine-around-users-workflow" class="pagelink">
+                Priidu Kull - Weaving a Search Engine around User's Workflow
+        </a>
+    </h3>
+    <p>
+        In this talk I will discuss my attempt to build a search engine for legal documents that lawyers would love to use. I tried to figure out how lawyers work with documents and to build a search engine that would best fit their workflows. I will discuss the methods that I have used for finding out about their workflows and the decisions that I had to make to best accommodate the workflows of my users. The talk will include practical advice on using Elasticsearch.
+    </p>
+    <p>
+    <strong>About the author:</strong> I was a lawyer, then decided to become a coder because I enjoyed coding so much and I was motivated by the ability to make a difference that coders possess more than lawyers. Currently I have three years of experience in software development, including 1.5 years working for a software development firm. The project that will feature in my talk is online at <a href="http://legal.ee/">http://legal.ee/</a> and I am currently putting in full time effort to develop it. 
+    </p>
+</article>
+
+<article>
+    <h3>
+        <a href="#talks-hunting-malware-with-python" class="pagelink">
+                Matteo Cafasso - Hunting Malware with Python
+        </a>
+    </h3>
+    <p>
+        Worms, Trojans, BotNets and Ransomware. These bad guys are quite known nowadays but how do they look like?
+        </p><p>
+I am gonna show one of the approaches IT Security experts employ to study these threats using open source Python technologies.
 </p><p>
-My presentation will structure the concepts around file I/O. I'll develop
-various iterators to read records from a file, and then show how to 'reverse'
-a generator to make a coroutine to write records to a file.
-</p>
-<p>
-<b>About the author:</b> I've been using Python full-time since the 1990s. I
-primarily work in computational chemistry and related fields. I make my living
-as a consultant doing custom software development, software sales, and Python
-training for computational chemists.
-
-I co-founded the Biopython project, and co-founded the Gothenburg Python
-User's Group (GothPy). I am also a member of the PSF.
-</p></article>
-
-
-<article>
-    <h3><a href="#talks-plotting-matplotlib" class="pagelink">
-        Jouni Seppänen - Plotting with Matplotlib
-    </a></h3>
-<p>
-Matplotlib is the most popular plotting library for Python, but getting
-started may be daunting for non-experts, especially if you want to format your
-plots differently from the default. I will show by example how to create plots
-and figure out from the Python prompt how to change the various details.
-</p>
-<p>
-<b>About the author:</b> I'm a software developer at ZenRobotics, with a doctorate in
-Computer and Information Science. I have contributed code to matplotlib: my
-main contribution is the pdf backend.
-</p>
-</article>
-
-
-<article>
-    <h3><a href="#talks-wowpal-wabbit" class="pagelink">
-    Antti Haapala - Wapid and wobust online-machine leawning with Vowpal
-    Wabbit
-    </a></h3>
-<p> This talk will present the Vowpal Wabbit linear online regression system,
-and the <i>wabbit_wappa</i> lib for it and  pitch some NLTK.</p>
-
-<p>Demo showing how to make a spam filter (binary classifier) using logistic
-regression and online learning.</p>
-</article>
-
-<article>
-    <h3><a href="#talks-dh-virtualenv" class="pagelink">
-    Jyrki Pulliainen - Packaging in packaging: dh-virtualenv
-    </a></h3>
-
-<p>
-Deploying your software can become a tricky task, regardless of the language.
-In the spirit of the Python conferences, every conference needs at least one
-packaging talk.
-
-This talk is about dh-virtualenv. It's a Python packaging tool aimed for
-Debian-based systems and for deployment flows that already take advantage of
-Debian packaging with Python virtualenv.
-</p>
-<p>
-Dh-virtualenv is an open source tool developed at Spotify. We use it to ease
-deploying our Python software to production. We built dh-virtualenv as a tool
-that fits our existing continuous integration flow with a dedicated sbuild
-server. As we were already packaging software in Debian packages, the aim of
-dh-virtualenv was to make transition to virtualenv based installations as
-smooth as possible.</p>
-<p>
-This talk covers how you can use dh-virtualenv to help you deploy your
-software to production, where you are already running a Debian-based system,
-such as Ubuntu, and what are the advantages and disadvantages of the approach
-over other existing and popular techniques. We will discuss the deploying as a
-problem in general, look into building a dh-vritualenv-backed package, and in
-the end, look into how dh-virtualenv was actually made.</p>
-<p>
-Goal is that after this presentation you know how to make your Debian/Ubuntu
-deployments easier!</p>
-
-<p>
-<b>About the author:</b> Jyrki Pulliainen is a Python hacker and open source
-advocate, who has been working with the snakes for over 7 years.
-
-His background is in web back-ends and nowadays he's a content engineer at
-Spotify. On the side he also runs PyCon Sweden and helps out with the
-Stockholm Python user group</p>
-
-</article>
-
-
-<article>
-    <h3><a href="#talks-pyramid-traversal" class="pagelink">
-        Dmitri Vakhrushev - Pyramid Traversal as the Right Way to Handling URLs
-    </a></h3>
-<p>
-What is Traversal in comparison with traditional regular expression based method of handling URLs in web application? What its benefits? How does it affect application architecture? What kind of problems does it solve? Answers to the questions above and little bit of Pyramid evangelism are in the my talk.
-</p>
-<p>
-<b>About the author:</b> I currently work at Thumbtack Technology as a software architect. My primary specialization is web developing, and most favorite tool is Pyramid web framework. From time to time I write technical articles in <a href="http://www.kr41.net">my blog</a>, and answer to Python and Pyramid related questions on Stack Overflow.</p>
-</article>
-
-
-<article>
-    <h3><a href="#talks-python-fit" class="pagelink">
-        Elena Oat - Python Is Keeping Me Fit
-    </a></h3>
-<p>
-The ultimate goal of this talk is to inspire people to use Python to achieve their fitness goals. Or to just get to know a little bit more about their own body. 
+The presentation would be a live demo in which I'll execute some malware in a secure environment and show how it behaves and how to detect it.
 </p><p>
-Some libraries and their use will be presented, that help in exploring our own body (e.g., Fitbit's python-fitbit). Additionally, I may touch on the Intel Galileo/(other boards) that help in this matter. 
+I will show a Sandboxing technology developed within F-Secure named Sandboxed Execution Environment (SEE). SEE is a Python framework which allows to quickly build behavioural scanning engines.
 </p><p>
-The talk is inspired partly by the "Bodily Play" workshop that I participated in this summer with the folks that came from Melbourne's "Exertion Games Lab". 
-</p>
-<p>
-<b>About the author:</b> I am currently pursuing my Master's degree at Aalto University in Computer Science. 
-I consider that women are equally able to do well in this field, that's why I founded Helsinki PyLadies that aims to support women in technology. </p>
+SEE will be used altogether with other open source technologies to show some recent malware to the audience.
+    </p>
+    <p>
+        <strong>About the author:</strong> I am a software engineer working in F-Secure Labs. F-Secure Corporation is an IT security company based in Helsinki. 
+        </p><p>
+Among my duties, malware handling and analysis automation is one of the most interesting to me.
+</p><p>
+I develop and maintain the main behavioural scanning engines within F-Secure back-end and SEE is one of their core technology.
+    </p>
 </article>
 
-
-
-<!--article>
-    <h3><a href="#talks-lorem-ipsum" class="pagelink">
-        Marcus Tullius Cicero - Lorem Ipsum
-    </a></h3>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam justo purus, hendrerit posuere neque non, fringilla aliquet velit. Quisque rutrum, tellus in pulvinar porta, neque erat porta velit, in condimentum erat neque at elit. Curabitur mollis diam nisl, non pharetra nisl euismod vel. Quisque id placerat eros. Praesent ut diam magna. Ut aliquam massa quis leo dapibus pellentesque. Aliquam erat volutpat.
-</p-->
-<!--
-<b>About the author:</b> Nulla facilisi. Vivamus vel libero augue. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla euismod aliquam mi nec mattis. Ut pellentesque nec tortor in sodales. Sed mollis lobortis bibendum. Praesent a ligula nec est elementum ullamcorper. Interdum et malesuada fames ac ante ipsum primis in faucibus. In a pretium tellus. Aenean non felis a ligula accumsan adipiscing. Mauris malesuada justo non metus egestas porttitor.
-</p-->
+<article>
+    <h3>
+        <a href="#talks-introducing-the-asphalt-framework" class="pagelink">
+                Alex Grönholm - Introducing the Asphalt framework
+        </a>
+    </h3>
+    <p>
+        Most existing server frameworks only cater to a specific network protocol, forcing developers to learn everything anew when building an app for a different protocol. Or worse, there's no framework available so they have to reinvent everything by themselves.
+        </p><p>
+Now, meet Asphalt -- a new general purpose server microframework that not only solves these problems, but also provides strong compatibility guarantees through the use of semantic versioning and PEP 484 type hints.
+</p><p>
+In this talk, you will hear how Asphalt compares (or doesn't) to Twisted, how to mix asynchronous code with synchronous code and how to develop multi-protocol applications that work seamlessly together.
+    </p>
+    <p>
+        <strong>About the author:</strong> I'm a private contractor from Espoo, 35 years old. I'm a Jython core developer and the author of APScheduler, sqlacodegen, jython-swingutils, the concurrent.futures backport and of course the Asphalt framework. I build and maintain Enterprise Resource Planning systems for a living.
+    </p>
 </article>
 
+<article>
+    <h3>
+        <a href="#talks-how-to-become-enterprise-friendly-with-free-software" class="pagelink">
+                Alexander Bokovoy - How to become enterprise-friendly with free software
+        </a>
+    </h3>
+    <p>
+        Want to enable single sign-on in your web applications and allow Kerberos logins in an enterprise next to you to work? This talk covers recent developments in FreeIPA, SSSD, and Ipsilon projects that allow application developers to integrate with traditional corporate infrastructure with ease.
+    </p>
+    <p>
+        <strong>About the author:</strong> I'm Principal Software Engineer at Red Hat, working on FreeIPA, Samba, SSSD, Kerberos, and many other things. FreeIPA is a free software infrastructure project doing to Linux and other POSIX-compatible operating systems what Active Directory is for Windows environment. FreeIPA is written in Python and C.
+    </p>
+</article>
 
+<article>
+    <h3>
+        <a href="#talks-plug-in-with-python" class="pagelink">
+                Markus Törnqvist - Plug in with Python
+        </a>
+    </h3>
+    <p>
+        What are plugins? Why are they nice? How do you write them for applications? How do you make your application accept plugins?
+    </p>
+    <p>
+    <strong>About the author:</strong> Done Python for about 15 years, though the first time was in Python 1.5 at school. Mainly Django nowadays, though I have a bunch of stuff up on <a href="https://github.com/mjtorn/">https://github.com/mjtorn/</a> like my cd-ripping tool Ripwhine and such.
+        </p><p>
+Employed with Codento as a consultant with the title of Software Architect.
+</p><p>
+Previous experience includes a startup with other people and freelancing by myself, making eg. Facebook apps. Now I'm not on FB anymore, in case you try to find me.
+</p><p>
+Got started doing sysadmin scripts before I was really into coding. After that I drifted into the pre-framework days of web development, doing work that resembled frameworks, because who wants to do anything without structure and form?
+</p><p>
+<a href="https://fi.linkedin.com/in/mjtorn">https://fi.linkedin.com/in/mjtorn</a>
+    </p>
+</article>
+
+<article>
+    <h3>
+        <a href="#talks-bug-forecasting-by-visualizing-code-evolution" class="pagelink">
+                Tommi Penttinen - Bug forecasting by visualizing code evolution
+        </a>
+    </h3>
+    <p>
+        I would like to introduce and expand the ideas presented by Adam Tornhil in his work (Your Code as a Crime Scene – applying forensics to mining software repositories - where do the bugs propbably lurch). Tornhill's main ideas are combining cyclomatic code complexity metric with repository history -calculated "code/knowledge ownership". Adding test coverage data, replicated production-system web traffic and their call graphs adds whole new dimensions to the data available from the repository.
+    </p>
+    <p>
+        <strong>About the author:</strong> I'm a(n almost-university-dropout) mathemathics major, software engineer. I've worked professionally with Python (and Django) since 2009, having also had the privilege to work only with DVCS. I've worked in different organizations ranging from freelancing and small companies to multinational corporations. I enjoy automation, debuggers and meta-programming. Most of my non-programming spare time goes into a cappella singing, improvisational theatre and finding ways to express my acrobatic tendencies.
+
+    </p>
+</article>
+
+<article>
+    <h3>
+        <a href="#talks-nix-for-python-developers" class="pagelink">
+                Asko Soukka - Nix for Python developers
+        </a>
+    </h3>
+    <p>
+        What do you do when your python project has dependencies beyond Python? Nix is a "purely functional" package manager, which can also be used like "virtualenv", but for everything. I would cover single user installation of Nix package manager on Linux or Mac, defining Nix based development environments, generating Nix expressions for large Python projects using buildout, and finally, building minimal Docker images from SCRATCH by using those generated expressions.
+    </p>
+    <p>
+    <strong>About the author:</strong> I'm a system designer at University of Jyväskylä and core contributor for a Python based open source CMS called Plone. I have blogged about my topics at <a href="https://datakurre.pandala.org/">https://datakurre.pandala.org/</a>
+    </p>
+</article>
