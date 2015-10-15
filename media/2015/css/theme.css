@@ -293,3 +293,8 @@ div#sponsors a.sitedesign {
     background: yellow;
     padding: 10px;
 }
+.venue-map {
+    min-width: 460px;
+    width: 100%;
+    max-width: 100%;
+}
