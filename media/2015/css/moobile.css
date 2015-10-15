@@ -130,6 +130,15 @@ div#sponsors img {
     max-width: 250px;
 }
 
+#credits {
+    padding-top: 5px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+#credits br {
+    display: none;
+}
+
 
 /* Let's check image sizes on footer */
 
