@@ -25,7 +25,7 @@ def is_corporate(ticket_type):
 
 def virtual_barcode_4(price, due_date, reference_number):
     cents = "%08d" %(price*100)
-    refnum = ("%20s" % reference_number).replace(" ", "0")
+    refnum = ("%20s" % reference_number.replace(" ", "")).replace(" ", "0")
     duedate = due_date.strftime("%y%m%d")
     return '4' + '2740550011023633' + cents + "000" + refnum + duedate;
 
