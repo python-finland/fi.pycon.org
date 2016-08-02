@@ -58,7 +58,8 @@ div#wrapper {
 }
 
 a#logo {
-    background: transparent url(../img/logo.png) no-repeat top center;
+    background: transparent url(../img/logo-2016.png) no-repeat top center;
+    background-size: 200px 200px;
     width: 215px;
     height: 215px;
     position: absolute;
