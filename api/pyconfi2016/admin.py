@@ -87,7 +87,7 @@ class RegistrationAdmin(admin.ModelAdmin):
     list_editable = ('paid',)
     list_filter = ('billed', 'paid',
                    'ticket_type', 'country', 'dinner',
-                   'accommodation', 'preconf', 'confirmation_sent')
+                   'preconf', 'confirmation_sent')
     ordering = ['-registered_timestamp']
     actions = [
         'generate_bill',

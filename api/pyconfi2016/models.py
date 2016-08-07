@@ -48,7 +48,6 @@ class Registration(models.Model):
     extra = models.TextField(null=True, blank=True)
 
     dinner = models.BooleanField(default=True)
-    accommodation = models.BooleanField()
     preconf = models.BooleanField()
 
     confirmation_sent = models.BooleanField(default=False)
