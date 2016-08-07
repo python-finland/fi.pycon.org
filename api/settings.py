@@ -131,10 +131,17 @@ LOGGING = {
             'class': 'django.utils.log.AdminEmailHandler'
         }
     },
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.expanduser("~/fi.pycon.org.log"),
+        },
+    },
     'loggers': {
         'django.request': {
-            'handlers': ['mail_admins'],
-            'level': 'ERROR',
+            'handlers': ['mail_admins', 'file'],
+            'level': 'INFO',
             'propagate': True,
         },
     }
