@@ -10,6 +10,7 @@ TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
     ('Hieu Nguyen', 'webmaster@python.fi'),
+    ('Tuure Laurinolli', 'rahastonhoitaja@python.fi')
 )
 
 MANAGERS = ADMINS
