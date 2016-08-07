@@ -163,6 +163,7 @@ DATE_FORMAT = 'Y-m-d'
 
 EMAIL_HOST = 'email-smtp.eu-west-1.amazonaws.com'
 EMAIL_USE_TLS = True
+SERVEREMAIL = 'webmaster@python.fi'
 
 SEATS_AVAILABLE = 164  # From optimistic budget
 
