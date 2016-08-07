@@ -9,6 +9,8 @@ YEAR = '2016'
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
+ALLOWED_HOSTS = ['fi.pycon.org']
+
 ADMINS = (
     ('Hieu Nguyen', 'webmaster@python.fi'),
     ('Tuure Laurinolli', 'rahastonhoitaja@python.fi')
