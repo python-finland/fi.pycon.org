@@ -1,3 +1,4 @@
+import json
 import os
 datadir = os.path.join(os.path.dirname(__file__), '..', '..')
 
@@ -83,9 +84,11 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
-# Make this unique, and don't share it with anybody.
-with open(os.path.join(datadir, 'secret')) as fobj:
-    SECRET_KEY = fobj.read().strip()
+# Local settings
+local_stuff = json.load(open(os.path.join(datadir, 'secrets.json')))
+SECRET_KEY = local_stuff['SECRET_KEY']
+EMAIL_HOST_USER = local_stuff['EMAIL_HOST_USER']
+EMAIL_HOST_PASSWORD = local_stuff['EMAIL_HOST_PASSWORD']
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -148,12 +151,6 @@ LOGGING = {
 DATE_FORMAT = 'Y-m-d'
 
 EMAIL_HOST = 'email-smtp.eu-west-1.amazonaws.com'
-
-# Make this unique, and don't share it with anybody.
-with open(os.path.join(datadir, 'email_user')) as fobj:
-    EMAIL_HOST_USER = fobj.read().strip()
-with open(os.path.join(datadir, 'email_password')) as fobj:
-    EMAIL_HOST_PASSWORD = fobj.read().strip()
 
 SEATS_AVAILABLE = 164  # From optimistic budget
 
