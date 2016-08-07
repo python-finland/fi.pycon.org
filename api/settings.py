@@ -13,7 +13,8 @@ ALLOWED_HOSTS = ['fi.pycon.org']
 
 ADMINS = (
     ('Hieu Nguyen', 'webmaster@python.fi'),
-    ('Tuure Laurinolli', 'rahastonhoitaja@python.fi')
+    ('Tuure Laurinolli', 'rahastonhoitaja@python.fi'),
+    ('Jyry Suvilehto', 'puheenjohtaja@python.fi'),
 )
 
 MANAGERS = ADMINS
