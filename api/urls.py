@@ -1,25 +1,27 @@
-from django.conf.urls.defaults import patterns, url, include
+from django.conf.urls import url
 from django.conf.urls.static import static
 from django.conf import settings
 
 from django.contrib import admin
 admin.autodiscover()
 
-YEAR = settings.YEAR
+import api
+from api.pyconfi2016 import views
 
-urlpatterns = patterns(
-    '',
-    url(r'^api/admin/', include(admin.site.urls)),
+YEAR = api.settings.YEAR
+
+urlpatterns = [
+    url(r'^api/admin/', admin.site.urls),
 
     # API
-    url(r'^$', 'api.pyconfi%s.views.index' % YEAR),
+    url(r'^$', views.index),
     url(r'^api/%s/register/$' % YEAR,
-        'api.pyconfi%s.views.register' % YEAR),
+        views.register),
     url(r'^api/%s/seats_left$' % YEAR,
-        'api.pyconfi%s.views.seats_left' % YEAR),
+        views.seats_left),
     url(r'^api/%s/country$' % YEAR,
-        'api.pyconfi%s.views.autocomplete_country' % YEAR),
-)
+        views.autocomplete_country),
+]
 
 if settings.DEBUG:
     urlpatterns += static('/', document_root='..')

@@ -90,40 +90,29 @@ SECRET_KEY = local_stuff['SECRET_KEY']
 EMAIL_HOST_USER = local_stuff['EMAIL_HOST_USER']
 EMAIL_HOST_PASSWORD = local_stuff['EMAIL_HOST_PASSWORD']
 
-# List of callables that know how to import templates from various sources.
-TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-)
-
-MIDDLEWARE_CLASSES = (
-    'django.middleware.common.CommonMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    #'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-)
 
 ROOT_URLCONF = 'api.urls'
 
-ROOT_PATH = os.path.abspath(
-    os.path.join(os.path.dirname(__file__), "..", YEAR)
-)
-
-TEMPLATE_DIRS = (ROOT_PATH,)
-
-INSTALLED_APPS = (
+INSTALLED_APPS = [
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.admin',
 
-    'south',
-    'pyconfi2016',
-)
+    'api.pyconfi2016',
+]
+
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
@@ -147,6 +136,26 @@ LOGGING = {
         },
     }
 }
+
+ROOT_PATH = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "..", YEAR)
+)
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [ROOT_PATH],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
 
 DATE_FORMAT = 'Y-m-d'
 

@@ -277,3 +277,4 @@ class RegistrationForm(forms.ModelForm):
 
     class Meta:
         model = Registration
+        exclude = ['accommodation', 'confirmation_sent', 'billed', 'bill_date', 'bill_text', 'notified_date', 'notify_text', 'paid', 'registered_timestamp']
