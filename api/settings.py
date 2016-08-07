@@ -147,9 +147,15 @@ LOGGING = {
 
 DATE_FORMAT = 'Y-m-d'
 
-EMAIL_HOST = 'smtp.zoner.fi'
+EMAIL_HOST = 'email-smtp.eu-west-1.amazonaws.com'
 
-SEATS_AVAILABLE = 156  # From optimistic budget
+# Make this unique, and don't share it with anybody.
+with open(os.path.join(datadir, 'email_user')) as fobj:
+    EMAIL_HOST_USER = fobj.read().strip()
+with open(os.path.join(datadir, 'email_password')) as fobj:
+    EMAIL_HOST_PASSWORD = fobj.read().strip()
+
+SEATS_AVAILABLE = 164  # From optimistic budget
 
 
 TICKET_PRICES = {
