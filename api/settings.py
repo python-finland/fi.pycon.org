@@ -57,12 +57,6 @@ MEDIA_ROOT = ''
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
 MEDIA_URL = ''
 
-# Absolute path to the directory static files should be collected to.
-# Don't put anything in this directory yourself; store your static files
-# in apps' "static/" subdirectories and in STATICFILES_DIRS.
-# Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = ''
-
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
 STATIC_URL = '/static/'
@@ -91,6 +85,12 @@ local_stuff = json.load(open(os.path.join(datadir, 'secrets.json')))
 SECRET_KEY = local_stuff['SECRET_KEY']
 EMAIL_HOST_USER = local_stuff['EMAIL_HOST_USER']
 EMAIL_HOST_PASSWORD = local_stuff['EMAIL_HOST_PASSWORD']
+
+# Absolute path to the directory static files should be collected to.
+# Don't put anything in this directory yourself; store your static files
+# in apps' "static/" subdirectories and in STATICFILES_DIRS.
+# Example: "/home/media/media.lawrence.com/static/"
+STATIC_ROOT = EMAIL_HOST_PASSWORD = local_stuff['STATIC_ROOT']
 
 
 ROOT_URLCONF = 'api.urls'
