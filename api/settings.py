@@ -129,9 +129,7 @@ LOGGING = {
         'mail_admins': {
             'level': 'ERROR',
             'class': 'django.utils.log.AdminEmailHandler'
-        }
-    },
-    'handlers': {
+        },
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
