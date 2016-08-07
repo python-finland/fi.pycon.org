@@ -21,7 +21,8 @@ email_body = Template('''\
     Ticket type: {{ x.ticket_type }}{% if "corporate" in x.ticket_type %}
     Company: {{ x.company }}
     
-    Dinner: {{ x.dinner|yesno:"yes,no" }}{% endif %}
+    {% endif %}
+    Dinner: {{ x.dinner|yesno:"yes,no" }}
     {% if "corporate" in x.ticket_type %}
     Billing address:
     {{ x.billing_address }}{% endif %}{% if x.extra %}
@@ -41,7 +42,7 @@ email_body = Template('''\
 
     The registration can be cancelled by contacting
     hallitus@python.fi. 25 EUR cancellation fee applies until and including
-    September 30th. After September 30th cancellation is not possible.
+    October 14th. After October 14th cancellation is not possible.
 
     Note that you can transfer your registration to another person
     until the very morning of the event! If you want to do this, please
