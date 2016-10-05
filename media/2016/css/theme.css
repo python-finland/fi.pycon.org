@@ -212,9 +212,16 @@ div#sponsors a {
     text-decoration: none;
     margin: 20px;
 }
-    div#sponsors a img {
+div#sponsors a img {
         max-height: 120px;
-    }
+}
+div#sponsors a.bronze img {
+        max-height: 100px;
+}
+div#sponsors a.gold img {
+        max-height: 140px;
+}
+
 
 div#sponsors a.sitedesign {
     font-size: 11px;
