@@ -213,13 +213,16 @@ div#sponsors a {
     margin: 20px;
 }
 div#sponsors a img {
-        max-height: 120px;
+    max-height: 120px;
+    max-width: 250px;
 }
 div#sponsors a.bronze img {
-        max-height: 100px;
+    max-height: 100px;
+    max-width: 240px;
 }
 div#sponsors a.gold img {
-        max-height: 140px;
+    max-height: 140px;
+    max-width: 400px;
 }
 
 
