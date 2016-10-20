@@ -228,7 +228,7 @@ class RegistrationAdmin(admin.ModelAdmin):
             for registration in queryset:
                 yield registration.email + '\n'
 
-        return HttpResponse(generate_emails(), mimetype='text/plain')
+        return HttpResponse(generate_emails(), content_type='text/plain')
 
     show_email_addresses.short_description = (
         'Show email addresses of the selected registrants'
@@ -236,7 +236,7 @@ class RegistrationAdmin(admin.ModelAdmin):
 
     def export_as_csv(self, request, queryset):
         opts = self.model._meta
-        response = HttpResponse(mimetype='text/csv')
+        response = HttpResponse(content_type='text/csv')
         response['Content-Disposition'] = (
             'attachment; filename=%s.csv' % unicode(opts).replace('.', '_')
         )
